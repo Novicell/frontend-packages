@@ -6,6 +6,7 @@
   "homepage": "",
   "license": "ISC",
   "main": "dist/index.js",
+  "private": false,
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -33,5 +34,6 @@
   },
   "dependencies": {
     "rxjs": "^6.5.3"
-  }
+  },
+  "gitHead": "0ef008b67611a3ea670dc172ee82eaecafcacd4c"
 }
