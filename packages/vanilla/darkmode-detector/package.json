@@ -1,0 +1,37 @@
+{
+  "name": "@novicell/darkmode-detector",
+  "version": "0.0.1",
+  "description": "A JS module to detect wether the user prefers darkmode or not. Looks at build in params, as well as time and location.",
+  "author": "Martin Hobert <mho@novicell.dk>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "webpack --config config/webpack.prod.js",
+    "dev": "webpack-dev-server --config config/webpack.dev.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.3"
+  }
+}

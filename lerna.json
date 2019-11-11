@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "packages/core/*",
+    "packages/vanilla/*",
+    "packages/vue/*"
+  ],
+  "version": "independent"
+}
