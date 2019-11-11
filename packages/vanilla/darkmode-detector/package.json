@@ -35,5 +35,8 @@
   "dependencies": {
     "rxjs": "^6.5.3"
   },
-  "gitHead": "0ef008b67611a3ea670dc172ee82eaecafcacd4c"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "0512f64599bc01be10fb83596af96389a1dfbd38"
 }
