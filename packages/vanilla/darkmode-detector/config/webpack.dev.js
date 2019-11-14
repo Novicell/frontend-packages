@@ -7,7 +7,7 @@ const config = require('./webpack.config.js');
 module.exports = merge(config, {
     mode: 'development',
     entry: {
-        index: './demo/index.js'
+        index: './demo/index.ts'
     },
     devtool: 'inline-source-map',
     devServer: {

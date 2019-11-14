@@ -3,16 +3,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        index: './lib/index.js'
+        index: './lib/index.ts'
+    },
+    resolve: {
+        extensions: ['.ts', '.js', '.json'],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        libraryTarget: 'commonjs2'
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            // { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.ts$/, exclude: /node_modules/, loader: "babel-loader" }
         ]
     },
     plugins: [
