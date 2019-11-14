@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs'
 
 export default class DarkmodeDetector {
-    _currentMode$;
+    private _currentMode$;
 
     constructor({defaultMode} = {defaultMode: 'light'}) {
         this._currentMode$ = new BehaviorSubject(defaultMode);
