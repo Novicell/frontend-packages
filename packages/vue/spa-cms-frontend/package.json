@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Foundation for SPA + CMS Frontend",
   "author": "Novicell",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev:server": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "dev": "nuxt",
