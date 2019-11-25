@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
+    "test": "echo \"Error: run tests from root\"",
     "build": "webpack --config config/webpack.prod.js",
     "dev": "webpack-dev-server --config config/webpack.dev.js",
     "prepublishOnly": "npm run build"
