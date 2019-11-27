@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "rxjs": "^6.5.3",
+    "sunrise-sunset-js": "^2.1.1",
     "tslint-loader": "^3.5.4"
   },
   "publishConfig": {
