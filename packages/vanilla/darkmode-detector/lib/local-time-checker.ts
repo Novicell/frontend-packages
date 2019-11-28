@@ -7,8 +7,8 @@ export default class LocalTimeChecker {
   private _defaultValue: boolean = false;
   private config: LocalTimeCheckerConfig;
 
-  /** @param {number} howOften amount of SECONDS between checks */
-  constructor(config: LocalTimeCheckerConfig = {howOften: 1}) {
+  /** @param {number} interval amount of miliseconds between checks */
+  constructor(config: LocalTimeCheckerConfig = {interval: 1}) {
     this.config = config;
     this._isDark$ = new BehaviorSubject<boolean>(this._defaultValue);
     this.initIsDark();
@@ -36,7 +36,8 @@ export default class LocalTimeChecker {
         this._isDark$.next(this.calculateIsDark());
       }
     );
-    setTimeout(() => this.initIsDark(), this.config.howOften && 1 * 1000);
+    const interval = this.config.interval ? this.config.interval : 1
+    setTimeout(() => this.initIsDark(), interval);
   }
 
   private calculateIsDark(sunset: Nullable<number> = null, sunrise: Nullable<number> = null): boolean {

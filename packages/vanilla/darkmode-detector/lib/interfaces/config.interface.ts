@@ -8,9 +8,9 @@ export interface DarkmodeDetectorConfig {
   brightnessThreshold?: number;
 }
 
-/** @param {number} howOften amount of SECONDS between checks */
+/** @param {number} interval amount of SECONDS between checks */
 export interface LocalTimeCheckerConfig {
-  howOften?: number;
+  interval?: number;
   fallbackLocalSunShine?: number;
   fallbackLocalSunSet?: number;
 }
