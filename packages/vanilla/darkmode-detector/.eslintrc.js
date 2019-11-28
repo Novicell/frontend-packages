@@ -81,7 +81,7 @@ module.exports = {
             "as-needed"
         ],
         "camelcase": "off",
-        "capitalized-comments": "warn",
+        "capitalized-comments": "off",
         "complexity": "off",
         "constructor-super": "warn",
         "curly": "warn",
@@ -106,7 +106,7 @@ module.exports = {
         "no-bitwise": "warn",
         "no-caller": "warn",
         "no-cond-assign": "warn",
-        "no-console": "warn",
+        "no-console": "off",
         "no-debugger": "warn",
         "no-empty": "warn",
         "no-eval": "warn",
@@ -151,6 +151,6 @@ module.exports = {
                     "no-reference-import": true
                 }
             }
-        ]
+        ],
     }
 };
