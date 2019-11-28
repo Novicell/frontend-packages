@@ -1,6 +1,6 @@
 {
   "name": "@novicell/darkmode-detector",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A JS module to detect wether the user prefers darkmode or not. Looks at build in params, as well as time and location.",
   "author": "Martin Hobert <mho@novicell.dk>",
   "homepage": "",
