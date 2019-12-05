@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs'
-import { LocalTimeCheckerConfig, Nullable } from './interfaces/config.interface';
+import { LocalTimeCheckerConfig, Nullable } from '../interfaces/config.interface';
 import { getSunrise, getSunset } from 'sunrise-sunset-js';
 
 export default class LocalTimeChecker {

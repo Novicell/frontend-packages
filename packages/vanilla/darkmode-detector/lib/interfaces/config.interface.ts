@@ -1,11 +1,13 @@
 export interface Config {
   defaultMode: string;
   brightnessThreshold: number;
+  features: string[]
 }
 
 export interface DarkmodeDetectorConfig {
   defaultMode?: string;
   brightnessThreshold?: number;
+  features?: string[]
 }
 
 /** @param {number} interval amount of SECONDS between checks */

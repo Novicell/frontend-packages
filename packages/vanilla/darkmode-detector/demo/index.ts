@@ -1,10 +1,10 @@
 import { DarkmodeDetector, LocalTimeChecker } from '../lib';
 
-const DMDetector = new DarkmodeDetector();
+const DMDetector = new DarkmodeDetector({
+  brightnessThreshold: 57,
+  features: ['light', 'time']
+});
 
 DMDetector.currentMode$.subscribe(val => {
   console.log(val);
 });
-
-const { isDark } = new LocalTimeChecker({interval: 1000});
-isDark.subscribe((val: boolean) => console.log(val));
