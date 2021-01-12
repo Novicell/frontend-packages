@@ -13,6 +13,11 @@
   "dependencies": {
     "parcel-bundler": "^1.12.4",
     "postcss-each": "^0.10.0",
-    "postcss-nested": "^4.2.3"
+    "postcss-nested": "^4.2.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "devDependencies": {
+    "parcel-plugin-stylelint-all": "^0.2.0"
   }
 }
