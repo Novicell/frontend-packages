@@ -1,0 +1,18 @@
+{
+  "name": "@novicell/css-utils",
+  "version": "1.0.0",
+  "description": "We store the CSS packages in here.",
+  "author": "",
+  "main": "dist/all.css",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build src/**/*.css --no-content-hash --no-source-maps  --no-minify"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "postcss-each": "^0.10.0",
+    "postcss-nested": "^4.2.3"
+  }
+}
