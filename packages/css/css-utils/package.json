@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "parcel-bundler": "^1.12.4",
+    "postcss-calc": "^7.0.5",
     "postcss-each": "^0.10.0",
     "postcss-nested": "^4.2.3",
     "stylelint-config-rational-order": "^0.1.2",

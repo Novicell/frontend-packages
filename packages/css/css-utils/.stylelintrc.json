@@ -29,6 +29,7 @@
         "ignore": [ "comments" ]
       }
     ],
-    "selector-list-comma-newline-after": "always"
+    "selector-list-comma-newline-after": "always",
+    "at-rule-no-unknown": null
   }
 }
