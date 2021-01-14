@@ -5,8 +5,10 @@
   "author": "",
   "main": "dist/all.css",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build src/**/*.css --no-content-hash --no-source-maps  --no-minify --detailed-report"
+    "dev": "NODE_ENV=compile parcel index.html",
+    "build": "parcel build src/*.css --no-content-hash --no-source-maps  --no-minify -d dist/src",
+    "compile": "NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps",
+    "generate": "npm run build && npm run compile"
   },
   "keywords": [],
   "license": "ISC",

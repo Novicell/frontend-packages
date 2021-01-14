@@ -1,7 +1,7 @@
 /*
 // Spacing
 */
-@import './_variables.css';
+@import './partials/_variables.css';
 
 /* Without breakpoints */
 @each $type, $name in (m, p), (margin, padding) {
