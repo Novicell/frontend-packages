@@ -1,0 +1,7 @@
+
+/* Media Queries */
+@custom-media --viewport-ms-min: (min-width: 576px);
+@custom-media --viewport-sm-min: (min-width: 768px);
+@custom-media --viewport-md-min: (min-width: 992px);
+@custom-media --viewport-lg-min: (min-width: 1200px);
+@custom-media --viewport-xl-min: (min-width: 1400px);
