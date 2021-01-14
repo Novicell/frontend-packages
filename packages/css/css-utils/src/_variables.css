@@ -1,0 +1,7 @@
+:root {
+  /* Spacing */
+  --css-utils-spacing-base: var(--css-utils-spacing-base, 10px);
+
+  /* Media Queries */
+  --css-utils-viewport-ms-min: var(--css-utils-viewport-ms-min, min-width: 576px));
+}

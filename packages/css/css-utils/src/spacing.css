@@ -1,14 +1,12 @@
 /*
 // Spacing
 */
-:root {
-  --internal-spacing-base: var(--spacing-base, 10px);
-}
+@import './_variables.css';
 
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)t-$(i) {
-      $(name)-top: calc(var(--internal-spacing-base) * $(i));
+      $(name)-top: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
@@ -16,7 +14,7 @@
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)r-$(i) {
-      $(name)-right: calc(var(--internal-spacing-base) * $(i));
+      $(name)-right: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
@@ -24,7 +22,7 @@
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)b-$(i) {
-      $(name)-bottom: calc(var(--internal-spacing-base) * $(i));
+      $(name)-bottom: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
@@ -32,7 +30,7 @@
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)l-$(i) {
-      $(name)-left: calc(var(--internal-spacing-base) * $(i));
+      $(name)-left: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
@@ -40,8 +38,8 @@
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)x-$(i) {
-      $(name)-left: calc(var(--internal-spacing-base) * $(i));
-      $(name)-right: calc(var(--internal-spacing-base) * $(i));
+      $(name)-left: calc(var(--css-utils-spacing-base) * $(i));
+      $(name)-right: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
@@ -50,8 +48,8 @@
 @each $i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   @each $type, $name in (m, p), (margin, padding) {
     .$(type)y-$(i) {
-      $(name)-top: calc(var(--internal-spacing-base) * $(i));
-      $(name)-bottom: calc(var(--internal-spacing-base) * $(i));
+      $(name)-top: calc(var(--css-utils-spacing-base) * $(i));
+      $(name)-bottom: calc(var(--css-utils-spacing-base) * $(i));
     }
   }
 }
