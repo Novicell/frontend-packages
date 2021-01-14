@@ -1,43 +1,40 @@
 /*
 //Text
 */
-.text-monospace { font-family: monospace ; }
+.text-monospace { font-family: monospace; }
 
-// Alignment
+/* Alignment */
+.text-justify { text-align: justify; }
 
-.text-justify  { text-align: justify ; }
-.text-wrap     { white-space: normal ; }
-.text-nowrap   { white-space: nowrap ; }
+.text-wrap { white-space: normal; }
 
+.text-nowrap { white-space: nowrap; }
 
-// Transformation
+/* Transformation */
+.text-lowercase { text-transform: lowercase; }
 
-.text-lowercase  { text-transform: lowercase ; }
-.text-uppercase  { text-transform: uppercase ; }
-.text-capitalize { text-transform: capitalize ; }
+.text-uppercase { text-transform: uppercase; }
 
-// Weight and italics
+.text-capitalize { text-transform: capitalize; }
 
-.font-weight-lighter { font-weight: lighter ; }
-.font-weight-normal  { font-weight: normal ; }
-.font-weight-bold    { font-weight: bold ; }
-.font-weight-bolder  { font-weight: bolder; }
-.font-italic         { font-style:  italic ; }
+/* Weight and italics */
+.font-weight-lighter { font-weight: lighter; }
 
-// Contextual colors
+.font-weight-normal { font-weight: normal; }
 
-.text-white { color: white ; }
+.font-weight-bold { font-weight: bold; }
 
-// Misc
+.font-weight-bolder { font-weight: bolder; }
 
+.font-italic { font-style: italic; }
 
-.text-decoration-none { text-decoration: none ; }
+.text-white { color: white; }
+
+.text-decoration-none { text-decoration: none; }
 
 .text-break {
-  word-break: break-word ; // Deprecated, but avoids issues with flex containers
-  word-wrap: break-word ; // Used instead of `overflow-wrap` for IE & Edge Legacy
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
-// Reset
-
-.text-reset { color: inherit ; }
+.text-reset { color: inherit; }
