@@ -10,6 +10,53 @@
 
 .text-nowrap { white-space: nowrap; }
 
+.text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Responsive alignment */
+@each $alignment in (left, right, center) {
+  .text-$(alignment) {
+    text-align: $(alignment);
+  }
+}
+
+/* Creating breakpoint */
+@each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
+  @media ($(breakpoint-name)) {
+    @each $alignment in (left, right, center) {
+      .text-$(breakpoint)-$(alignment) {
+        text-align: $(alignment);
+      }
+    }
+  }
+}
+
+/* Contextual colors */
+.text-white { color: var(--css-utils-color-white, #fff); }
+
+.text-black { color: var(--css-utils-color-black, #000); }
+
+.text-primary { color: var(--css-utils-color-primary, #c80046); }
+
+.text-secondary { color: var(--css-utils-color-secondary, #363636); }
+
+.text-success { color: var(--css-utils-color-success, #28a745); }
+
+.text-danger { color: var(--css-utils-color-secondary, #dc3545); }
+
+.text-warning { color: var(--css-utils-color-secondary, #ffc107); }
+
+.text-gray { color: var(--css-utils-color-secondary, #acacac); }
+
+.text-gray-light { color: var(--css-utils-color-secondary, #d7d7d7); }
+
+.text-gray-dark { color: var(--css-utils-color-secondary, #4b4b4b); }
+
+.text-body { color: var(--css-utils-color-body, #000); }
+
 /* Transformation */
 .text-lowercase { text-transform: lowercase; }
 
@@ -27,8 +74,6 @@
 .font-weight-bolder { font-weight: bolder; }
 
 .font-italic { font-style: italic; }
-
-.text-white { color: white; }
 
 .text-decoration-none { text-decoration: none; }
 
