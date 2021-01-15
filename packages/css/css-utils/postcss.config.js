@@ -9,10 +9,12 @@ module.exports = {
     require('postcss-calc'),
     require('postcss-custom-media')({
       importFrom: 'src/partials/_media-queries.css'
-    })
+    }),
+    require('postcss-percentage')
   ] :
   [
     require("stylelint"),
     require('postcss-each'),
+    require('postcss-percentage')
   ]
 }
