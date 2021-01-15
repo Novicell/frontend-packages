@@ -44,15 +44,15 @@
 
 .text-success { color: var(--css-utils-color-success, #28a745); }
 
-.text-danger { color: var(--css-utils-color-secondary, #dc3545); }
+.text-danger { color: var(--css-utils-color-danger, #dc3545); }
 
-.text-warning { color: var(--css-utils-color-secondary, #ffc107); }
+.text-warning { color: var(--css-utils-color-warning, #ffc107); }
 
-.text-gray { color: var(--css-utils-color-secondary, #acacac); }
+.text-gray { color: var(--css-utils-color-gray, #acacac); }
 
-.text-gray-light { color: var(--css-utils-color-secondary, #d7d7d7); }
+.text-gray-light { color: var(--css-utils-color-gray-light, #d7d7d7); }
 
-.text-gray-dark { color: var(--css-utils-color-secondary, #4b4b4b); }
+.text-gray-dark { color: var(--css-utils-color-gray-dark, #4b4b4b); }
 
 .text-body { color: var(--css-utils-color-body, #000); }
 

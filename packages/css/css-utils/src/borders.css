@@ -34,15 +34,15 @@
 
 .border-success { border-color: var(--css-utils-color-success, #28a745); }
 
-.border-danger { border-color: var(--css-utils-color-secondary, #dc3545); }
+.border-danger { border-color: var(--css-utils-color-danger, #dc3545); }
 
-.border-warning { border-color: var(--css-utils-color-secondary, #ffc107); }
+.border-warning { border-color: var(--css-utils-color-warning, #ffc107); }
 
-.border-gray { border-color: var(--css-utils-color-secondary, #acacac); }
+.border-gray { border-color: var(--css-utils-color-gray, #acacac); }
 
-.border-gray-light { border-color: var(--css-utils-color-secondary, #d7d7d7); }
+.border-gray-light { border-color: var(--css-utils-color-gray-light, #d7d7d7); }
 
-.border-gray-dark { border-color: var(--css-utils-color-secondary, #4b4b4b); }
+.border-gray-dark { border-color: var(--css-utils-color-gray-dark, #4b4b4b); }
 
 /* Border-radius */
 .rounded-sm {

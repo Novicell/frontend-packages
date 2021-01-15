@@ -8,21 +8,102 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
   <style>
     body,
-    .smooth-container { scroll-behavior: smooth; }
+    .smooth-container {
+      scroll-behavior: smooth;
+      max-width: 920px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .github-logo {
+        filter: invert(1);
+      }
+    }
   </style>
-  <title>Demo</title>
+  <title>Novicel CSS Utils</title>
 
   <!-- Import all CSS utils -->
   <link rel="stylesheet" href="src/all.css">
   
 </head>
 <body>
-  <header>
-    <h1>Novicell CSS Utils demo</h1>
+  <header class="d-flex justify-content-between">
+    <h1>Novicell CSS Utils</h1>
+
+    <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-utils/">
+      <img class="github-logo mb-0" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/github.svg" />
+    </a>
   </header>
 
-  <h2>Table of contents</h2>
-  <a href="#screenreaders">Screenreaders</a>
+  <section class="mb-6" id="backgrounds">
+    <h3>Overwriteable CSS Custom Properties and media-queries</h3>
+    <p class="mb-4">The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-utils/README.md">README.MD</a> on how to do it.</p>
+<pre><code class="lang-css">/* Colors */
+--css-utils-color-white: #fff;
+--css-utils-color-black: #000;
+--css-utils-color-primary: #c80046;
+--css-utils-color-secondary: #363636;
+--css-utils-color-success: #28a745;
+--css-utils-color-danger: #dc3545;
+--css-utils-color-warning: #ffc107;
+--css-utils-color-gray: #acacac;
+--css-utils-color-gray-light: #d7d7d7;
+--css-utils-color-gray-dark: #4b4b4b;
+--css-utils-color-body: #000;
+
+/* Borders */
+--css-utils-border-width: 1px;
+--css-utils-border-color: #acacac;
+--css-utils-border-radius-sm: 4px;
+--css-utils-border-radius: 5px;
+--css-utils-border-radius-lg: 6px;
+--css-utils-border-radius-round: 50%;
+
+/* Shadows */
+--css-utils-box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.075);
+--css-utils-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+--css-utils-box-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.175);
+
+/* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
+@custom-media --viewport-ms-min (min-width: 576px);
+@custom-media --viewport-sm-min (min-width: 768px);
+@custom-media --viewport-md-min (min-width: 992px);
+@custom-media --viewport-lg-min (min-width: 1200px);
+@custom-media --viewport-xl-min (min-width: 1400px);
+</code></pre>
+  </section>
+
+  <h2>CSS utilities</h2>
+  <div class="my-4 d-flex flex-column align-items-start">
+    <a class="my-1" href="#background">Background</a>
+    <a class="my-1" href="#borders">Borders</a>
+    <a class="my-1" href="#display">Display</a>
+    <a class="my-1" href="#embed">Embed</a>
+    <a class="my-1" href="#flex">Flex</a>
+    <a class="my-1" href="#position">Position</a>
+    <a class="my-1" href="#screenreaders">Screenreaders</a>
+    <a class="my-1" href="#shadows">Shadows</a>
+    <a class="my-1" href="#sizing">Sizing</a>
+    <a class="my-1" href="#spacing">Spacing</a>
+    <a class="my-1" href="#text">Text</a>
+    <a class="my-1" href="#visibility">Visibility</a>
+  </div>
+
+  <section class="mb-8" id="backgrounds">
+    <h3>Backgrounds</h3>
+    <p>The background utilities can be used to change the background color according to the classname.</p>
+    <strong class="mb-3">Example</strong>
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+    <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+    <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+    <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+    <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+    <div class="p-3 mb-2 bg-info text-white">.bg-info</div>
+    <div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+    <div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+    <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+    <strong>Available classes</strong>
+    <pre><code class="language-markup">&lt;a class="sr-only sr-only-focusable" href="#content">Skip to main content&lt;/a></code></pre>
+  </section>
 
   <section id="screenreaders">
     <h3>Screenreaders</h3>

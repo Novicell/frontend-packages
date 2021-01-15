@@ -54,7 +54,7 @@ npm i @novicell/css-utils
 
 ```css
 /* Overwriting custom properties  */
-:root {
+body {
   --css-utils-spacing-base: 15px; /* default is 10px */
 }
 
