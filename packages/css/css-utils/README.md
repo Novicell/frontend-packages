@@ -2,17 +2,6 @@
 
 This is a CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.
 
-## Commands
-
-```bash
-npm run dev // starts demo site with HMR
-npm run build // run clean build without PostCSS transformation
-npm run compile // run build with PostCSS transformation
-npm run generate // runs both build and compile
-npm run lint // run stylelint
-npm run lint:fix // run stylelint and fix fixable errors/warnings
-```
-
 ## How to use
 
 The CSS utils can be used in two ways, which is described below. The package should generally only be used together with som kind of CSS purge tool e.g. PurgeCSS for removing all the CSS classes that is not used.
@@ -50,7 +39,7 @@ npm i @novicell/css-utils
 @import '../../node_modules/@novicell/css-utils/dist/display.css';
 ```
 
-### Uncompiled/source-code mode
+### Uncompiled / source-code mode
 
 By importing the sourcode directly from the package, we are able to overwrite the CSS Custom Properties that is used in the helpers. 
 
@@ -85,6 +74,17 @@ npm i @novicell/css-utils
 ## Documentation
 
 https://novicell-css-utils.netlify.app
+
+## Commands
+
+```bash
+npm run dev // starts demo site with HMR
+npm run build // run clean build without PostCSS transformation
+npm run compile // run build with PostCSS transformation
+npm run generate // runs both build and compile
+npm run lint // run stylelint
+npm run lint:fix // run stylelint and fix fixable errors/warnings
+```
 
 ## Contribution
 
