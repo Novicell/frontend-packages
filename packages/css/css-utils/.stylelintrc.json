@@ -21,7 +21,6 @@
       }
     ],
     "selector-max-id": 0,
-    "unit-allowed-list": [ "em", "rem", "%", "s", "px", "deg", "vh", "ms", "vw", "fr" ],
     "selector-pseudo-class-no-unknown": true,
     "max-empty-lines": [
       2,
@@ -30,6 +29,7 @@
       }
     ],
     "selector-list-comma-newline-after": "always",
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "function-calc-no-invalid": null
   }
 }

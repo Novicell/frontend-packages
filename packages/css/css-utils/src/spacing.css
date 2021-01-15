@@ -10,19 +10,24 @@
     .$(type)t-$(i) {
       $(name)-top: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
     }
+
     .$(type)r-$(i) {
       $(name)-right: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
     }
+
     .$(type)b-$(i) {
       $(name)-bottom: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
     }
+
     .$(type)l-$(i) {
       $(name)-left: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
     }
+
     .$(type)y-$(i) {
       $(name)-top: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
       $(name)-bottom: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
     }
+
     .$(type)x-$(i) {
       $(name)-right: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
       $(name)-left: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
@@ -34,19 +39,24 @@
     .$(type)t-$(i) {
       $(name)-top: calc(var(--int-css-utils-spacing-base) * $(i));
     }
+
     .$(type)r-$(i) {
       $(name)-right: calc(var(--int-css-utils-spacing-base) * $(i));
     }
+
     .$(type)b-$(i) {
       $(name)-bottom: calc(var(--int-css-utils-spacing-base) * $(i));
     }
+
     .$(type)l-$(i) {
       $(name)-left: calc(var(--int-css-utils-spacing-base) * $(i));
     }
+
     .$(type)y-$(i) {
       $(name)-top: calc(var(--int-css-utils-spacing-base) * $(i));
       $(name)-bottom: calc(var(--int-css-utils-spacing-base) * $(i));
     }
+
     .$(type)x-$(i) {
       $(name)-right: calc(var(--int-css-utils-spacing-base) * $(i));
       $(name)-left: calc(var(--int-css-utils-spacing-base) * $(i));
@@ -59,19 +69,24 @@
   .$(type)t-auto {
     $(name)-top: auto;
   }
+
   .$(type)r-auto {
     $(name)-right: auto;
   }
+
   .$(type)b-auto {
     $(name)-bottom: auto;
   }
+
   .$(type)l-auto {
     $(name)-left: auto;
   }
+
   .$(type)y-auto {
     $(name)-top: auto;
     $(name)-bottom: auto;
   }
+
   .$(type)x-auto {
     $(name)-right: auto;
     $(name)-left: auto;
@@ -87,19 +102,24 @@
         .$(type)t-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
         }
+
         .$(type)r-$(breakpoint)-$(i) {
           $(name)-right: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
         }
+
         .$(type)b-$(breakpoint)-$(i) {
           $(name)-bottom: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
         }
+
         .$(type)l-$(breakpoint)-$(i) {
           $(name)-left: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
         }
+
         .$(type)y-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
           $(name)-bottom: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
         }
+
         .$(type)x-$(breakpoint)-$(i) {
           $(name)-right: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
           $(name)-left: calc(var(--int-css-utils-spacing-base) / 2 * $(i));
@@ -113,19 +133,24 @@
         .$(type)t-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--int-css-utils-spacing-base) * $(i));
         }
+
         .$(type)r-$(breakpoint)-$(i) {
           $(name)-right: calc(var(--int-css-utils-spacing-base) * $(i));
         }
+
         .$(type)b-$(breakpoint)-$(i) {
           $(name)-bottom: calc(var(--int-css-utils-spacing-base) * $(i));
         }
+
         .$(type)l-$(breakpoint)-$(i) {
           $(name)-left: calc(var(--int-css-utils-spacing-base) * $(i));
         }
+
         .$(type)y-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--int-css-utils-spacing-base) * $(i));
           $(name)-bottom: calc(var(--int-css-utils-spacing-base) * $(i));
         }
+
         .$(type)x-$(breakpoint)-$(i) {
           $(name)-right: calc(var(--int-css-utils-spacing-base) * $(i));
           $(name)-left: calc(var(--int-css-utils-spacing-base) * $(i));
@@ -138,19 +163,24 @@
       .$(type)t-$(breakpoint)-auto {
         $(name)-top: auto;
       }
+
       .$(type)r-$(breakpoint)-auto {
         $(name)-right: auto;
       }
+
       .$(type)b-$(breakpoint)-auto {
         $(name)-bottom: auto;
       }
+
       .$(type)l-$(breakpoint)-auto {
         $(name)-left: auto;
       }
+
       .$(type)y-$(breakpoint)-auto {
         $(name)-top: auto;
         $(name)-bottom: auto;
       }
+
       .$(type)x-$(breakpoint)-auto {
         $(name)-right: auto;
         $(name)-left: auto;

@@ -1,6 +1,7 @@
 module.exports = {
   plugins: process.env.NODE_ENV === 'compile' ?
   [
+    require("stylelint"),
     require('postcss-each'),
     require('postcss-custom-properties')({
       importFrom: 'src/partials/_variables.css',
@@ -12,6 +13,7 @@ module.exports = {
     })
   ] :
   [
-    require('postcss-each')
+    require("stylelint"),
+    require('postcss-each'),
   ]
 }
