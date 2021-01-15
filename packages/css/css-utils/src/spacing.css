@@ -6,6 +6,10 @@
 @each $type, $name in (m, p), (margin, padding) {
   /* Zero and half values */
   @each $i in (0, 1) {
+    .$(type)-$(i) {
+      $(name): calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
+    }
+
     .$(type)t-$(i) {
       $(name)-top: calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
     }
@@ -35,6 +39,10 @@
 
   /* The rest */
   @each $i in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+    .$(type)-$(i) {
+      $(name): calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
+    }
+
     .$(type)t-$(i) {
       $(name)-top: calc(var(--css-utils-spacing-base, 10px) * $(i) - var(--css-utils-spacing-base, 10px));
     }
@@ -65,6 +73,10 @@
 
 @each $type, $name in (m), (margin) {
   /* Auto values */
+  .$(type)-auto {
+    $(name): auto;
+  }
+
   .$(type)t-auto {
     $(name)-top: auto;
   }
@@ -98,6 +110,10 @@
     /* Zero and half values */
     @each $i in (0, 1) {
       @each $type, $name in (m, p), (margin, padding) {
+        .$(type)-$(breakpoint)-$(i) {
+          $(name): calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
+        }
+
         .$(type)t-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
         }
@@ -129,6 +145,10 @@
     /* The rest */
     @each $i in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
       @each $type, $name in (m, p), (margin, padding) {
+        .$(type)-$(breakpoint)-$(i) {
+          $(name): calc(var(--css-utils-spacing-base, 10px) / 2 * $(i));
+        }
+
         .$(type)t-$(breakpoint)-$(i) {
           $(name)-top: calc(var(--css-utils-spacing-base, 10px) * $(i) - var(--css-utils-spacing-base, 10px));
         }
