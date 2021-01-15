@@ -1,0 +1,7 @@
+@each $position in (absolute, static, fixed, sticky, relative, revert, unset, initial, inherit   ) {
+  @each $type, $name in (p), (position) {
+    .$(type)-$(position) {
+      $(name): $(position);
+    }
+  }
+}
