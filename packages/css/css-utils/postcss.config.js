@@ -4,7 +4,6 @@ module.exports = {
     require("stylelint"),
     require('postcss-each'),
     require('postcss-custom-properties')({
-      importFrom: 'src/partials/_variables.css',
       preserve: false
     }),
     require('postcss-calc'),
