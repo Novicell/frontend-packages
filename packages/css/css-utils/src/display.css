@@ -11,8 +11,7 @@
 }
 
 
-/* Creating breakpoint */
-
+/* Repsonsive */
 @each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
     @each $display in (none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex) {

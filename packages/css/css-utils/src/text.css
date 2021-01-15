@@ -16,14 +16,13 @@
   text-overflow: ellipsis;
 }
 
-/* Responsive alignment */
 @each $alignment in (left, right, center) {
   .text-$(alignment) {
     text-align: $(alignment);
   }
 }
 
-/* Creating breakpoint */
+/* Repsonsive */
 @each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
     @each $alignment in (left, right, center) {

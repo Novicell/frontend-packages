@@ -1,6 +1,7 @@
 /*
 // Width and height
 */
+
 @each $size in (25, 50, 75, 100) {
   @each $type, $name in (w, h), (width, height) {
     .$(type)-$(size) {
@@ -9,7 +10,7 @@
   }
 }
 
-/* Creating breakpoint */
+/* Repsonsive */
 @each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
     @each $size in (25, 50, 75, 100) {
@@ -28,7 +29,6 @@
 .mh-100 { max-height: 100%; }
 
 /* Viewport additional helpers */
-
 .min-vw-100 { min-width: 100vw; }
 
 .min-vh-100 { min-height: 100vh; }
