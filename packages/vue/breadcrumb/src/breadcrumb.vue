@@ -3,18 +3,8 @@
 </template>
 
 <script lang="ts">
-import { Prop, Vue } from 'nuxt-property-decorator';
+export default {
 
-export default class NcBreadcrumb extends Vue {
-  @Prop({
-    default: [],
-  })
-  links!: any;
-
-  @Prop({
-    default: '',
-  })
-  modifier!: string;
 }
 </script>
 
