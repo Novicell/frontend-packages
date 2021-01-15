@@ -1,4 +1,4 @@
 :root {
   /* Spacing */
-  --int-css-utils-spacing-base: var(--css-utils-spacing-base, 10px);
+  --int-css-utils-spacing-base: 10px;
 }
