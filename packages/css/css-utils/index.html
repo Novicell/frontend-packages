@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
   <style>
-    body,
-    .smooth-container {
-      scroll-behavior: smooth;
+    body {
       max-width: 920px;
     }
+
+    body,
+    .smooth-container { scroll-behavior: smooth; }
 
     @media (prefers-color-scheme: dark) {
       .github-logo {
@@ -34,7 +35,25 @@
     </a>
   </header>
 
-  <section class="mb-6" id="backgrounds">
+  <h2>Table of contents</h2>
+  <div class="my-4 d-flex flex-column align-items-start">
+    <a class="my-1" href="#variables">CSS Custom Properties</a>
+    <a class="my-1" href="#background">Background</a>
+    <a class="my-1" href="#borders">Borders</a>
+    <a class="my-1" href="#display">Display</a>
+    <a class="my-1" href="#embed">Embed</a>
+    <a class="my-1" href="#flex">Flex</a>
+    <a class="my-1" href="#position">Position</a>
+    <a class="my-1" href="#screenreaders">Screenreaders</a>
+    <a class="my-1" href="#shadows">Shadows</a>
+    <a class="my-1" href="#sizing">Sizing</a>
+    <a class="my-1" href="#spacing">Spacing</a>
+    <a class="my-1" href="#text">Text</a>
+    <a class="my-1" href="#visibility">Visibility</a>
+  </div>
+
+
+  <section class="mb-6" id="variables">
     <h2>Overwriteable CSS Custom Properties and media-queries</h2>
     <p class="mb-4">The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-utils/README.md">README.MD</a> on how to do it.</p>
 <pre><code class="lang-css">/* Colors */
@@ -72,23 +91,8 @@
 </code></pre>
   </section>
 
-  <h2>CSS utilities</h2>
-  <div class="my-4 d-flex flex-column align-items-start">
-    <a class="my-1" href="#background">Background</a>
-    <a class="my-1" href="#borders">Borders</a>
-    <a class="my-1" href="#display">Display</a>
-    <a class="my-1" href="#embed">Embed</a>
-    <a class="my-1" href="#flex">Flex</a>
-    <a class="my-1" href="#position">Position</a>
-    <a class="my-1" href="#screenreaders">Screenreaders</a>
-    <a class="my-1" href="#shadows">Shadows</a>
-    <a class="my-1" href="#sizing">Sizing</a>
-    <a class="my-1" href="#spacing">Spacing</a>
-    <a class="my-1" href="#text">Text</a>
-    <a class="my-1" href="#visibility">Visibility</a>
-  </div>
 
-  <section class="mb-8" id="backgrounds">
+  <section class="mb-8" id="background">
     <h3>Backgrounds</h3>
     <p>The background utilities can be used to change the background color according to the classname.</p>
     <strong class="d-block my-3">Example</strong>
@@ -104,55 +108,79 @@
     <div class="p-3 mb-2 bg-black text-white rounded">.bg-black</div>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;div class="bg-primary">.bg-primary&lt;/div>
-&lt;div class="bg-secondary">.bg-secondary&lt;/div>
-&lt;div class="bg-success">.bg-success&lt;/div>
-&lt;div class="bg-danger">.bg-danger&lt;/div>
-&lt;div class="bg-warning">.bg-warning&lt;/div>
-&lt;div class="bg-gray">.bg-gray&lt;/div>
-&lt;div class="bg-gray-light">.bg-gray-light&lt;/div>
-&lt;div class="bg-gray-dark">.bg-gray-dark&lt;/div>
-&lt;div class="bg-white">.bg-white&lt;/div>
-&lt;div class="bg-black">.bg-black&lt;/div>
+&lt;div class="bg-secondary">&lt;/div>
+&lt;div class="bg-success">&lt;/div>
+&lt;div class="bg-danger">&lt;/div>
+&lt;div class="bg-warning">&lt;/div>
+&lt;div class="bg-gray">&lt;/div>
+&lt;div class="bg-gray-light">&lt;/div>
+&lt;div class="bg-gray-dark">&lt;/div>
+&lt;div class="bg-white">&lt;/div>
+&lt;div class="bg-black">&lt;/div>
 </code></pre>
   </section>
+
+
 
   <section class="mb-8" id="borders">
     <h3>Borders</h3>
     <p>The border utilities can be used to set or remove borders color according to the classname.</p>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;!-- Additive -->
-&lt;span class="border">&lt;/span>
-&lt;span class="border-top">&lt;/span>
-&lt;span class="border-right">&lt;/span>
-&lt;span class="border-bottom">&lt;/span>
-&lt;span class="border-left">&lt;/span>
+&lt;div class="border">&lt;/div>
+&lt;div class="border-top">&lt;/div>
+&lt;div class="border-right">&lt;/div>
+&lt;div class="border-bottom">&lt;/div>
+&lt;div class="border-left">&lt;/div>
 
 &lt;!-- Subtractive -->
-&lt;span class="border-0">&lt;/span>
-&lt;span class="border-top-0">&lt;/span>
-&lt;span class="border-right-0">&lt;/span>
-&lt;span class="border-bottom-0">&lt;/span>
-&lt;span class="border-left-0">&lt;/span>
+&lt;div class="border-0">&lt;/div>
+&lt;div class="border-top-0">&lt;/div>
+&lt;div class="border-right-0">&lt;/div>
+&lt;div class="border-bottom-0">&lt;/div>
+&lt;div class="border-left-0">&lt;/div>
 
 &lt;!-- Border color-->
-&lt;span class="border border-primary">&lt;/span>
-&lt;span class="border border-secondary">&lt;/span>
-&lt;span class="border border-success">&lt;/span>
-&lt;span class="border border-danger">&lt;/span>
-&lt;span class="border border-warning">&lt;/span>
-&lt;span class="border border-info">&lt;/span>
-&lt;span class="border border-light">&lt;/span>
-&lt;span class="border border-dark">&lt;/span>
-&lt;span class="border border-white">&lt;/span>
+&lt;div class="border border-primary">&lt;/div>
+&lt;div class="border border-secondary">&lt;/div>
+&lt;div class="border border-success">&lt;/div>
+&lt;div class="border border-danger">&lt;/div>
+&lt;div class="border border-warning">&lt;/div>
+&lt;div class="border border-info">&lt;/div>
+&lt;div class="border border-light">&lt;/div>
+&lt;div class="border border-dark">&lt;/div>
+&lt;div class="border border-white">&lt;/div>
 
 &lt;!-- Border radius-->
-&lt;span class="rounded">&lt;/span>
-&lt;span class="rounded-top">&lt;/span>
-&lt;span class="rounded-right">&lt;/span>
-&lt;span class="rounded-bottom">&lt;/span>
-&lt;span class="rounded-left">&lt;/span>
-&lt;span class="rounded-circle">&lt;/span>
-&lt;span class="rounded-0">&lt;/span>
+&lt;div class="rounded">&lt;/div>
+&lt;div class="rounded-top">&lt;/div>
+&lt;div class="rounded-right">&lt;/div>
+&lt;div class="rounded-bottom">&lt;/div>
+&lt;div class="rounded-left">&lt;/div>
+&lt;div class="rounded-circle">&lt;/div>
+&lt;div class="rounded-0">&lt;/div>
+</code></pre>
+  </section>
+
+
+  <section class="mb-8" id="display">
+    <h3>Display</h3>
+    <p>The display utilities can be used to set the display property according to the classname. It also have responsive modifiers</p>
+    <p>The responsive modifiers follows this pattern: <code>.d-{breakpoint}-{value} for ms, sm, md, lg, and xl</code></p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- Non-responsive -->
+&lt;div class="d-none">&lt;/div>
+&lt;div class="d-block">&lt;/div>
+&lt;div class="d-inline">&lt;/div>
+&lt;div class="d-inline-block">&lt;/div>
+&lt;div class="d-table">&lt;/div>
+&lt;div class="d-table-cell">&lt;/div>
+&lt;div class="d-table-row">&lt;/div>
+&lt;div class="d-flex">&lt;/div>
+&lt;div class="d-inline-flex">&lt;/div>
+
+&lt;!-- Responsive example -->
+&lt;div class="d-flex d-sm-block d-xl-none">&lt;/div>
 </code></pre>
   </section>
 
