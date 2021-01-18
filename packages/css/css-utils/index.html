@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://www.novicell.dk/favicon.ico?v=jwLeXMgnYE">
   <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />  <style>
     body {
       max-width: 920px;
     }
@@ -125,6 +125,14 @@
   <section class="mb-8" id="borders">
     <h3>Borders</h3>
     <p>The border utilities can be used to set or remove borders color according to the classname.</p>
+    <strong class="d-block my-3">Example</strong>
+    <div class="d-flex">
+      <div class="p-6 flex-grow-1 text-center text-gray-dark mr-2 border bg-gray-light border-primary flex-grow">.border</div>
+      <div class="p-6 flex-grow-1 text-center text-gray-dark mr-2 border-top bg-gray-light border-primary">.border-top</div>
+      <div class="p-6 flex-grow-1 text-center text-gray-dark mr-2 border-right bg-gray-light border-primary">.border-right</div>
+      <div class="p-6 flex-grow-1 text-center text-gray-dark mr-2 border-bottom bg-gray-light border-primary">.border-bottom</div>
+      <div class="p-6 flex-grow-1 text-center text-gray-dark mr-2 border-left bg-gray-light border-primary">.border-left</div>
+    </div>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;!-- Additive -->
 &lt;div class="border">&lt;/div>
@@ -169,15 +177,15 @@
     <p>The responsive modifiers follows this pattern: <code>.d-{breakpoint}-{value} for ms, sm, md, lg, and xl</code></p>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;!-- Non-responsive -->
-&lt;div class="d-none">&lt;/div>
-&lt;div class="d-block">&lt;/div>
-&lt;div class="d-inline">&lt;/div>
-&lt;div class="d-inline-block">&lt;/div>
-&lt;div class="d-table">&lt;/div>
-&lt;div class="d-table-cell">&lt;/div>
-&lt;div class="d-table-row">&lt;/div>
-&lt;div class="d-flex">&lt;/div>
-&lt;div class="d-inline-flex">&lt;/div>
+&lt;div class="d-none">display: none;&lt;/div>
+&lt;div class="d-block">display: block;&lt;/div>
+&lt;div class="d-inline">display: inline;&lt;/div>
+&lt;div class="d-inline-block">display: inline-block;&lt;/div>
+&lt;div class="d-table">display: table;&lt;/div>
+&lt;div class="d-table-cell">display: table-cell;&lt;/div>
+&lt;div class="d-table-row">display: table-row;&lt;/div>
+&lt;div class="d-flex">display: flex;&lt;/div>
+&lt;div class="d-inline-flex">display: inline-flex;&lt;/div>
 
 &lt;!-- Responsive example -->
 &lt;div class="d-flex d-sm-block d-xl-none">&lt;/div>
@@ -188,6 +196,10 @@
   <section class="mb-8" id="embed">
     <h3>Embed</h3>
     <p>The embed utilities can be used to set the height/width ratio of embeded content e.g. Youtube according to the classname.
+    <strong class="d-block my-3">Example</strong>
+    <div class="embed-responsive embed-responsive-1by1 p-relative w-75">
+      <iframe class="embed-responsive-item" frame-border="0" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+    </div>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;!-- 21:9 aspect ratio -->
 &lt;div class="embed-responsive embed-responsive-21by9">
@@ -212,106 +224,312 @@
   </section>
 
 
-  <section class="mb-8" id="embed">
+  <section class="mb-8" id="flex">
     <h3>Flex</h3>
-    <p>The flex utilities can be used to set the flex properties according to the classname It also have responsive modifiers</p>
+    <p>The flex utilities can be used to set the flex properties according to the classname. It also have responsive modifiers</p>
     <p>The responsive modifiers follows this pattern: <code>.flex-{breakpoint}-{value} for ms, sm, md, lg, and xl</code></p>
     <strong class="d-block my-3">Available classes</strong>
 <pre><code class="language-markup">&lt;!-- Direction classes -->
-&lt;div class="d-flex flex-row">&lt;/div>
-&lt;div class="d-flex flex-row-reverse">&lt;/div>
+&lt;div class="flex-row">flex-direction: row;&lt;/div>
+&lt;div class="flex-row-reverse">flex-direction: reverse;&lt;/div>
 
-&lt;div class="d-flex flex-column">&lt;/div>
-&lt;div class="d-flex flex-column-reverse">&lt;/div>
+&lt;div class="flex-column">flex-direction: column;&lt;/div>
+&lt;div class="flex-column-reverse">flex-direction: column-reverse;&lt;/div>
 
 &lt;!-- Direction classes responsive example -->
-&lt;div class="d-flex flex-lg-column">&lt;/div>
-
+&lt;div class="flex-lg-column">&lt;/div>
 
 &lt;!-- Justify content -->
-&lt;div class="d-flex justify-content-start">&lt;/div>
-&lt;div class="d-flex justify-content-end">&lt;/div>
-&lt;div class="d-flex justify-content-center">&lt;/div>
-&lt;div class="d-flex justify-content-between">&lt;/div>
-&lt;div class="d-flex justify-content-around">&lt;/div>
+&lt;div class="justify-content-start">justify-content: flex-start;&lt;/div>
+&lt;div class="justify-content-end">justify-content: flex-end;&lt;/div>
+&lt;div class="justify-content-center">justify-content: center;&lt;/div>
+&lt;div class="justify-content-between">justify-content: space-between;&lt;/div>
+&lt;div class="justify-content-around">justify-content: space-around;&lt;/div>
+&lt;div class="justify-content-evenly">justify-content: space-evenly;&lt;/div>
 
 &lt;!-- Justify content responsive example -->
-&lt;div class="d-flex justify-content-lg-center">&lt;/div>
-
+&lt;div class="justify-content-lg-center">&lt;/div>
 
 &lt;!-- Align items -->
-&lt;div class="d-flex align-items-start">&lt;/div>
-&lt;div class="d-flex align-items-end">&lt;/div>
-&lt;div class="d-flex align-items-center">&lt;/div>
-&lt;div class="d-flex align-items-baseline">&lt;/div>
-&lt;div class="d-flex align-items-stretch">&lt;/div>
+&lt;div class="align-items-start">align-items: flex-start;&lt;/div>
+&lt;div class="align-items-end">align-items: flex-end;&lt;/div>
+&lt;div class="align-items-center">align-items: center;&lt;/div>
+&lt;div class="align-items-baseline">align-items: baseline;&lt;/div>
+&lt;div class="align-items-stretch">align-items: stretch;&lt;/div>
 
 &lt;!-- Align items responsive example -->
-&lt;div class="d-flex align-items-lg-center">&lt;/div>
-
+&lt;div class="align-items-lg-center">&lt;/div>
 
 &lt;!-- Align self -->
-&lt;div class="align-self-start">&lt;/div>
-&lt;div class="align-self-end">&lt;/div>
-&lt;div class="align-self-center">&lt;/div>
-&lt;div class="align-self-baseline">&lt;/div>
-&lt;div class="align-self-stretch">&lt;/div>
+&lt;div class="align-self-start">align-self: flex-start;&lt;/div>
+&lt;div class="align-self-end">align-self: flex-end;&lt;/div>
+&lt;div class="align-self-center">align-self: center;&lt;/div>
+&lt;div class="align-self-baseline">align-self: baseline;&lt;/div>
+&lt;div class="align-self-stretch">align-self: stretch;&lt;/div>
 
 &lt;!-- Align self responsive example -->
-&lt;div class="d-flex align-self-lg-center">&lt;/div>
-
+&lt;div class="align-self-lg-center">&lt;/div>
 
 &lt;!-- Wrap -->
-&lt;div class="d-flex flex-nowrap">&lt;/div>
-&lt;div class="d-flex flex-wrap">&lt;/div>
-&lt;div class="d-flex flex-wrap-reverse">&lt;/div>
+&lt;div class="flex-nowrap">flex-wrap: nowrap;&lt;/div>
+&lt;div class="flex-wrap">flex-wrap: wrap;&lt;/div>
+&lt;div class="flex-wrap-reverse">flex-wrap: wrap-reverse;&lt;/div>
 
 &lt;!-- Wrap responsive example -->
-&lt;div class="d-flex flex-lg-nowrap">&lt;/div>
-
+&lt;div class="flex-lg-nowrap">&lt;/div>
 
 &lt;!-- Order -->
-&lt;div class="order-first">&lt;/div>
-&lt;div class="order-last">&lt;/div>
-&lt;div class="order-0">&lt;/div>
-&lt;div class="order-1">&lt;/div>
-&lt;div class="order-2">&lt;/div>
-&lt;div class="order-3">&lt;/div>
-&lt;div class="order-4">&lt;/div>
-&lt;div class="order-5">&lt;/div>
-&lt;div class="order-6">&lt;/div>
-&lt;div class="order-7">&lt;/div>
-&lt;div class="order-8">&lt;/div>
-&lt;div class="order-9">&lt;/div>
-&lt;div class="order-10">&lt;/div>
-&lt;div class="order-11>&lt;/div>
-&lt;div class="order-12>&lt;/div>
+&lt;div class="order-first">order: -1;&lt;/div>
+&lt;div class="order-last">order: 13;&lt;/div>
+&lt;div class="order-0">order: 0;&lt;/div>
+&lt;div class="order-1">order: 1;&lt;/div>
+&lt;div class="order-2">order: 2;&lt;/div>
+&lt;div class="order-3">order: 3;&lt;/div>
+&lt;div class="order-4">order: 4;&lt;/div>
+&lt;div class="order-5">order: 5;&lt;/div>
+&lt;div class="order-6">order: 6;&lt;/div>
+&lt;div class="order-7">order: 7;&lt;/div>
+&lt;div class="order-8">order: 8;&lt;/div>
+&lt;div class="order-9">order: 9;&lt;/div>
+&lt;div class="order-10">order: 10;&lt;/div>
+&lt;div class="order-11">order: 11;&lt;/div>
+&lt;div class="order-12">order: 12;&lt;/div>
 
 &lt;!-- Order responsive example -->
 &lt;div class="order-lg-12">&lt;/div>
 
-
 &lt;!-- Align content -->
-&lt;div class="d-flex align-content-start">&lt;/div>
-&lt;div class="d-flex align-content-end">&lt;/div>
-&lt;div class="d-flex align-content-center">&lt;/div>
-&lt;div class="d-flex align-content-around">&lt;/div>
-&lt;div class="d-flex align-content-stretch">&lt;/div>
+&lt;div class="d-flex align-content-start">align-content: flex-start;&lt;/div>
+&lt;div class="d-flex align-content-end">align-content: flex-end;&lt;/div>
+&lt;div class="d-flex align-content-center">align-content: center;&lt;/div>
+&lt;div class="d-flex align-content-between">align-content: space-between;&lt;/div>
+&lt;div class="d-flex align-content-around">align-content: space-around;&lt;/div>
+&lt;div class="d-flex align-content-evenly">align-content: space-evenly;&lt;/div>
+&lt;div class="d-flex align-content-stretch">align-content: space-stretch;&lt;/div>
 
 &lt;!-- Align content responsive example -->
 &lt;div class="d-flex align-content-lg-start">&lt;/div>
-
 </div>
 </code></pre>
   </section>
 
 
-  <section id="screenreaders">
-    <h3>Screenreaders</h3>
-    <p>Some description on what it does</p>
-    <strong>Example</strong>
-    <pre><code class="language-markup">&lt;a class="sr-only sr-only-focusable" href="#content">Skip to main content&lt;/a></code></pre>
+  <section class="mb-8" id="position">
+    <h3>Position</h3>
+    <p>The position utilities can be used to set the position according to the classname</p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;div class="position-static">position: static;&lt;/div>
+&lt;div class="p-relative">position: relative;&lt;/div>
+&lt;div class="p-absolute">position: absolute;&lt;/div>
+&lt;div class="p-fixed">position: fixed;&lt;/div>
+&lt;div class="p-sticky">position: sticky;&lt;/div>
+&lt;div class="p-revert">position: revert;&lt;/div>
+&lt;div class="p-unset">position: unset;&lt;/div>
+&lt;div class="p-initial">position: initial;&lt;/div>
+&lt;div class="p-inherit">position: inherit;&lt;/div>
+</code></pre>
   </section>
+
+
+  <section class="mb-8" id="screenreaders">
+    <h3>Screenreaders</h3>
+    <p>The screenreader utilities can be used to hide elements visually and help screenreaders intercept the site</p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;a class="sr-only sr-only-focusable" href="#content">Skip to main content&lt;/a>
+</code></pre>
+  </section>
+
+
+  <section class="mb-8" id="shadows">
+    <h3>Shadows</h3>
+    <p>The shadow utilities can be used to set the shadow according to the classname</p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;div class="shadow-none">box-shadow: none;&lt;/div>
+&lt;div class="shadow-sm">box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);&lt;/div>
+&lt;div class="shadow">box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);&lt;/div>
+&lt;div class="shadow-lg">box-shadow: 0 16px 48px rgba(0, 0, 0, 0.175);&lt;/div>
+</code></pre>
+  </section>
+
+
+  <section class="mb-8" id="sizing">
+    <h3>Sizing</h3>
+    <p>The sizing utilities can be used to set the sizing according to the classname. It also have responsive modifiers</p>
+    <p>The responsive modifiers follows this pattern: <code>.{axis}-{breakpoint}-{value} for ms, sm, md, lg, and xl</code></p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- Width classes -->
+&lt;div class="w-25">width: 25%;&lt;/div>
+&lt;div class="w-50">width: 50%;&lt;/div>
+&lt;div class="w-75">width: 75%;&lt;/div>
+&lt;div class="w-100">width: 100%;&lt;/div>
+&lt;div class="w-auto">width: auto;&lt;/div>
+
+&lt;!-- Width responsive examlpe -->
+&lt;div class="w-lg-75">&lt;/div>
+
+&lt;!-- Height classes -->
+&lt;div class="h-25">height: 25%;&lt;/div>
+&lt;div class="h-50">height: 50%;&lt;/div>
+&lt;div class="h-75">height: 75%;&lt;/div>
+&lt;div class="h-100">height: 100%;&lt;/div>
+&lt;div class="h-auto">height: auto;&lt;/div>
+
+
+&lt;!-- Height responsive examlpe -->
+&lt;div class="h-lg-75">&lt;/div>
+
+&lt;!-- Max width/height -->
+&lt;div class="mw-100">max-width: 100%;&lt;/div>
+&lt;div class="mh-100">max-height: 100%;&lt;/div>
+
+&lt;!-- Viewport width/height -->
+&lt;div class="min-vw-100">min-width: 100vw;&lt;/div>
+&lt;div class="min-vh-100">min-height: 100vh;&lt;/div>
+
+&lt;div class="vw-100">width: 100vw;&lt;/div>
+&lt;div class="vh-100">height: 100vh;&lt;/div>
+</code></pre>
+  </section>
+
+
+
+  <section class="mb-8" id="spacing">
+    <h3>Spacing</h3>
+    <p>The spacing utilities can be used to set the spacing according to the classname. It also have responsive modifiers</p>
+    <p>The responsive modifiers follows this pattern: <code>.{property}{sides || axis}-{breakpoint}-{size} for ms, sm, md, lg, and xl</code>.<br>By default the size starts from 0px and goes up to 100px</p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- Margin classes -->
+&lt;div class="m-0">0px;&lt;/div>
+&lt;div class="m-1">5px;&lt;/div>
+&lt;div class="m-2">10px;&lt;/div>
+&lt;div class="m-3">15px;&lt;/div>
+&lt;div class="m-4">20px;&lt;/div>
+&lt;div class="m-5">30px;&lt;/div>
+&lt;div class="m-6">40px;&lt;/div>
+&lt;div class="m-7">50px;&lt;/div>
+&lt;div class="m-8">60px;&lt;/div>
+&lt;div class="m-9">70px;&lt;/div>
+&lt;div class="m-10">80px;&lt;/div>
+&lt;div class="m-11">90px;&lt;/div>
+&lt;div class="m-12">100px;&lt;/div>
+
+&lt;!-- Margin auto -->
+&lt;div class="mt-auto">margin-top: auto;&lt;/div>
+&lt;div class="mr-auto">margin-right: auto;&lt;/div>
+&lt;div class="mb-auto">margin-bottom: auto;&lt;/div>
+&lt;div class="ml-auto">margin-left: auto;&lt;/div>
+&lt;div class="my-auto">margin-top: auto; margin-bottom: auto;&lt;/div>
+&lt;div class="mx-auto">margin-left: auto; margin-right: auto;&lt;/div>
+
+&lt;!-- Specific margin side example -->
+&lt;div class="mt-5">margin-top: 40px;&lt;/div>
+
+&lt;!-- Specific margin axis example -->
+&lt;div class="mx-5">margin-left: 40px; margin-right: 40px;&lt;/div>
+
+&lt;!-- Responsive margin example -->
+&lt;div class="m-lg-5">&lt;/div>
+
+&lt;!-- Padding classes -->
+&lt;div class="p-0">0px;&lt;/div>
+&lt;div class="p-1">5px;&lt;/div>
+&lt;div class="p-2">10px;&lt;/div>
+&lt;div class="p-3">15px;&lt;/div>
+&lt;div class="p-4">20px;&lt;/div>
+&lt;div class="p-5">30px;&lt;/div>
+&lt;div class="p-6">40px;&lt;/div>
+&lt;div class="p-7">50px;&lt;/div>
+&lt;div class="p-8">60px;&lt;/div>
+&lt;div class="p-9">70px;&lt;/div>
+&lt;div class="p-10">80px;&lt;/div>
+&lt;div class="p-11">90px;&lt;/div>
+&lt;div class="p-12">100px;&lt;/div>
+
+&lt;!-- Specific padding side exapple -->
+&lt;div class="pt-5">padding-top: 40px;&lt;/div>
+
+&lt;!-- Specific padding axis example -->
+&lt;div class="px-5">padding-left: 40px; padding-right: 40px;&lt;/div>
+
+&lt;!-- Responsive padding exapple -->
+&lt;div class="p-lg-5">&lt;/div>
+</code></pre>
+  </section>
+
+
+
+  <section class="mb-8" id="text">
+    <h3>Text</h3>
+    <p>The text utilities can be used to modify text styling according to the classname. It also have responsive modifiers</p>
+    <p>The responsive modifiers follows this pattern: <code>.text-{breakpoint}-{modifier} for ms, sm, md, lg, and xl</code>.<br>By default the size starts from 0px and goes up to 100px</p>
+    <strong class="d-block my-3">Color example</strong>
+    <div class="mb-2 text-body text-white">.text-body</div>
+    <div class="mb-2 text-primary text-white">.text-primary</div>
+    <div class="mb-2 text-secondary text-white">.text-secondary</div>
+    <div class="mb-2 text-success text-white">.text-success</div>
+    <div class="mb-2 text-danger text-white">.text-danger</div>
+    <div class="mb-2 text-warning text-black">.text-warning</div>
+    <div class="mb-2 text-gray text-white">.text-gray</div>
+    <div class="mb-2 text-gray-light text-black">.text-gray-light</div>
+    <div class="mb-2 text-gray-dark text-white">.text-gray-dark</div>
+    <div class="mb-2 text-white bg-black">.text-white</div>
+    <div class="mb-2 text-black bg-white">.text-black</div>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- Text alignment -->
+&lt;div class="text-left">text-align: left;&lt;/div>
+&lt;div class="text-center">text-align: center;&lt;/div>
+&lt;div class="text-right">text-align: right;&lt;/div>
+
+&lt;!-- Responsive text alignment example -->
+&lt;div class="text-lg-left">&lt;/div>
+
+&lt;!-- Text colors -->
+&lt;div class="text-body">&lt;/div>
+&lt;div class="text-primary">&lt;/div>
+&lt;div class="text-secondary">&lt;/div>
+&lt;div class="text-success">&lt;/div>
+&lt;div class="text-danger">&lt;/div>
+&lt;div class="text-warning">&lt;/div>
+&lt;div class="text-gray">&lt;/div>
+&lt;div class="text-gray-light">&lt;/div>
+&lt;div class="text-gray-dark">&lt;/div>
+&lt;div class="text-white">&lt;/div>
+&lt;div class="text-black">&lt;/div>
+&lt;div class="text-inherit">&lt;/div>
+
+&lt;!-- Text transform -->
+&lt;div class="text-lowercase">text-transform: lowercase;&lt;/div>
+&lt;div class="text-uppercase">text-transform: uppercase;&lt;/div>
+&lt;div class="text-capitalize">text-transform: capitalize;&lt;/div>
+
+&lt;!-- Weight and italics -->
+&lt;div class="font-weight-lighter">font-weight: lighter;&lt;/div>
+&lt;div class="font-weight-normal">font-weight: normal;&lt;/div>
+&lt;div class="font-weight-bold">font-weight: bold;&lt;/div>
+&lt;div class="font-weight-bolder">font-weight: bolder;&lt;/div>
+&lt;div class="font-italic">font-style: italic;&lt;/div>
+
+&lt;!-- Misc. helpers -->
+&lt;div class="font-italic">font-style: italic;&lt;/div>
+&lt;div class="text-monospace">font-family: monospace;&lt;/div>
+&lt;div class="text-wrap">text-align: justify;&lt;/div>
+&lt;div class="text-wrap">white-space: normal;&lt;/div>
+&lt;div class="text-nowrap">white-space: nowrap;&lt;/div>
+&lt;div class="text-truncate">white-space: nowrap;&lt;/div>
+&lt;div class="text-decoration-none">text-decoration: none;&lt;/div>
+&lt;div class="text-break">word-wrap: break-word; word-break: break-word;&lt;/div>
+</code></pre>
+  </section>
+
+  <section class="mb-8" id="visibility">
+    <h3>Visibility</h3>
+    <p>The visibility utilities can be used to visibility according to the classname</p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;div class="visible">visibility: visible;&lt;/div>
+&lt;div class="invisible">visibility: hidden;&lt;/div>
+</code></pre>
+  </section>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/zenscroll/4.0.2/zenscroll-min.js" integrity="sha512-u8AVZHNF3Fxvmevg9DJpoSCsc3vs1wr1S52S3XEIVIfIKxXHQexNxEj+fN+XyupzeLvIjPZLZBPmHZveEqhGqA==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
