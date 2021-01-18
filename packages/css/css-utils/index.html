@@ -107,7 +107,7 @@
     <div class="p-3 mb-2 bg-white text-black rounded">.bg-white</div>
     <div class="p-3 mb-2 bg-black text-white rounded">.bg-black</div>
     <strong class="d-block my-3">Available classes</strong>
-<pre><code class="language-markup">&lt;div class="bg-primary">.bg-primary&lt;/div>
+<pre><code class="language-markup">&lt;div class="bg-primary">&lt;/div>
 &lt;div class="bg-secondary">&lt;/div>
 &lt;div class="bg-success">&lt;/div>
 &lt;div class="bg-danger">&lt;/div>
@@ -183,6 +183,128 @@
 &lt;div class="d-flex d-sm-block d-xl-none">&lt;/div>
 </code></pre>
   </section>
+
+
+  <section class="mb-8" id="embed">
+    <h3>Embed</h3>
+    <p>The embed utilities can be used to set the height/width ratio of embeded content e.g. Youtube according to the classname.
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- 21:9 aspect ratio -->
+&lt;div class="embed-responsive embed-responsive-21by9">
+  &lt;iframe class="embed-responsive-item" src="...">&lt;/iframe>
+&lt;/div>
+
+&lt;!-- 16:9 aspect ratio -->
+&lt;div class="embed-responsive embed-responsive-16by9">
+  &lt;iframe class="embed-responsive-item" src="...">&lt;/iframe>
+&lt;/div>
+
+&lt;!-- 4:3 aspect ratio -->
+&lt;div class="embed-responsive embed-responsive-4by3">
+  &lt;iframe class="embed-responsive-item" src="...">&lt;/iframe>
+&lt;/div>
+
+&lt;!-- 1:1 aspect ratio -->
+&lt;div class="embed-responsive embed-responsive-1by1">
+  &lt;iframe class="embed-responsive-item" src="...">&lt;/iframe>
+&lt;/div>
+</code></pre>
+  </section>
+
+
+  <section class="mb-8" id="embed">
+    <h3>Flex</h3>
+    <p>The flex utilities can be used to set the flex properties according to the classname It also have responsive modifiers</p>
+    <p>The responsive modifiers follows this pattern: <code>.flex-{breakpoint}-{value} for ms, sm, md, lg, and xl</code></p>
+    <strong class="d-block my-3">Available classes</strong>
+<pre><code class="language-markup">&lt;!-- Direction classes -->
+&lt;div class="d-flex flex-row">&lt;/div>
+&lt;div class="d-flex flex-row-reverse">&lt;/div>
+
+&lt;div class="d-flex flex-column">&lt;/div>
+&lt;div class="d-flex flex-column-reverse">&lt;/div>
+
+&lt;!-- Direction classes responsive example -->
+&lt;div class="d-flex flex-lg-column">&lt;/div>
+
+
+&lt;!-- Justify content -->
+&lt;div class="d-flex justify-content-start">&lt;/div>
+&lt;div class="d-flex justify-content-end">&lt;/div>
+&lt;div class="d-flex justify-content-center">&lt;/div>
+&lt;div class="d-flex justify-content-between">&lt;/div>
+&lt;div class="d-flex justify-content-around">&lt;/div>
+
+&lt;!-- Justify content responsive example -->
+&lt;div class="d-flex justify-content-lg-center">&lt;/div>
+
+
+&lt;!-- Align items -->
+&lt;div class="d-flex align-items-start">&lt;/div>
+&lt;div class="d-flex align-items-end">&lt;/div>
+&lt;div class="d-flex align-items-center">&lt;/div>
+&lt;div class="d-flex align-items-baseline">&lt;/div>
+&lt;div class="d-flex align-items-stretch">&lt;/div>
+
+&lt;!-- Align items responsive example -->
+&lt;div class="d-flex align-items-lg-center">&lt;/div>
+
+
+&lt;!-- Align self -->
+&lt;div class="align-self-start">&lt;/div>
+&lt;div class="align-self-end">&lt;/div>
+&lt;div class="align-self-center">&lt;/div>
+&lt;div class="align-self-baseline">&lt;/div>
+&lt;div class="align-self-stretch">&lt;/div>
+
+&lt;!-- Align self responsive example -->
+&lt;div class="d-flex align-self-lg-center">&lt;/div>
+
+
+&lt;!-- Wrap -->
+&lt;div class="d-flex flex-nowrap">&lt;/div>
+&lt;div class="d-flex flex-wrap">&lt;/div>
+&lt;div class="d-flex flex-wrap-reverse">&lt;/div>
+
+&lt;!-- Wrap responsive example -->
+&lt;div class="d-flex flex-lg-nowrap">&lt;/div>
+
+
+&lt;!-- Order -->
+&lt;div class="order-first">&lt;/div>
+&lt;div class="order-last">&lt;/div>
+&lt;div class="order-0">&lt;/div>
+&lt;div class="order-1">&lt;/div>
+&lt;div class="order-2">&lt;/div>
+&lt;div class="order-3">&lt;/div>
+&lt;div class="order-4">&lt;/div>
+&lt;div class="order-5">&lt;/div>
+&lt;div class="order-6">&lt;/div>
+&lt;div class="order-7">&lt;/div>
+&lt;div class="order-8">&lt;/div>
+&lt;div class="order-9">&lt;/div>
+&lt;div class="order-10">&lt;/div>
+&lt;div class="order-11>&lt;/div>
+&lt;div class="order-12>&lt;/div>
+
+&lt;!-- Order responsive example -->
+&lt;div class="order-lg-12">&lt;/div>
+
+
+&lt;!-- Align content -->
+&lt;div class="d-flex align-content-start">&lt;/div>
+&lt;div class="d-flex align-content-end">&lt;/div>
+&lt;div class="d-flex align-content-center">&lt;/div>
+&lt;div class="d-flex align-content-around">&lt;/div>
+&lt;div class="d-flex align-content-stretch">&lt;/div>
+
+&lt;!-- Align content responsive example -->
+&lt;div class="d-flex align-content-lg-start">&lt;/div>
+
+</div>
+</code></pre>
+  </section>
+
 
   <section id="screenreaders">
     <h3>Screenreaders</h3>
