@@ -6,7 +6,7 @@ import component from './breadcrumb.vue';
 export function install(Vue) {
 	if (install.installed) return;
 	install.installed = true;
-	Vue.component('Breadcrumb', component);
+	Vue.component('NcBreadcrumb', component);
 }
 
 // Create module definition for Vue.use()
