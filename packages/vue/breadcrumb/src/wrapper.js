@@ -1,12 +1,12 @@
 // Vue component Wrapper from Vue docs: https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html#What-does-my-packaged-component-look-like
 // Import vue component
-import component from './lazy-image.vue';
+import component from './breadcrumb.vue';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
 	if (install.installed) return;
 	install.installed = true;
-	Vue.component('LazyImage', component);
+	Vue.component('Breadcrumb', component);
 }
 
 // Create module definition for Vue.use()

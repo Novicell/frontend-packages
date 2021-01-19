@@ -1,5 +1,5 @@
 {
-  "name": "@novicell-vue/breadcrumb",
+  "name": "@novicell/breadcrumb",
   "version": "0.1.0",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
@@ -31,11 +31,12 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@vue/cli": "^4.5.8",
     "@vue/cli-service-global": "^4.5.8",
-    "nuxt-property-decorator": "^2.8.8",
     "rollup": "~2.33.1",
-    "rollup-plugin-typescript2": "^0.29.0",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "@novicell/breadcrumb-styles": "^1.0.0"
   }
 }
