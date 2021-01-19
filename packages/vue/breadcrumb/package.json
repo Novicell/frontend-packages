@@ -1,0 +1,41 @@
+{
+  "name": "@novicell/breadcrumb",
+  "version": "0.1.0",
+  "description": "Vue implementation of a breadcrumb component.",
+  "repository": {
+    "url": "https://github.com/Novicell/frontend-packages"
+  },
+  "main": "dist/breadcrumb.umd.js",
+  "module": "dist/breadcrumb.esm.js",
+  "unpkg": "dist/breadcrumb.min.js",
+  "browser": {
+    "./sfc": "src/breadcrumb.vue"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "vue serve --help",
+    "dev": "vue serve --open src/breadcrumb.vue",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/breadcrumb.umd.js",
+    "build:es": "rollup --config config/rollup.config.js --format es --file dist/breadcrumb.esm.js",
+    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/breadcrumb.min.js",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@vue/cli": "^4.5.8",
+    "@vue/cli-service-global": "^4.5.8",
+    "nuxt-property-decorator": "^2.8.8",
+    "rollup": "~2.33.1",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "2.6.12",
+    "vue-template-compiler": "^2.6.12"
+  }
+}
