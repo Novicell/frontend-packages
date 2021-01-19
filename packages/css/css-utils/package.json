@@ -5,10 +5,10 @@
   "author": "",
   "main": "dist/all.css",
   "scripts": {
-    "dev": "NODE_ENV=compile parcel index.html --no-cache",
+    "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
     "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
-    "build:html": "NODE_ENV=compile parcel build index.html --no-cache",
-    "compile": "npm run lint:fix && NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "build:html": "cross-env NODE_ENV=compile parcel build index.html --no-cache",
+    "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
     "generate": "npm run build && npm run compile",
     "lint": "stylelint 'src/**/*.css'",
     "lint:fix": "stylelint 'src/**/*.css' --fix"
@@ -31,6 +31,7 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "parcel-plugin-stylelint-all": "^0.2.0"
   }
 }
