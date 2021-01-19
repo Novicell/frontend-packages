@@ -1,0 +1,38 @@
+{
+  "name": "@novicell-css/breadcrumb-styles",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "homepage": "https://github.com/Novicell/frontend-packages#readme",
+  "license": "ISC",
+  "main": "dist/breadcrumb-styles.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novicell/frontend-packages.git"
+  },
+  "scripts": {
+    "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "compile": "npm run lint:fix && set NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "generate": "npm run build && npm run compile",
+    "lint": "stylelint 'src/**/*.css'",
+    "lint:fix": "stylelint 'src/**/*.css' --fix"
+  },
+  "dependencies": {
+    "postcss-calc": "^7.0.5",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-properties": "^10.0.0",
+    "postcss-each": "^0.10.0",
+    "postcss-import-sync2": "^1.1.0",
+    "postcss-media-variables": "^2.0.1",
+    "postcss-merge-rules": "^4.0.3",
+    "postcss-nested": "^4.2.3",
+    "postcss-percentage": "0.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "devDependencies": {
+    "parcel-plugin-stylelint-all": "^0.2.0"
+  }
+}
