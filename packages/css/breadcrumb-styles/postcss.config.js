@@ -2,6 +2,7 @@ module.exports = {
   plugins: process.env.NODE_ENV === 'compile' ?
   [
     require("stylelint"),
+    require('postcss-nested'),
     // require('postcss-each'),
     // require('postcss-custom-properties')({
     //   preserve: false
@@ -14,7 +15,6 @@ module.exports = {
   ] :
   [
     require("stylelint"),
-    require('postcss-nested'),
     // require('postcss-each'),
     // require('postcss-percentage')
   ]

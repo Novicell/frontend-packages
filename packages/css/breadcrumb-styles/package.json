@@ -1,5 +1,5 @@
 {
-  "name": "@novicell-css/breadcrumb-styles",
+  "name": "@novicell/breadcrumb-styles",
   "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
@@ -10,9 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/Novicell/frontend-packages.git"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
-    "compile": "npm run lint:fix && set NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
     "generate": "npm run build && npm run compile",
     "lint": "stylelint 'src/**/*.css'",
     "lint:fix": "stylelint 'src/**/*.css' --fix"
@@ -33,6 +36,7 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "parcel-plugin-stylelint-all": "^0.2.0"
   }
 }

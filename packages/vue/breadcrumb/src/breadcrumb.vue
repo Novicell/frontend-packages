@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.breadcrumb {
+/* .breadcrumb {
   position: relative;
   padding: 30px 0;
   font-size: 1rem;
@@ -96,5 +96,5 @@ export default {
   padding: 5px 3px;
   color: #bcbcbc;
   content: '/';
-}
+} */
 </style>

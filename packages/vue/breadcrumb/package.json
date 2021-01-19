@@ -1,5 +1,5 @@
 {
-  "name": "@novicell/breadcrumb",
+  "name": "@novicell-vue/breadcrumb",
   "version": "0.1.0",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
