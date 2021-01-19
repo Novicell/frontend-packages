@@ -1,0 +1,36 @@
+{
+  "name": "@novicell/postcss-utils",
+  "version": "1.0.0",
+  "description": "We store the CSS packages in here.",
+  "author": "",
+  "main": "dist/all.css",
+  "scripts": {
+    "dev": "NODE_ENV=compile parcel index.html --no-cache",
+    "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "build:html": "NODE_ENV=compile parcel build index.html --no-cache",
+    "compile": "npm run lint:fix && NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "generate": "npm run build && npm run compile",
+    "lint": "stylelint 'src/**/*.css'",
+    "lint:fix": "stylelint 'src/**/*.css' --fix"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "postcss-calc": "^7.0.5",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-custom-properties": "^10.0.0",
+    "postcss-each": "^0.10.0",
+    "postcss-import-sync2": "^1.1.0",
+    "postcss-media-variables": "^2.0.1",
+    "postcss-merge-rules": "^4.0.3",
+    "postcss-nested": "^4.2.3",
+    "postcss-percentage": "0.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "devDependencies": {
+    "parcel-plugin-stylelint-all": "^0.2.0"
+  }
+}
