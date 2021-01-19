@@ -18,7 +18,8 @@
     "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
     "generate": "npm run build && npm run compile",
     "lint": "stylelint 'src/**/*.css'",
-    "lint:fix": "stylelint 'src/**/*.css' --fix"
+    "lint:fix": "stylelint 'src/**/*.css' --fix",
+    "prepublishOnly": "npm run generate"
   },
   "dependencies": {
     "postcss-calc": "^7.0.5",
