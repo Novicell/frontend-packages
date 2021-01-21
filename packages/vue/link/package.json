@@ -1,15 +1,15 @@
 {
-  "name": "@novicell/breadcrumb",
+  "name": "@novicell/link",
   "version": "0.1.0",
-  "description": "Vue implementation of a breadcrumb component.",
+  "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
   },
-  "main": "dist/breadcrumb.umd.js",
-  "module": "dist/breadcrumb.esm.js",
-  "unpkg": "dist/breadcrumb.min.js",
+  "main": "dist/link.umd.js",
+  "module": "dist/link.esm.js",
+  "unpkg": "dist/link.min.js",
   "browser": {
-    "./sfc": "src/breadcrumb.vue"
+    "./sfc": "src/link.vue"
   },
   "files": [
     "dist"
@@ -17,11 +17,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "vue serve --help",
-    "dev": "vue serve --open src/breadcrumb.vue",
+    "dev": "vue serve --open src/link.vue",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/breadcrumb.umd.js",
-    "build:es": "rollup --config config/rollup.config.js --format es --file dist/breadcrumb.esm.js",
-    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/breadcrumb.min.js",
+    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/link.umd.js",
+    "build:es": "rollup --config config/rollup.config.js --format es --file dist/link.esm.js",
+    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/link.min.js",
     "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
@@ -35,9 +35,5 @@
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {
-    "@novicell/breadcrumb-styles": "^0.1.0",
-    "@novicell/link": "^0.1.0"
   }
 }

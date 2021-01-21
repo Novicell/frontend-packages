@@ -16,8 +16,12 @@
 
 <script>
 import '@novicell/breadcrumb-styles'
+import NcLink from '@novicell/link'
 
 export default {
+  components: {
+    NcLink
+  },
   props: {
     modifier: {
       type: String,
