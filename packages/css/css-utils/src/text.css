@@ -1,0 +1,84 @@
+/*
+//Text
+*/
+.text-monospace { font-family: monospace; }
+
+/* Alignment */
+.text-justify { text-align: justify; }
+
+.text-wrap { white-space: normal; }
+
+.text-nowrap { white-space: nowrap; }
+
+.text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@each $alignment in (left, right, center) {
+  .text-$(alignment) {
+    text-align: $(alignment);
+  }
+}
+
+/* Repsonsive */
+@each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
+  @media ($(breakpoint-name)) {
+    @each $alignment in (left, right, center) {
+      .text-$(breakpoint)-$(alignment) {
+        text-align: $(alignment);
+      }
+    }
+  }
+}
+
+/* Contextual colors */
+.text-white { color: var(--css-utils-color-white, #fff); }
+
+.text-black { color: var(--css-utils-color-black, #000); }
+
+.text-primary { color: var(--css-utils-color-primary, #c80046); }
+
+.text-secondary { color: var(--css-utils-color-secondary, #363636); }
+
+.text-success { color: var(--css-utils-color-success, #28a745); }
+
+.text-danger { color: var(--css-utils-color-danger, #dc3545); }
+
+.text-warning { color: var(--css-utils-color-warning, #ffc107); }
+
+.text-gray { color: var(--css-utils-color-gray, #acacac); }
+
+.text-gray-light { color: var(--css-utils-color-gray-light, #d7d7d7); }
+
+.text-gray-dark { color: var(--css-utils-color-gray-dark, #4b4b4b); }
+
+.text-body { color: var(--css-utils-color-body, #000); }
+
+/* Transformation */
+.text-lowercase { text-transform: lowercase; }
+
+.text-uppercase { text-transform: uppercase; }
+
+.text-capitalize { text-transform: capitalize; }
+
+/* Weight and italics */
+.font-weight-lighter { font-weight: lighter; }
+
+.font-weight-normal { font-weight: normal; }
+
+.font-weight-bold { font-weight: bold; }
+
+.font-weight-bolder { font-weight: bolder; }
+
+.font-italic { font-style: italic; }
+
+.text-decoration-none { text-decoration: none; }
+
+.text-break {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.text-reset { color: inherit; }
