@@ -5,11 +5,11 @@
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
   },
-  "main": "dist/breadcrumb.umd.js",
-  "module": "dist/breadcrumb.esm.js",
-  "unpkg": "dist/breadcrumb.min.js",
+  "main": "dist/nc-breadcrumb.umd.js",
+  "module": "dist/nc-breadcrumb.esm.js",
+  "unpkg": "dist/nc-breadcrumb.min.js",
   "browser": {
-    "./sfc": "src/breadcrumb.vue"
+    "./sfc": "src/NcBreadcrumb.vue"
   },
   "files": [
     "dist"
@@ -17,11 +17,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "vue serve --help",
-    "dev": "vue serve --open src/breadcrumb.vue",
+    "dev": "vue serve --open src/NcBreadcrumb.vue",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/breadcrumb.umd.js",
-    "build:es": "rollup --config config/rollup.config.js --format es --file dist/breadcrumb.esm.js",
-    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/breadcrumb.min.js",
+    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-breadcrumb.umd.js",
+    "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-breadcrumb.esm.js",
+    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-breadcrumb.min.js",
     "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",

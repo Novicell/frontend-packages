@@ -1,6 +1,6 @@
 // Vue component Wrapper from Vue docs: https://vuejs.org/v2/cookbook/packaging-sfc-for-npm.html#What-does-my-packaged-component-look-like
 // Import vue component
-import component from './breadcrumb.vue';
+import component from './NcBreadcrumb.vue';
 
 // Declare install function executed by Vue.use()
 export function install(Vue) {
