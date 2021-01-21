@@ -22,14 +22,14 @@
     "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-breadcrumb.umd.js",
     "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-breadcrumb.esm.js",
     "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-breadcrumb.min.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "rollDev": "set NODE_ENV=development rollup -cw --config config/rollup.config.js"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^11.1.0",
     "@vue/cli": "^4.5.8",
     "@vue/cli-service-global": "^4.5.8",
     "rollup": "~2.33.1",
