@@ -2,12 +2,12 @@
   <div :class="`breadcrumb ${modifier}`" aria-label="breadcrumb">
     <ol class="breadcrumb__items">
       <li v-for="(breadcrumb, index) in breadcrumbs" :key="breadcrumb.text" class="breadcrumb__item" :aria-current="last === index && 'page'">
-        <!-- <NcLink v-if="last !== index" :to="breadcrumb.url" :title="breadcrumb.title" :name="breadcrumb.text" class="breadcrumb__link">
+        <NcLink v-if="last !== index" :to="breadcrumb.url" :title="breadcrumb.title" :name="breadcrumb.text" class="breadcrumb__link">
           {{ breadcrumb.text }}
-        </NcLink> -->
-        <a v-if="last !== index" :href="breadcrumb.url" :title="breadcrumb.title" class="breadcrumb__link">
+        </NcLink>
+        <!-- <a v-if="last !== index" :href="breadcrumb.url" :title="breadcrumb.title" class="breadcrumb__link">
           {{ breadcrumb.text }}
-        </a>
+        </a> -->
         <span v-else class="breadcrumb__link--active" :title="breadcrumb.title">{{ breadcrumb.text }}</span>
       </li>
     </ol>

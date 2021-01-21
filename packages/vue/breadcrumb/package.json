@@ -9,7 +9,7 @@
   "module": "dist/nc-breadcrumb.esm.js",
   "unpkg": "dist/nc-breadcrumb.min.js",
   "browser": {
-    "./sfc": "src/NcBreadcrumb.vue"
+    "./sfc": "src/nc-breadcrumb.vue"
   },
   "files": [
     "dist"
@@ -17,13 +17,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "vue serve --help",
-    "dev": "vue serve --open src/NcBreadcrumb.vue",
+    "dev": "vue serve --open src/nc-breadcrumb.vue",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-breadcrumb.umd.js",
     "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-breadcrumb.esm.js",
     "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-breadcrumb.min.js",
-    "prepublishOnly": "npm run build",
-    "rollDev": "set NODE_ENV=development rollup -cw --config config/rollup.config.js"
+    "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "license": "MIT",
