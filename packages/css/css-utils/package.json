@@ -1,6 +1,6 @@
 {
   "name": "@novicell/postcss-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "We store the CSS packages in here.",
   "author": "",
   "main": "dist/all.css",
