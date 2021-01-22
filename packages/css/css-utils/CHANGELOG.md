@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2021-01-22)
 
-**Note:** Version bump only for package @novicell/postcss-utils
+**Note:** Initial release of @novicell/postcss-utils

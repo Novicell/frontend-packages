@@ -1,8 +1,9 @@
 {
-  "name": "@novicell/postcss-utils",
+  "name": "@novicell/css-utils",
   "version": "1.0.1",
-  "description": "We store the CSS packages in here.",
-  "author": "",
+  "description": "A CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.",
+  "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
+  "homepage": "https://novicell-css-utils.netlify.app",
   "main": "dist/all.css",
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
@@ -11,10 +12,11 @@
     "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
     "generate": "npm run build && npm run compile",
     "lint": "stylelint 'src/**/*.css'",
-    "lint:fix": "stylelint 'src/**/*.css' --fix"
+    "lint:fix": "stylelint 'src/**/*.css' --fix",
+    "prepublishOnly": "npm run generate"
   },
-  "keywords": [],
-  "license": "ISC",
+  "keywords": ["css","cssutils","css-utilties","css-helpers"],
+  "license": "MIT",
   "dependencies": {
     "postcss-calc": "^7.0.5",
     "postcss-conditionals": "^2.1.0",
