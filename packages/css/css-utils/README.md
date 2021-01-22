@@ -1,5 +1,7 @@
 # Novicell CSS Utils
 
+![npm](https://img.shields.io/npm/v/@novicell/css-utils) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/css-utils)
+
 This is a CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.
 
 ## How to use
