@@ -34,11 +34,11 @@ npm i @novicell/css-utils
 /* import the stylesheets in your css file */
 
 /* import everything */
-@import '../../node_modules/@novicell/css-utils/dist/all.css';
+@import '@novicell/css-utils/dist/all.css';
 
 /* import specific utilities */
-@import '../../node_modules/@novicell/css-utils/dist/spacing.css';
-@import '../../node_modules/@novicell/css-utils/dist/display.css';
+@import '@novicell/css-utils/dist/spacing.css';
+@import '@novicell/css-utils/dist/display.css';
 ```
 
 ### Uncompiled / source-code mode
