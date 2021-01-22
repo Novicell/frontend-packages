@@ -5,6 +5,7 @@
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "homepage": "https://novicell-css-utils.netlify.app",
   "main": "dist/all.css",
+  "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
     "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
@@ -40,5 +41,6 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "parcel-plugin-stylelint-all": "^0.2.0"
-  }
+  },
+  "gitHead": "1660a38819c8dbad053d9164caa58300bf1d60b1"
 }
