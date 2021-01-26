@@ -23,7 +23,10 @@
     "css-helpers"
   ],
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "parcel-plugin-stylelint-all": "^0.2.0",
     "postcss-calc": "^7.0.5",
     "postcss-conditionals": "^2.1.0",
     "postcss-custom-media": "^7.0.8",
@@ -37,10 +40,6 @@
     "postcss-preset-env": "^6.7.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"
-  },
-  "devDependencies": {
-    "cross-env": "^7.0.3",
-    "parcel-plugin-stylelint-all": "^0.2.0"
   },
   "gitHead": "1660a38819c8dbad053d9164caa58300bf1d60b1"
 }
