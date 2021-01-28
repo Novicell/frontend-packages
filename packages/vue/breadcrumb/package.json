@@ -16,7 +16,8 @@
     "./sfc": "src/nc-breadcrumb.vue"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
