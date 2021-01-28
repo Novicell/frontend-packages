@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-breadcrumb",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
@@ -43,8 +43,8 @@
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
-    "@novicell/styles-breadcrumb": "^0.1.0",
-    "@novicell/vue-link": "^0.1.0"
+    "@novicell/styles-breadcrumb": "^0.2.0",
+    "@novicell/vue-link": "^0.2.0"
   },
   "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
 }
