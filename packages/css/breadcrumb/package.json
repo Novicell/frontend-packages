@@ -1,6 +1,6 @@
 {
-  "name": "@novicell/breadcrumb-styles",
-  "version": "0.1.0",
+  "name": "@novicell/styles-breadcrumb",
+  "version": "0.0.0",
   "description": "The stylesheet for @novicell/breadcrumb as compiled CSS and raw postCSS.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "homepage": "https://github.com/Novicell/frontend-packages#readme",
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Novicell/frontend-packages.git"
   },
+  "private": false,
   "files": [
     "dist"
   ],

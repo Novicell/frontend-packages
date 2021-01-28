@@ -1,4 +1,5 @@
-# Novicell Breadcrumb Vue Component
+## This is a work in progress
+# Novicell Link Vue Component
 A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.
 
 ## Installation
