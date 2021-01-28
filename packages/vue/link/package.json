@@ -1,11 +1,14 @@
 {
   "name": "@novicell/vue-link",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
   },
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/nc-link.umd.js",
   "module": "dist/nc-link.esm.js",
   "unpkg": "dist/nc-link.min.js",
@@ -23,8 +26,7 @@
     "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-link.umd.js",
     "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-link.esm.js",
     "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-link.min.js",
-    "prepublishOnly": "npm run build",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "license": "MIT",
@@ -37,5 +39,6 @@
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
-  }
+  },
+  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
 }
