@@ -16,8 +16,8 @@
 
 <script>
 import '@novicell/breadcrumb-styles' // '@rollup/plugin-node-resolve' sørger for at vi undgår absolutte stier
+
 // import NcLink from '@novicell/vue-link' // Virker kun til at builde til browser - vue SFC ved ikke hvad den skal gøre med `global` i (default) *.esm.js-filen
-//? Prøv at pass nc-link.vue over i dist, når den builder - vil vue-compileren finde den først, hvis man så bare importerer @novicell/vue-link?
 import NcLink from '@novicell/vue-link/src/nc-link.vue' // Virker både med `npm run dev` og buildet til browser - kunne være fedt med /sfc
 
 export default {

@@ -16,7 +16,7 @@ export default {
         commonjs(),
         css({ output: 'css/styles.css' }), // Virker til separat css-bundle
         // css(), // Css bliver ikke bundlet med i js, uanset om `vue.css` er sat true eller false
-        //? Prøv at konfigurere `rollup-plugin-postcss og brug `postcss-import` til at få imports til at virke i <style> inden vue injecter css (ikke-importeret css bliver bundlet med i .js per default)
+        //? Prøv at konfigurere `rollup-plugin-postcss` og brug `postcss-import` til at få imports til at virke i <style> inden vue injecter css (ikke-importeret css bliver bundlet med i .js per default)
         vue({
             css: true, // Dynamically inject css as a <style> tag
             compileTemplate: true, // Explicitly convert template to render function
