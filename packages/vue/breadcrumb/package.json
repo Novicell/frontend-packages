@@ -1,10 +1,11 @@
 {
   "name": "@novicell/vue-breadcrumb",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
   },
+  "private": false,
   "main": "dist/nc-breadcrumb.umd.js",
   "module": "dist/nc-breadcrumb.esm.js",
   "unpkg": "dist/nc-breadcrumb.min.js",
@@ -40,7 +41,7 @@
     "rollup-plugin-postcss": "^4.0.0"
   },
   "dependencies": {
-    "@novicell/breadcrumb-styles": "^0.1.0",
-    "@novicell/vue-link": "^0.1.0"
+    "@novicell/styles-breadcrumb": "^0.0.0",
+    "@novicell/vue-link": "^0.0.0"
   }
 }
