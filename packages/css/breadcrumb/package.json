@@ -18,9 +18,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
-    "generate": "npm run build && npm run compile",
+    "build": "npm run build:src && npm run compile",
     "lint": "stylelint 'src/**/*.css'",
     "lint:fix": "stylelint 'src/**/*.css' --fix",
     "prepublishOnly": "npm run generate"
