@@ -40,9 +40,7 @@
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {
+    "vue-template-compiler": "^2.6.12",
     "@novicell/styles-breadcrumb": "^0.2.0",
     "@novicell/vue-link": "^0.2.2"
   },

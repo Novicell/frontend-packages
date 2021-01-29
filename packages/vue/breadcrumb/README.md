@@ -23,7 +23,7 @@ The component will automatically register itself if Vue is present on the `windo
 ## Props
 The component takes two props:
 
-### `breadcrumbs`
+**`breadcrumbs`**
 This is an array of links to display in the component.
 
 The links are in the format:
@@ -37,7 +37,7 @@ The links are in the format:
 
 This component uses @novicell/vue-link behind the scenes, which will automatically use a `<NuxtLink>` if the linked resource is internal or an `<a>`-tag if the link is external.
 
-### `modifier`
+**`modifier`**
 A BEM class name modifier that indicates a different variant of the component's styling.
 Currently the following modifiers are allowed:
 - `breadcrumb--shadow`: Sets a gradient shadow and heightens contrast.

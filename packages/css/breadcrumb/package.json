@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Novicell/frontend-packages.git"
   },
-  "private": false,
+  "private": true,
   "publishConfig": {
     "access": "public"
   },
