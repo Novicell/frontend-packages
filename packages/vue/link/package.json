@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-link",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
