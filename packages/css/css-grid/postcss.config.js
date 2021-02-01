@@ -4,7 +4,7 @@ const rootPath = path.resolve('');
 
 module.exports = {
   entry: {
-    all: './src/all.css',
+    grid: './src/grid.css',
     demo: './src/demo.css'
   },
   output: {
