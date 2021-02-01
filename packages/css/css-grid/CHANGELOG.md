@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1 (2021-02-01)
 
-**Note:** Initial release of @novicell/postcss-grid
+**Note:** Initial release of @novicell/flexbox-grid

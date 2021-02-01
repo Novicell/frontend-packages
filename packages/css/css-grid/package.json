@@ -1,9 +1,9 @@
 {
-  "name": "@novicell/css-grid",
+  "name": "@novicell/flexbox-grid",
   "version": "1.1.0",
   "description": "A CSS flexbox grid class package configurable via CSS Custom Properties and PostCSS.",
   "author": "Emil Østervig <ems@novicell.dk>",
-  "homepage": "https://novicell-css-grid.netlify.app",
+  "homepage": "https://novicell-flexbox-grid.netlify.app",
   "main": "dist/grid.css",
   "private": false,
   "files": [
@@ -22,7 +22,7 @@
   "keywords": [
     "css",
     "cssgrid",
-    "css-grid",
+    "flexbox-grid",
     "css-helpers"
   ],
   "license": "MIT",

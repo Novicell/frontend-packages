@@ -20,9 +20,9 @@
       }
     }
   </style>
-  <title>Novicell CSS Grid &#9889;</title>
+  <title>Novicell Flexbox Grid &#9889;</title>
 
-  <!-- Import CSS Grid -->
+  <!-- Import Flexbox Grid -->
   <link rel="stylesheet" href="src/grid.css">
   <link rel="stylesheet" href="src/demo.css">
   
@@ -33,11 +33,11 @@
 
       <div class="row">
         <div class="col-xs">
-          <h1>Novicell CSS Grid &#9889;</h1>
+          <h1>Novicell Flexbox Grid &#9889;</h1>
         </div>
         <div class="col-xs col-xs--nogrow">
-          <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-grid/">
-            <img class="github-logo mb-0" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/github.svg" />
+          <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/flexbox-grid/">
+            <img class="github-logo" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/github.svg" />
           </a>
         </div>      
       </div>
@@ -54,23 +54,23 @@
   </nav>
 
 
-  <section class="mb-6" id="variables">
+  <section id="variables">
     <h3>Overwritable CSS Custom Properties and media-queries</h3>
-    <p class="mb-4">The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-grid/README.md">README.MD</a> on how to do it.</p>
+    <p>The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/flexbox-grid/README.md">README.MD</a> on how to do it.</p>
 <pre><code class="lang-css">/* Gutters and padding */
---css-grid-gutter-width: 30px;
---css-grid-gutter-compensation: calc(var(--css-grid-gutter-width) * -1);
---css-grid-half-gutter-width: calc(var(--css-grid-gutter-width) * 0.5);
---css-grid-half-gutter-compensation: calc(var(--css-grid-half-gutter-width) * -1);
---css-grid-section-margin: 50px;
---css-grid-site-width: 1200px;
+--flexbox-grid-gutter-width: 30px;
+--flexbox-grid-gutter-compensation: calc(var(--flexbox-grid-gutter-width) * -1);
+--flexbox-grid-half-gutter-width: calc(var(--flexbox-grid-gutter-width) * 0.5);
+--flexbox-grid-half-gutter-compensation: calc(var(--flexbox-grid-half-gutter-width) * -1);
+--flexbox-grid-section-margin: 50px;
+--flexbox-grid-site-width: 1200px;
 
 /* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
-@custom-media --css-grid-viewport-ms-min (min-width: 576px);
-@custom-media --css-grid-viewport-sm-min (min-width: 768px);
-@custom-media --css-grid-viewport-md-min (min-width: 992px);
-@custom-media --css-grid-viewport-lg-min (min-width: 1200px);
-@custom-media --css-grid-viewport-xl-min (min-width: 1400px);
+@custom-media --flexbox-grid-viewport-ms-min (min-width: 576px);
+@custom-media --flexbox-grid-viewport-sm-min (min-width: 768px);
+@custom-media --flexbox-grid-viewport-md-min (min-width: 992px);
+@custom-media --flexbox-grid-viewport-lg-min (min-width: 1200px);
+@custom-media --flexbox-grid-viewport-xl-min (min-width: 1400px);
 </code></pre>
   </section>
 
