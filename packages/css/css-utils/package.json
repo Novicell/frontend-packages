@@ -1,20 +1,23 @@
 {
   "name": "@novicell/css-utils",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "homepage": "https://novicell-css-utils.netlify.app",
   "main": "dist/all.css",
+  "files": [
+    "dist"
+  ],
   "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
-    "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "build:html": "cross-env NODE_ENV=compile parcel build index.html --no-cache",
-    "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
-    "generate": "npm run build && npm run compile",
-    "lint": "stylelint \"src/**/*.css\"",
-    "lint:fix": "stylelint \"src/**/*.css\" --fix",
-    "prepublishOnly": "npm run generate"
+    "build:dist": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "build": "npm run build:src && npm run build:dist",
+    "lint": "stylelint 'src/**/*.css'",
+    "lint:fix": "stylelint 'src/**/*.css' --fix",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "css",
