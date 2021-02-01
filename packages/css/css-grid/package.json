@@ -1,25 +1,28 @@
 {
   "name": "@novicell/css-utils",
   "version": "1.1.0",
-  "description": "A CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.",
-  "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
+  "description": "A CSS flexbox grid class package configurable via CSS Custom Properties and PostCSS.",
+  "author": "Emil Østervig <ems@novicell.dk>",
   "homepage": "https://novicell-css-utils.netlify.app",
   "main": "dist/all.css",
   "private": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
-    "build": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "build:html": "cross-env NODE_ENV=compile parcel build index.html --no-cache",
-    "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
-    "generate": "npm run build && npm run compile",
+    "build:dist": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "build": "npm run build:src && npm run build:dist",
     "lint": "stylelint \"src/**/*.css\"",
-    "lint:fix": "stylelint \"src/**/*.css\" --fix",
-    "prepublishOnly": "npm run generate"
+    "lint:fix": "stylelint  \"src/**/*.css\" --fix",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "css",
-    "cssutils",
-    "css-utilties",
+    "cssgrid",
+    "css-grid",
     "css-helpers"
   ],
   "license": "MIT",
@@ -27,10 +30,12 @@
     "cross-env": "^7.0.3",
     "parcel-plugin-stylelint-all": "^0.2.0",
     "postcss-calc": "^7.0.5",
+    "postcss-color-function": "^4.1.0",
     "postcss-conditionals": "^2.1.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-custom-properties": "^10.0.0",
     "postcss-each": "^0.10.0",
+    "postcss-for": "^2.1.1",
     "postcss-import-sync2": "^1.1.0",
     "postcss-media-variables": "^2.0.1",
     "postcss-merge-rules": "^4.0.3",
@@ -40,5 +45,6 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"
   },
-  "gitHead": "1660a38819c8dbad053d9164caa58300bf1d60b1"
+  "gitHead": "1660a38819c8dbad053d9164caa58300bf1d60b1",
+  "dependencies": {}
 }

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://www.novicell.dk/favicon.ico?v=jwLeXMgnYE">
+  <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />  <style>
+    body {
+      max-width: 920px;
+    }
+
+    body,
+    .smooth-container { scroll-behavior: smooth; }
+
+    @media (prefers-color-scheme: dark) {
+      .github-logo {
+        filter: invert(1);
+      }
+    }
+  </style>
+  <title>Novicell CSS Grid &#9889;</title>
+
+  <!-- Import CSS Grid -->
+  <link rel="stylesheet" href="src/grid.css">
+  <link rel="stylesheet" href="src/demo.css">
+  
+</head>
+<body>
+  <header>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs">
+          <h1>Novicell CSS Grid &#9889;</h1>
+        </div>
+        <div class="col-xs col-xs--nogrow">
+          <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-utils/">
+            <img class="github-logo mb-0" height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/github.svg" />
+          </a>
+        </div>      
+      </div>
+        
+    </div>
+  </header>
+
+
+  <h2>Table of contents</h2>
+  <nav class="row">
+    <a class="col-xs-12 nav__link" href="#variables">CSS Custom Properties</a>
+    <a class="col-xs-12 nav__link" href="#containers">Sections, rows & containers</a>
+    <a class="col-xs-12 nav__link" href="#columns">Columns</a>
+  </nav>
+
+
+  <section class="mb-6" id="variables">
+    <h3>Overwritable CSS Custom Properties and media-queries</h3>
+    <p class="mb-4">The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/css-grid/README.md">README.MD</a> on how to do it.</p>
+<pre><code class="lang-css">/* Gutters and padding */
+--css-grid-gutter-width: 30px;
+--css-grid-gutter-compensation: calc(var(--css-grid-gutter-width) * -1);
+--css-grid-half-gutter-width: calc(var(--css-grid-gutter-width) * 0.5);
+--css-grid-half-gutter-compensation: calc(var(--css-grid-half-gutter-width) * -1);
+--css-grid-section-margin: 50px;
+--css-grid-site-width: 1200px;
+
+/* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
+@custom-media --css-grid-viewport-ms-min (min-width: 576px);
+@custom-media --css-grid-viewport-sm-min (min-width: 768px);
+@custom-media --css-grid-viewport-md-min (min-width: 992px);
+@custom-media --css-grid-viewport-lg-min (min-width: 1200px);
+@custom-media --css-grid-viewport-xl-min (min-width: 1400px);
+</code></pre>
+  </section>
+
+
+  <section class="presentation-section" id="containers">
+    <h3>Sections, rows and containers</h3>
+    <p>These classes can be used to contain your columns and structure your content.</p>
+    <h4 class="example-heading">Example</h4>
+    <div class="grid-section">
+      <strong>Reverse columns with .row--reverse</strong>
+      <br>
+      <br>
+      <div class="column-presentation">
+        <div class="container">
+          <div class="row row--reverse">
+            <div class="col-xs-4">.col-xs-4 (1)</div>
+            <div class="col-xs-4">.col-xs-4 (2)</div>
+            <div class="col-xs-4">.col-xs-4 (3)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="grid-section">
+      <strong>Containers (resize window to see behavior)</strong>
+      <br>
+      <br>
+      <div class="row-pull">
+        <div class="column-presentation">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">.container</div>
+            </div>
+          </div>
+          <div class="container container--fluid">
+            <div class="row">
+              <div class="col-xs-12">.container .container--fluid</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <strong>.grid-section</strong>
+    <br>
+    <br>
+    <div class="column-presentation">
+      <div class="grid-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              column inside section 1
+            </div>            
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              column inside section 1
+            </div>            
+          </div>
+        </div>
+      </div>
+      <div class="grid-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              column inside section 2
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+
+    <h4 class="example-heading">Available classes</h4>
+<pre><code class="language-markup">&lt;!-- Sections -->
+&lt;div class="grid-section">&lt;/div>
+
+&lt;!-- Containers -->
+&lt;div class="container">&lt;/div>
+&lt;div class="container container--fluid">&lt;/div>
+
+&lt;!-- Rows-->
+&lt;div class="row">&lt;/div>
+&lt;div class="row row--reverse">&lt;/div>
+</code></pre>
+  </section>
+
+  <section class="presentation-section" id="columns">
+    <h3>Columns</h3>
+    <p>Columns are used to size and align your content. Colums are structured in a grid of 12 spaces per row.</p>
+    <p>Comes in breakpoints xs, ms, sm, md, lg & xl</p>
+    <h4 class="example-heading">Example</h4>
+    
+    <br>
+    <div class="grid-section">
+
+      <strong>Responsive columns</strong>
+      <div class="column-presentation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 col-lg-6">
+              .col-xs-12 .col-sm-8 .col-lg-6
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-section">
+      <strong>Column offset</strong>
+      <div class="column-presentation  column-presentation--row-spacing">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+              .col-xs-6. col-xs-offset-3
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-1">
+              .col-xs-3 .col-xs-offset-1
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+              .col-xs-3 .col-xs-offset-1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="grid-section">
+      <strong>Auto colums</strong>
+      <div class="column-presentation column-presentation--row-spacing">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-4">
+              .col-xs-4
+            </div>
+            <div class="col-xs">
+              .col-xs
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs col-xs--nogrow">
+              <p>.col-xs .col-xs--nogrow</p>
+            </div>
+            <div class="col-xs col-xs--nogrow">
+              <p>.col-xs .col-xs--nogrow</p>
+              <h5>This columns has a lot of text that will force the element to grow in size.</h5>         
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs col-xs--nogrow">
+              <p>.col-xs .col-xs--nogrow</p>
+            </div>
+            <div class="col-xs col-xs--nogrow">
+              <p>.col-xs .col-xs--nogrow</p>
+              <h5>This columns has a lot of text that will force the element to grow in size. It won't fit next to the other column.</h5>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <strong>Auto colums with breakpoint</strong>
+    <div class="grid-section">
+      <div class="column-presentation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md">
+              .col-xs-12 .col-md
+            </div>
+            <div class="col-xs-12 col-md">
+              .col-xs-12 .col-md
+            </div>
+            <div class="col-xs-12 col-md">
+              .col-xs-12 .col-md
+            </div>
+            <div class="col-xs-12 col-md">
+              .col-xs-12 .col-md
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-section">
+      <strong>Reverse column content</strong>
+      <div class="column-presentation">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-xs--reverse">
+              <h5>first child node</h5>
+              <h5>second child node</h5>
+              <p>.col-xs-12 .col-xs--reverse</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h4 class="example-heading">Available classes</h4>
+<pre><code class="language-markup">&lt;!-- Sizes -->
+&lt;div class="col-xs-1">&lt;/div>
+&lt;div class="col-xs-2">&lt;/div>
+&lt;div class="col-xs-3">&lt;/div>
+&lt;div class="col-xs-4">&lt;/div>
+&lt;!-- Continues up to 12 -->
+
+&lt;!-- Offset -->
+&lt;div class="col-xs-offset-1">&lt;/div>
+&lt;div class="col-xs-offset-2">&lt;/div>
+&lt;div class="col-xs-offset-3">&lt;/div>
+&lt;div class="col-xs-offset-4">&lt;/div>
+&lt;!-- Continues up to 12 -->
+
+&lt;!-- Auto colums -->
+&lt;div class="col-xs">&lt;/div>
+&lt;div class="col-ms">&lt;/div>
+&lt;div class="col-sm">&lt;/div>
+&lt;div class="col-md">&lt;/div>
+&lt;div class="col-lg">&lt;/div>
+&lt;div class="col-xl">&lt;/div>
+
+&lt;!-- Auto colums - No grow mode -->
+&lt;div class="col-xs--no-grow">&lt;/div>
+&lt;div class="col-ms--no-grow">&lt;/div>
+&lt;div class="col-sm--no-grow">&lt;/div>
+&lt;div class="col-md--no-grow">&lt;/div>
+&lt;div class="col-lg--no-grow">&lt;/div>
+&lt;div class="col-xl--no-grow">&lt;/div>
+
+&lt;!-- Modifiers-->
+&lt;div class="col-xs--reverse">&lt;/div>
+&lt;div class="col-ms--reverse">&lt;/div>
+&lt;div class="col-sm--reverse">&lt;/div>
+&lt;div class="col-md--reverse">&lt;/div>
+&lt;div class="col-lg--reverse">&lt;/div>
+&lt;div class="col-xl--reverse">&lt;/div>
+
+</code></pre>
+  </section>
+
+
+
+
+
+  <footer class="text-center">
+    Made with &#128150; by <a target="_blank" rel="noopener" href="https://www.novicell.dk">Novicell</a>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zenscroll/4.0.2/zenscroll-min.js" integrity="sha512-u8AVZHNF3Fxvmevg9DJpoSCsc3vs1wr1S52S3XEIVIfIKxXHQexNxEj+fN+XyupzeLvIjPZLZBPmHZveEqhGqA==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+</body>
+</html>

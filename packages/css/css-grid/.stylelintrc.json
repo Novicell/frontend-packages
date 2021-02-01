@@ -1,0 +1,36 @@
+{
+    "extends": [ "stylelint-config-standard", "stylelint-config-rational-order" ],
+    "ignoreFiles": [
+      "dist/**/*"
+    ],
+    "rules": {
+      "indentation": 2,
+      "block-no-empty": true,
+      "color-no-invalid-hex": true,
+      "rule-empty-line-before": [
+        "always",
+        {
+          "ignore": [ "after-comment", "first-nested" ]
+        }
+      ],
+      "unit-no-unknown": true,
+      "property-no-unknown": [
+        true,
+        {
+          "ignoreProperties": [ "/tap-highlight-color/", "string" ]
+        }
+      ],
+      "selector-max-id": 0,
+      "selector-pseudo-class-no-unknown": true,
+      "max-empty-lines": [
+        2,
+        {
+          "ignore": [ "comments" ]
+        }
+      ],
+      "selector-list-comma-newline-after": "always",
+      "at-rule-no-unknown": null,
+      "function-calc-no-invalid": null
+    }
+  }
+  
