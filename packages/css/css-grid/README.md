@@ -27,23 +27,22 @@ npm i @novicell/flexbox-grid
 
 ```css
 /* import the stylesheets in your css file */
-
-/* import everything */
 @import '@novicell/flexbox-grid/dist/grid.css';
 
+```
 
-### Uncompiled / source-code mode
+
+  ### Uncompiled / source-code mode
 
   By importing the sourcode directly from the package, we are able to overwrite the CSS Custom Properties that is used in the helpers.
 
-  **NB:
-  ** in order to overwrite the responsive css helpers you will need to install the `postcss-custom-media` plugin in your project since media-queries with css custom properties. if you don't want to output calc and CSS Custom Properties in your project, you can use the `postcss-custom-properties` and `postcss-calc` to transform these. All CSS Custom Properties can be found on the [documentation site]( https://novicell-flexbox-grid.netlify.app)
+**NB:
+** In order to overwrite the responsive CSS helpers you will need to install the `postcss-custom-media` plugin in your project since media-queries with CSS Custom Properties. If you don't want to output calc and CSS Custom Properties in your project, you can use the `postcss-custom-properties` and `postcss-calc` to transform these. All CSS Custom Properties can be found on the [documentation site]( https://novicell-css-utils.netlify.app)
 **Example**
 ```bash
 // install the package
-npm i @novicell/flexbox-grid;Uncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NB
+npm i @novicell/flexbox-grid;
 ```
-
 ```css
 /* Overwriting custom properties  */
 body {
@@ -54,25 +53,20 @@ body {
 @custom-media --flexbox-grid-viewport-ms-min (min-width: 676px);  /* default is 576px */
 
 /* import the stylesheets in your css file */
-
-/* import everything */
 @import '../../node_modules/@novicell/flexbox-grid/dist/src/grid.css';
 
 ```
-
 ## Documentation
-
-https://novicell-flexbox-grid.netlify.app
-
+https:
+  //novicell-flexbox-grid.netlify.app
 ## Commands
-
-```bash
-npm run dev // starts demo site with HMR
-npm run build // run clean build without PostCSS transformation
-npm run compile // run build with PostCSS transformation
-npm run generate // runs both build and compile
+  ```bash
+  npm run dev // starts demo site with HMR
+npm run build:src // run clean build without PostCSS transformation
+npm run build:dist // run build with PostCSS transformation
+npm run build // runs both build and compile
 npm run lint // run stylelint
-npm run lint:fix // run stylelint and fix fixable errors/warnings
+npm run lint:fix // run stylelint and fix fixable errors/warnings;
 ```
 
 ## Contribution
