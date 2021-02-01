@@ -76,7 +76,7 @@ lerna run wipe && lerna clean && lerna bootstrap && lerna run build
 ### Conventional commits
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, but that we should take a bit more time to make sure our commit messages follow the convention so that all of these will be included when a package is released.
 
-Read and understand [the specs](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to see how to format your commit messages. Specific to this monorepos is that scopes are important for the changelogs. E.g.:
+Read and understand [the specs](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to see how to format your commit messages. Specific to this monorepo is that scopes are important for the changelogs. E.g.:
 ```
 feat(@novicell/css-utils): Added postcss support
 
