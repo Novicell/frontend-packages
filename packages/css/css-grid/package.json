@@ -1,10 +1,10 @@
 {
-  "name": "@novicell/css-utils",
+  "name": "@novicell/css-grid",
   "version": "1.1.0",
   "description": "A CSS flexbox grid class package configurable via CSS Custom Properties and PostCSS.",
   "author": "Emil Østervig <ems@novicell.dk>",
-  "homepage": "https://novicell-css-utils.netlify.app",
-  "main": "dist/all.css",
+  "homepage": "https://novicell-css-grid.netlify.app",
+  "main": "dist/grid.css",
   "private": false,
   "files": [
     "dist"

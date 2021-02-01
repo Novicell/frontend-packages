@@ -1,4 +1,4 @@
-# Novicell CSS Utils
+# Novicell CSS Grid
 
 ![npm](https://img.shields.io/npm/v/@novicell/css-grid) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/css-grid)
 
@@ -41,7 +41,7 @@ npm i @novicell/css-grid
 **Example**
 ```bash
 // install the package
-npm i @novicell/css-grid;Uncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NB
+npm i @novicell/css-grid;Uncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NBUncompiledsource-codemodeByimportingthesourcodedirectlyfromthepackage,weareabletooverwritetheCSSCustomPropertiesthatisusedinthehelpers.**NB
 ```
 
 ```css
@@ -81,4 +81,4 @@ Looking to contribute something? Here's how you can help. Please take a moment t
 
 ## License
 
-The Novicell CSS Utils is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+The Novicell CSS Grid is licensed under the MIT license. (http://opensource.org/licenses/MIT)
