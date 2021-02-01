@@ -5,6 +5,9 @@
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "homepage": "https://novicell-css-utils.netlify.app",
   "main": "dist/all.css",
+  "files": [
+    "dist"
+  ],
   "private": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
