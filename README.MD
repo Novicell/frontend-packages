@@ -88,7 +88,7 @@ The previous example specifies a feature, which will bump the minor version auto
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.
 2. Add dependencies with `lerna add @novicell/<package> --scope=@novicell/<this-package>` - Bootstrapping and symlinking comes automatically - if you change/break things refer to [Bootstrapping](#bootstrapping "Bootstrapping") and [Cleaning up](#cleaning-up "Cleaning up").
-3. Commit the package with [Conventional Commits](#conventional-commits "Conventional Commits).
+3. Commit the package with [Conventional Commits](#conventional-commits "Conventional Commits").
 4. Login to NPM with `npm login`.
 5. Publish (and build) the package with `lerna publish --conventional-commits`
 6. Sip espresso ☕
