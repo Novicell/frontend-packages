@@ -64,7 +64,7 @@ If the dependencies are acting wonky, using `lerna clean` will delete all `node_
 
 ~~To quickly reset all dependencies and builds, you can run:~~ **wipe not yet implemented**
 ```
-lerna run wipe &&~~ lerna clean && lerna bootstrap && lerna run build
+lerna run wipe && lerna clean && lerna bootstrap && lerna run build
 ```
 
 ## Running arbitrary commands
