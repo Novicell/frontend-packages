@@ -1,0 +1,124 @@
+/*
+// Css flexbox grid
+*/
+
+:root {
+  --flexbox-grid-gutter-width: 30px;
+  --flexbox-grid-gutter-compensation: calc(var(--flexbox-grid-gutter-width) * -1);
+  --flexbox-grid-half-gutter-width: calc(var(--flexbox-grid-gutter-width) * 0.5);
+  --flexbox-grid-half-gutter-compensation: calc(var(--flexbox-grid-half-gutter-width) * -1);
+  --flexbox-grid-section-margin: 50px;
+  --flexbox-grid-container-width: 1200px;
+}
+
+
+/* Containers and rows */
+.grid-section {
+  margin-bottom: var(--flexbox-grid-section-margin);
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--flexbox-grid-container-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--flexbox-grid-half-gutter-width);
+  padding-left: var(--flexbox-grid-half-gutter-width);
+
+  &--fluid {
+    max-width: 100%;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin-right: var(--flexbox-grid-half-gutter-compensation);
+  margin-left: var(--flexbox-grid-half-gutter-compensation);
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Columns general */
+
+[class^='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Columns - size specifics */
+.col-xs {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: var(--flexbox-grid-half-gutter-width);
+  padding-left: var(--flexbox-grid-half-gutter-width);
+
+  &--reverse {
+    flex-direction: column-reverse;
+  }
+
+  &--nogrow {
+    flex-basis: auto;
+    flex-grow: 0;
+  }
+}
+
+@each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
+  .col-xs-$(i) {
+    flex: 0 0 auto;
+    flex-basis: percentage(calc($i / 12));
+    box-sizing: border-box;
+    max-width: percentage(calc($i / 12));
+    padding-right: var(--flexbox-grid-half-gutter-width);
+    padding-left: var(--flexbox-grid-half-gutter-width);
+  }
+
+  .col-xs-offset-$(i) {
+    margin-left: percentage(calc($i / 12));
+  }
+}
+
+@each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--flexbox-grid-viewport-ms-min, --flexbox-grid-viewport-sm-min, --flexbox-grid-viewport-md-min, --flexbox-grid-viewport-lg-min, --flexbox-grid-viewport-xl-min) {
+  @media ($(breakpoint-name)) {
+    .col-$(breakpoint) {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+      padding-right: var(--flexbox-grid-half-gutter-width);
+      padding-left: var(--flexbox-grid-half-gutter-width);
+
+      &--nogrow {
+        flex-basis: auto;
+        flex-grow: 0;
+      }
+
+      &--reverse {
+        flex-direction: column-reverse;
+      }
+    }
+
+    @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
+      .col-$(breakpoint)-$(i) {
+        flex: 0 0 auto;
+        flex-basis: percentage(calc($i / 12));
+        box-sizing: border-box;
+        max-width: percentage(calc($i / 12));
+        padding-right: var(--flexbox-grid-half-gutter-width);
+        padding-left: var(--flexbox-grid-half-gutter-width);
+      }
+
+      .col-$(breakpoint)-offset-$(i) {
+        margin-left: percentage(calc($i / 12));
+      }
+    }
+  }
+}
