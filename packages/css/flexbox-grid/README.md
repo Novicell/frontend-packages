@@ -17,6 +17,7 @@ By using the compiled mode - you won't be able to change the CSS Custom Properti
 ```html
 <!-- Import grid -->
 <script src="https://cdn.jsdelivr.net/npm/@novicell/flexbox-grid/dist/grid.css"></script>
+```
 
 **NPM example**
 
@@ -28,7 +29,6 @@ npm i @novicell/flexbox-grid
 ```css
 /* import the stylesheets in your css file */
 @import '@novicell/flexbox-grid/dist/grid.css';
-
 ```
 
 
@@ -36,8 +36,7 @@ npm i @novicell/flexbox-grid
 
   By importing the sourcode directly from the package, we are able to overwrite the CSS Custom Properties that is used in the helpers.
 
-**NB:
-** In order to overwrite the responsive CSS helpers you will need to install the `postcss-custom-media` plugin in your project since media-queries with CSS Custom Properties. If you don't want to output calc and CSS Custom Properties in your project, you can use the `postcss-custom-properties` and `postcss-calc` to transform these. All CSS Custom Properties can be found on the [documentation site]( https://novicell-css-utils.netlify.app)
+**NB:** In order to overwrite the responsive CSS helpers you will need to install the `postcss-custom-media` plugin in your project since media-queries with CSS Custom Properties. If you don't want to output calc and CSS Custom Properties in your project, you can use the `postcss-custom-properties` and `postcss-calc` to transform these. All CSS Custom Properties can be found on the [documentation site]( https://novicell-flexbox-grid.netlify.app)
 **Example**
 ```bash
 // install the package
@@ -54,14 +53,12 @@ body {
 
 /* import the stylesheets in your css file */
 @import '../../node_modules/@novicell/flexbox-grid/dist/src/grid.css';
-
 ```
 ## Documentation
-https:
-  //novicell-flexbox-grid.netlify.app
+https://novicell-flexbox-grid.netlify.app
 ## Commands
   ```bash
-  npm run dev // starts demo site with HMR
+npm run dev // starts demo site with HMR
 npm run build:src // run clean build without PostCSS transformation
 npm run build:dist // run build with PostCSS transformation
 npm run build // runs both build and compile

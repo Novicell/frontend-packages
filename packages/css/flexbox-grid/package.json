@@ -11,9 +11,9 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
-    "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "build:src": "npm run lint:fix && parcel build src/grid.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "build:html": "cross-env NODE_ENV=compile parcel build index.html --no-cache",
-    "build:dist": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "build:dist": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/grid.css --no-content-hash --no-source-maps --no-cache",
     "build": "npm run build:src && npm run build:dist",
     "lint": "stylelint \"src/**/*.css\"",
     "lint:fix": "stylelint  \"src/**/*.css\" --fix",
