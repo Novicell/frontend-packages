@@ -1,6 +1,6 @@
 {
   "name": "@novicell/flexbox-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CSS flexbox grid package configurable via CSS Custom Properties and PostCSS.",
   "author": "Emil Østervig <ems@novicell.dk>",
   "homepage": "https://novicell-flexbox-grid.netlify.app",
