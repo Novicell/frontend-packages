@@ -76,7 +76,7 @@
   }
 }
 
-@each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--flexbox-grid-viewport-ms-min, --flexbox-grid-viewport-sm-min, --flexbox-grid-viewport-md-min, --flexbox-grid-viewport-lg-min, --flexbox-grid-viewport-xl-min) {
+@each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
     .col-$(breakpoint) {
       flex-basis: 0;
