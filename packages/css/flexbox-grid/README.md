@@ -59,7 +59,7 @@ body {
 }
 
 /* Overwriting custom media-queries  */
-@custom-media --flexbox-grid-viewport-ms-min (min-width: 676px);  /* default is 576px */
+@custom-media --viewport-ms-min (min-width: 676px);  /* default is 576px */
 
 /* import the stylesheets in your css file */
 @import '../../node_modules/@novicell/flexbox-grid/dist/src/grid.css';

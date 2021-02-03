@@ -1,6 +1,6 @@
 {
   "name": "@novicell/flexbox-grid",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "A CSS flexbox grid package configurable via CSS Custom Properties and PostCSS.",
   "author": "Emil Østervig <ems@novicell.dk>",
   "homepage": "https://novicell-flexbox-grid.netlify.app",
@@ -43,6 +43,5 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"
   },
-  "gitHead": "1660a38819c8dbad053d9164caa58300bf1d60b1",
-  "dependencies": {}
+  "gitHead": "690427be07de924d036d8be357fcb599762c59f3"
 }
