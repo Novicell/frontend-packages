@@ -36,13 +36,6 @@
   }
 }
 
-/* Columns general */
-[class^='col-'] {
-  display: flex;
-  flex-direction: column;
-}
-
-
 /* Columns - size specifics */
 .col-xs {
   flex-basis: 0;
@@ -50,10 +43,6 @@
   max-width: 100%;
   padding-right: var(--flexbox-grid-half-gutter-width, 15px);
   padding-left: var(--flexbox-grid-half-gutter-width, 15px);
-
-  &--reverse {
-    flex-direction: column-reverse;
-  }
 
   &--nogrow {
     flex-basis: auto;
@@ -90,9 +79,6 @@
         flex-grow: 0;
       }
 
-      &--reverse {
-        flex-direction: column-reverse;
-      }
     }
 
     @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
