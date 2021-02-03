@@ -58,19 +58,17 @@
     <h3>Overwritable CSS Custom Properties and media-queries</h3>
     <p>The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/flexbox-grid/README.md">README.MD</a> on how to do it.</p>
 <pre><code class="lang-css">/* Gutters and padding */
---flexbox-grid-gutter-width: 30px;
---flexbox-grid-gutter-compensation: calc(var(--flexbox-grid-gutter-width) * -1);
---flexbox-grid-half-gutter-width: calc(var(--flexbox-grid-gutter-width) * 0.5);
---flexbox-grid-half-gutter-compensation: calc(var(--flexbox-grid-half-gutter-width) * -1);
+--flexbox-grid-half-gutter-width: 15px;
+--flexbox-grid-half-gutter-compensation: 15px;
 --flexbox-grid-section-margin: 50px;
 --flexbox-grid-site-width: 1200px;
 
 /* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
-@custom-media --flexbox-grid-viewport-ms-min (min-width: 576px);
-@custom-media --flexbox-grid-viewport-sm-min (min-width: 768px);
-@custom-media --flexbox-grid-viewport-md-min (min-width: 992px);
-@custom-media --flexbox-grid-viewport-lg-min (min-width: 1200px);
-@custom-media --flexbox-grid-viewport-xl-min (min-width: 1400px);
+@custom-media --viewport-ms-min (min-width: 576px);
+@custom-media --viewport-sm-min (min-width: 768px);
+@custom-media --viewport-md-min (min-width: 992px);
+@custom-media --viewport-lg-min (min-width: 1200px);
+@custom-media --viewport-xl-min (min-width: 1400px);
 </code></pre>
   </section>
 
