@@ -13,8 +13,8 @@
   max-width: var(--flexbox-grid-container-width, 1200px);
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--flexbox-grid-half-gutter-width, 15px);
-  padding-left: var(--flexbox-grid-half-gutter-width, 15px);
+  padding-right: var(--flexbox-grid-container-spacing, 40px);
+  padding-left: var(--flexbox-grid-container-spacing, 40px);
 
   &--fluid {
     max-width: 100%;
