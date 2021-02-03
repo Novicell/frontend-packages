@@ -58,12 +58,11 @@
     <h3>Overwritable CSS Custom Properties and media-queries</h3>
     <p>The following CSS Custom Properties can be overwritten inside your project. See <a href="https://github.com/Novicell/frontend-packages/blob/master/packages/css/flexbox-grid/README.md">README.MD</a> on how to do it.</p>
 <pre><code class="lang-css">/* Gutters and padding */
---flexbox-grid-gutter-width: 30px;
---flexbox-grid-gutter-compensation: calc(var(--flexbox-grid-gutter-width) * -1);
---flexbox-grid-half-gutter-width: calc(var(--flexbox-grid-gutter-width) * 0.5);
---flexbox-grid-half-gutter-compensation: calc(var(--flexbox-grid-half-gutter-width) * -1);
 --flexbox-grid-section-margin: 50px;
---flexbox-grid-site-width: 1200px;
+--flexbox-grid-container-width: 1200px;
+--flexbox-grid-container-spacing: 40px;
+--flexbox-grid-half-gutter-width: 15px;
+--flexbox-grid-half-gutter-compensation: 15px;
 
 /* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
 @custom-media --viewport-ms-min (min-width: 576px);
@@ -237,7 +236,7 @@
         </div>
       </div>
     </div>
-    <strong>Auto colums with breakpoint</strong>
+    <strong>Auto colums with breakpoint (resize to see behavior)</strong>
     <div class="grid-section">
       <div class="column-presentation">
         <div class="container">
@@ -253,20 +252,6 @@
             </div>
             <div class="col-xs-12 col-md">
               .col-xs-12 .col-md
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="grid-section">
-      <strong>Reverse column content</strong>
-      <div class="column-presentation">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 col-xs--reverse">
-              <h5>first child node</h5>
-              <h5>second child node</h5>
-              <p>.col-xs-12 .col-xs--reverse</p>
             </div>
           </div>
         </div>
@@ -303,14 +288,6 @@
 &lt;div class="col-md--no-grow">&lt;/div>
 &lt;div class="col-lg--no-grow">&lt;/div>
 &lt;div class="col-xl--no-grow">&lt;/div>
-
-&lt;!-- Modifiers-->
-&lt;div class="col-xs--reverse">&lt;/div>
-&lt;div class="col-ms--reverse">&lt;/div>
-&lt;div class="col-sm--reverse">&lt;/div>
-&lt;div class="col-md--reverse">&lt;/div>
-&lt;div class="col-lg--reverse">&lt;/div>
-&lt;div class="col-xl--reverse">&lt;/div>
 
 </code></pre>
   </section>

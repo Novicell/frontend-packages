@@ -2,29 +2,19 @@
 // Css flexbox grid
 */
 
-:root {
-  --flexbox-grid-gutter-width: 30px;
-  --flexbox-grid-gutter-compensation: calc(var(--flexbox-grid-gutter-width) * -1);
-  --flexbox-grid-half-gutter-width: calc(var(--flexbox-grid-gutter-width) * 0.5);
-  --flexbox-grid-half-gutter-compensation: calc(var(--flexbox-grid-half-gutter-width) * -1);
-  --flexbox-grid-section-margin: 50px;
-  --flexbox-grid-container-width: 1200px;
-}
-
-
 /* Containers and rows */
 .grid-section {
-  margin-bottom: var(--flexbox-grid-section-margin);
+  margin-bottom: var(--flexbox-grid-section-margin, 50px);
 }
 
 .container {
   box-sizing: border-box;
   width: 100%;
-  max-width: var(--flexbox-grid-container-width);
+  max-width: var(--flexbox-grid-container-width, 1200px);
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--flexbox-grid-half-gutter-width);
-  padding-left: var(--flexbox-grid-half-gutter-width);
+  padding-right: var(--flexbox-grid-container-spacing, 40px);
+  padding-left: var(--flexbox-grid-container-spacing, 40px);
 
   &--fluid {
     max-width: 100%;
@@ -38,33 +28,21 @@
   flex-shrink: 1;
   flex-wrap: wrap;
   box-sizing: border-box;
-  margin-right: var(--flexbox-grid-half-gutter-compensation);
-  margin-left: var(--flexbox-grid-half-gutter-compensation);
+  margin-right: var(--flexbox-grid-half-gutter-compensation, -15px);
+  margin-left: var(--flexbox-grid-half-gutter-compensation, -15px);
 
   &--reverse {
     flex-direction: row-reverse;
   }
 }
 
-/* Columns general */
-
-[class^='col-'] {
-  display: flex;
-  flex-direction: column;
-}
-
-
 /* Columns - size specifics */
 .col-xs {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
-  padding-right: var(--flexbox-grid-half-gutter-width);
-  padding-left: var(--flexbox-grid-half-gutter-width);
-
-  &--reverse {
-    flex-direction: column-reverse;
-  }
+  padding-right: var(--flexbox-grid-half-gutter-width, 15px);
+  padding-left: var(--flexbox-grid-half-gutter-width, 15px);
 
   &--nogrow {
     flex-basis: auto;
@@ -75,15 +53,15 @@
 @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
   .col-xs-$(i) {
     flex: 0 0 auto;
-    flex-basis: percentage(calc($i / 12));
+    flex-basis: calc($i / 12 * 100%);
     box-sizing: border-box;
-    max-width: percentage(calc($i / 12));
-    padding-right: var(--flexbox-grid-half-gutter-width);
-    padding-left: var(--flexbox-grid-half-gutter-width);
+    max-width: calc($i / 12 * 100%);
+    padding-right: var(--flexbox-grid-half-gutter-width, 15px);
+    padding-left: var(--flexbox-grid-half-gutter-width, 15px);
   }
 
   .col-xs-offset-$(i) {
-    margin-left: percentage(calc($i / 12));
+    margin-left: calc($i / 12 * 100%);
   }
 }
 
@@ -93,31 +71,28 @@
       flex-basis: 0;
       flex-grow: 1;
       max-width: 100%;
-      padding-right: var(--flexbox-grid-half-gutter-width);
-      padding-left: var(--flexbox-grid-half-gutter-width);
+      padding-right: var(--flexbox-grid-half-gutter-width, 15px);
+      padding-left: var(--flexbox-grid-half-gutter-width, 15px);
 
       &--nogrow {
         flex-basis: auto;
         flex-grow: 0;
       }
 
-      &--reverse {
-        flex-direction: column-reverse;
-      }
     }
 
     @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
       .col-$(breakpoint)-$(i) {
         flex: 0 0 auto;
-        flex-basis: percentage(calc($i / 12));
+        flex-basis: calc($i / 12 * 100%);
         box-sizing: border-box;
-        max-width: percentage(calc($i / 12));
-        padding-right: var(--flexbox-grid-half-gutter-width);
-        padding-left: var(--flexbox-grid-half-gutter-width);
+        max-width: calc($i / 12 * 100%);
+        padding-right: var(--flexbox-grid-half-gutter-width, 15px);
+        padding-left: var(--flexbox-grid-half-gutter-width, 15px);
       }
 
       .col-$(breakpoint)-offset-$(i) {
-        margin-left: percentage(calc($i / 12));
+        margin-left: calc($i / 12 * 100%);
       }
     }
   }
