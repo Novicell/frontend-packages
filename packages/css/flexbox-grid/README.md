@@ -34,7 +34,17 @@ npm i @novicell/flexbox-grid
 
   ### Uncompiled / source-code mode
 
-  By importing the sourcode directly from the package, we are able to overwrite the CSS Custom Properties that is used in the helpers.
+  By importing the source code directly from the package, we are able to overwrite the CSS Custom Properties that is used in the helpers.
+  
+  **Dependencies**:
+POSTCSS dependencies for the project are, these are not included as dependencies in package.json to allow better customization. Make sure your postss.config.js has these included:
+`postcss-each`
+`postcss-nested`
+`postcss-custom-calc`
+`postcss-custom-media`
+`postcss-custom-properties`
+
+Due to how POSTCSS handles parsing the CSS, you should always include `postcss-each` as as early as possible in your array of plugins.
 
 **NB:** In order to overwrite the responsive CSS helpers you will need to install the `postcss-custom-media` plugin in your project since media-queries with CSS Custom Properties. If you don't want to output calc and CSS Custom Properties in your project, you can use the `postcss-custom-properties` and `postcss-calc` to transform these. All CSS Custom Properties can be found on the [documentation site]( https://novicell-flexbox-grid.netlify.app)
 **Example**
