@@ -75,15 +75,15 @@
 @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
   .col-xs-$(i) {
     flex: 0 0 auto;
-    flex-basis: percentage(calc($i / 12));
+    flex-basis: calc($i / 12 * 100%);
     box-sizing: border-box;
-    max-width: percentage(calc($i / 12));
+    max-width: calc($i / 12 * 100%);
     padding-right: var(--flexbox-grid-half-gutter-width);
     padding-left: var(--flexbox-grid-half-gutter-width);
   }
 
   .col-xs-offset-$(i) {
-    margin-left: percentage(calc($i / 12));
+    margin-left: calc($i / 12 * 100%);
   }
 }
 
@@ -109,15 +109,15 @@
     @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {
       .col-$(breakpoint)-$(i) {
         flex: 0 0 auto;
-        flex-basis: percentage(calc($i / 12));
+        flex-basis: calc($i / 12 * 100%);
         box-sizing: border-box;
-        max-width: percentage(calc($i / 12));
+        max-width: calc($i / 12 * 100%);
         padding-right: var(--flexbox-grid-half-gutter-width);
         padding-left: var(--flexbox-grid-half-gutter-width);
       }
 
       .col-$(breakpoint)-offset-$(i) {
-        margin-left: percentage(calc($i / 12));
+        margin-left: calc($i / 12 * 100%);
       }
     }
   }
