@@ -7,11 +7,11 @@ export default {
     },
     name: {
       type: String,
-      required: true,
+      default: '',
     },
     title: {
       type: String,
-      required: true,
+      default: '',
     },
     target: {
       type: String,
