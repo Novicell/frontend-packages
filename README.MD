@@ -70,6 +70,12 @@ lerna run wipe && lerna clean && lerna bootstrap && lerna run build
 ## Running arbitrary commands
 `lerna run <script>` can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts"). `lerna run build` will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
+Adding the `--stream` flag will stream the output of all of the run scripts to your terminal. To add parameters to the run scripts you will need to do add `--`. E.g.:
+```
+lerna run lint --stream --scope=@novicell/flexbox-grid -- --fix
+```
+In the above example both `--stream` and `--scope` are passed to `lerna run`, but `--fix` is passed on to the `lint` script.
+
 ## Versioning, changelogs & publishing
 `lerna publish --conventional-commits` will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
 
