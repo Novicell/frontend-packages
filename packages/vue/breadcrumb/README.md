@@ -8,7 +8,7 @@ This package contains a basic, styled breadcrumb component for Vue and Nuxt. The
 A quick demo is available [on codepen](https://codepen.io/Novicell/pen/ExNPRoN "codepen.io").
 
 ## How to use
-The breadcrumb Vue component can be used in both a browser environment and a self-built single file component.
+The breadcrumb Vue component can be used in both a browser environment and a self-built single file component. If you are using Vue, you will obviously have to configure Vue Router also.
 
 ### Single File Component
 To install the component in your project, run the command:
@@ -27,6 +27,7 @@ The component will automatically register itself if Vue is present on the `windo
 The component takes two props:
 
 **`breadcrumbs`**
+
 This is an array of links to display in the component.
 
 The links are in the format:
@@ -41,6 +42,7 @@ The links are in the format:
 This component uses @novicell/vue-link behind the scenes, which will automatically use a `<NuxtLink>` if the linked resource is internal or an `<a>`-tag if the link is external.
 
 **`modifier`**
+
 A BEM class name modifier that indicates a different variant of the component's styling.
 Currently the following modifiers are allowed:
 - `breadcrumb--shadow`: Sets a gradient shadow and heightens contrast.
@@ -80,7 +82,8 @@ export default {
 ```
 ### Browser
 ```
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>
 
 <div id="app">
@@ -90,6 +93,7 @@ export default {
 <script>
   const app = new Vue({
     el: '#app',
+    # I am already a registered component
     data() {
       return {
         links: [
