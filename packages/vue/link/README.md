@@ -1,21 +1,108 @@
-## This is a work in progress
 # Novicell Link Vue Component
-A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.
 
-## Installation
-To install this component, simply run `npm i @novicell/link`, ~~or reference it in a script tag: `<script src="example"></script>`~~.
+![npm](https://img.shields.io/npm/v/@novicell/vue-link) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-link)
 
-## Usage
-This component can be used in a SFC, if you are compiling your own Vue components by simply including: `import NcLink from '@novicell/link` in your Vue component script.
+A Vue / Nuxt link component, that automatically switches between an anchor-tag and `router-link` or `n-link` depending on whether the provided link is internal or external and whether `this.$nuxt` is present on the component or not.
 
-Alternatively a precompiled component will be automatically registered on your Vue instance when including it with a script tag as specified under [Installation](#installation).
+## Demo
+For a demo, we refer to [the codepen](https://codepen.io/Novicell/pen/ExNPRoN "codepen.io") of `@novicell/vue-breadcrumb` that depends on this component.
 
-## Commands
-npm run dev // try out the component in the browser
-npm run build // builds the component for both SFC usage and through a script tag
+## How to use
+The link component can be used in both a browser environment and a self-built single file component. If you are using Vue, you will obviously have to configure Vue Router also.
+
+### Single File Component
+To install the component in your project, run the command:
+`npm i @novicell/vue-link`.
+
+The component can then be imported inside your Vue project with:
+`import NcLink from '@novicell/vue-link`.
+
+### Browser
+To reference the component in your project, add the following script tag to your page:
+`<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-link/dist/nc-link.min.js"></script>`.
+
+The component will automatically register itself if Vue is present on the `window` object.
+
+## Props
+The component takes four props:
+
+**`to`**
+
+This is the URL the link should point to.
+```
+type: String
+required: true
+```
+
+**`name`**
+
+String that binds to `aria-label`.
+```
+type: String
+default: ''
+```
+
+**`title`**
+
+The text that is displayed when the link is hovered.
+```
+type: String
+default: ''
+```
+
+**`target`**
+
+This defines how to open the link.
+```
+type: String
+default: '_self'
+```
+
+## Examples
+### SFC
+```
+<template>
+  <NcLink to="/subpage" title="Hover text" name="Explains the link if there is no text inside me" target="_blank">
+    Take me to /subpage
+  </NcLink>
+</template>
+
+<script>
+import NcLink from '@novicell/vue-link'
+
+export default {
+  components: {
+    NcLink
+  }
+}
+</script>
+```
+
+### Browser
+```
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-link/dist/nc-link.min.js"></script>
+
+<div id="app">
+  <nc-link to="/subpage" title="Hover text" name="Explains the link if there is no text inside me" target="_blank">
+    Take me to /subpage
+  </nc-link>
+</div>
+
+<script>
+  const app = new Vue({
+    el: '#app'
+    # I am already a registered component
+</script>
+```
 
 ## Contribution
 Looking to contribute something? Here's how you can help. Please take a moment to review our [contribution guidelines](https://github.com/Novicell/novicell-frontend/wiki/Contribution-guidelines) in order to make the contribution process easy and effective for everyone involved.
 
 ## License
-The Novicell CSS Utils is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+The Novicell Breadcrumb Vue Component is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+
+
+
+
