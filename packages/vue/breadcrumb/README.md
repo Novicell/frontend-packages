@@ -2,21 +2,24 @@
 
 ![npm](https://img.shields.io/npm/v/@novicell/vue-breadcrumb) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-breadcrumb)
 
-This package contains a basic, styled breadcrumb component for Vue.
+This package contains a basic, styled breadcrumb component for Vue and Nuxt. The links check for the presence of `this.$nuxt` to determine whether to use `router-link` (Vue) or `n-link` (Nuxt) for internal links.
+
+## Demo
+A quick demo is available [on codepen](https://codepen.io/Novicell/pen/ExNPRoN "codepen.io").
 
 ## How to use
 The breadcrumb Vue component can be used in both a browser environment and a self-built single file component.
 
 ### Single File Component
 To install the component in your project, run the command:
-`npm i @novicell/breadcrumb`
+`npm i @novicell/breadcrumb`.
 
 The component can then be imported inside your Vue project with:
-`import NcBreadcrumb from '@novicell/vue-breadcrumb`
+`import NcBreadcrumb from '@novicell/vue-breadcrumb`.
 
 ### Browser
 To reference the component in your project, add the following script tag to your page:
-`<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>`
+`<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>`.
 
 The component will automatically register itself if Vue is present on the `window` object.
 
