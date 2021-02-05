@@ -12,7 +12,7 @@ The breadcrumb Vue component can be used in both a browser environment and a sel
 
 ### Single File Component
 To install the component in your project, run the command:
-`npm i @novicell/breadcrumb`.
+`npm i @novicell/vue-breadcrumb`.
 
 The component can then be imported inside your Vue project with:
 `import NcBreadcrumb from '@novicell/vue-breadcrumb`.
