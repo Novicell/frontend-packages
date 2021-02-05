@@ -1,0 +1,44 @@
+{
+  "name": "@novicell/vue-link",
+  "version": "0.3.2",
+  "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
+  "repository": {
+    "url": "https://github.com/Novicell/frontend-packages"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/nc-link.umd.js",
+  "module": "dist/nc-link.esm.js",
+  "unpkg": "dist/nc-link.min.js",
+  "browser": {
+    "./sfc": "src/nc-link.vue"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "vue serve --help",
+    "dev": "vue serve --open src/nc-link.vue",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-link.umd.js",
+    "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-link.esm.js",
+    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-link.min.js",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@vue/cli": "^4.5.8",
+    "@vue/cli-service-global": "^4.5.8",
+    "rollup": "~2.33.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "2.6.12",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
+}

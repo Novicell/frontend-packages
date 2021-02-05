@@ -1,0 +1,39 @@
+/*
+// Position
+*/
+
+.p-absolute {
+      position: absolute;
+    }
+
+.p-static {
+      position: static;
+    }
+
+.p-fixed {
+      position: fixed;
+    }
+
+.p-sticky {
+      position: sticky;
+    }
+
+.p-relative {
+      position: relative;
+    }
+
+.p-revert {
+      position: revert;
+    }
+
+.p-unset {
+      position: unset;
+    }
+
+.p-initial {
+      position: initial;
+    }
+
+.p-inherit {
+      position: inherit;
+    }

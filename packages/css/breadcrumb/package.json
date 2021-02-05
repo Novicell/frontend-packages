@@ -1,0 +1,38 @@
+{
+  "name": "@novicell/styles-breadcrumb",
+  "version": "0.2.3",
+  "description": "The stylesheet for @novicell/breadcrumb as compiled CSS and raw postCSS.",
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "homepage": "https://github.com/Novicell/frontend-packages#readme",
+  "license": "MIT",
+  "main": "dist/index.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novicell/frontend-packages.git"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
+    "compile": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
+    "build": "npm run build:src && npm run compile",
+    "lint": "stylelint 'src/**/*.css'",
+    "lint:fix": "stylelint 'src/**/*.css' --fix",
+    "prepublishOnly": "npm run generate"
+  },
+  "dependencies": {
+    "postcss-nested": "^4.2.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "parcel-plugin-stylelint-all": "^0.2.0"
+  },
+  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
+}
