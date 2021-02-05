@@ -36,7 +36,7 @@ export default {
       );
     }
     return h(
-      'n-link',
+      this.$nuxt ? 'n-link' : 'router-link',
       {
         attrs: {
           'aria-label': this.name,
