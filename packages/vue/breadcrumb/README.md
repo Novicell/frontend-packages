@@ -31,7 +31,7 @@ The links are in the format:
 {
   url: string // Relative route or absolute link
   title: string // The text to display when hovering over the link
-  text: string" // The text to display on the link
+  text: string // The text to display on the link
 }
 ```
 
