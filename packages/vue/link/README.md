@@ -93,7 +93,7 @@ export default {
 <script>
   const app = new Vue({
     el: '#app'
-    # I am already a registered component
+    // I am already a registered component
 </script>
 ```
 
