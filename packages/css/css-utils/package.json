@@ -10,6 +10,7 @@
   ],
   "private": false,
   "scripts": {
+    "wipe": "rimraf dist/",
     "dev": "cross-env NODE_ENV=compile parcel index.html --no-cache",
     "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "build:html": "cross-env NODE_ENV=compile parcel build index.html --no-cache",
