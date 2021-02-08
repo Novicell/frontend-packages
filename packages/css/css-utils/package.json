@@ -1,6 +1,6 @@
 {
   "name": "@novicell/css-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A CSS utility class package inspired by Bootstrap 4 CSS utilities and configurable via CSS Custom Properties and PostCSS.",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "homepage": "https://novicell-css-utils.netlify.app",
