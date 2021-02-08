@@ -83,7 +83,25 @@ In the above example both `--stream` and `--scope` are passed to `lerna run`, bu
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
 #### Message formatting
-You will have to include an empty line between the summary, description, and footer when writing a multiline message. Also, there can be issues with using an exclamation mark (`!`) without escaping the character and with specifying the type as `BREAKING CHANGE` when testing the message with `commitlint`, so we recommend always specifying breaking changes in the footer as in the multiline [example below](#commitlint).
+You will have to include an empty line between the summary, description, and footer when writing a multiline message. When committing a breaking change, use a bang (`!`) after the type (and scope if there is any) or add the `BREAKING CHANGE` footer.
+
+🙂:
+```
+> git commit -m "feat!: something is not backwards compatible"
+```
+😁:
+```
+> git commit
+feat: something is not backwards compatible
+
+description goes here
+
+BREAKING CHANGE: the thing that broke compatibility
+```
+👿:
+```
+git commit -m "BREAKING CHANGE: something is not backwards compatible"
+```
 
 Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
 
@@ -92,16 +110,18 @@ Too see if your commit message is formatted correctly, test it with `commitlint`
 
 This will pass:
 ```
-> echo "feat(vue-breadcrumb): Added more features" | npx commitlint
+> echo 'feat(vue-breadcrumb): added more features' | npx commitlint
 ```
-or for multiline commit messages - just omit the last `"`:
+or for multiline commit messages - just omit the last `'` on the first line:
 ```
-> echo "feat(vue-breadcrumb): Added more features
+> echo 'feat(vue-breadcrumb): added more features
 >
-> This is an in depth description of the features added
+> this is an in depth description of the features added
 >
-> BREAKING CHANGE: This one feature needs to bump the major version of the package" | npx commitlint
+> BREAKING CHANGE: this one feature needs to bump the major version of the package' | npx commitlint
 ```
+**Note:**
+When using `!` to indicate a breaking change with `commitlint`, you will have to echo with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
