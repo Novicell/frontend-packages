@@ -123,6 +123,16 @@ or for multiline commit messages - just omit the last `'` on the first line:
 **Note:**
 When using `!` to indicate a breaking change with `commitlint`, you will have to echo with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
+### Override default behaviour
+If for some reason the version numbers do not behave as expected or you need to manually version and publish packages, it is possible to change a version number manually by editing the `package.json`. When committing this change, you can use the flag `--no-verify` to circumvent commitlint and husky:
+```
+> git commit -m "non-compliant commit message" --no-verify
+```
+To then publish the package without implicitly calling `lerna version` you can use:
+```
+> lerna publish from-package
+```
+
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.
