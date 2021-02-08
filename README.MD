@@ -48,9 +48,7 @@ lerna add babel-core
 
 ## Bootstrapping
 `lerna add <package>` will automatically bootstrap your packages.
-`lerna bootstrap` is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible. Refrain from using `npm i` to install all dependencies for a package. As with `lerna add`, you can also use the `--scope=<package>` flag when bootstrapping to only install dependencies for a single package.
-
-Although it is tempting to add the `--hoist` flag to combat duplicate dependencies taking up too much space, there are a few dependencies (such as stylelint) that will only look for their files in the local package's `node_modules` which makes it a bigger hassle to use than not.
+`lerna bootstrap --hoist` is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. As with `lerna add`, you can also use the `--scope=<package>` flag when bootstrapping to only install dependencies for a single package.
 
 ### Symlinks
 `lerna link` does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
@@ -64,7 +62,7 @@ If the dependencies are acting wonky, using `lerna clean` will delete all `node_
 
 ~~To quickly reset all dependencies and builds, you can run:~~ **wipe not yet implemented**
 ```
-lerna run wipe && lerna clean && lerna bootstrap && lerna run build
+lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
 ```
 
 ## Running arbitrary commands
@@ -78,6 +76,8 @@ In the above example both `--stream` and `--scope` are passed to `lerna run`, bu
 
 ## Versioning, changelogs & publishing
 `lerna publish --conventional-commits` will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
+
+It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `lerna publish --conventional-commits` you may see unpublished changes to other packages. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
 
 ### Conventional commits
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
@@ -106,7 +106,7 @@ git commit -m "BREAKING CHANGE: something is not backwards compatible"
 Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
 
 #### commitlint
-Too see if your commit message is formatted correctly, test it with `commitlint`:
+Too see if your commit message is formatted correctly, test it with commitlint:
 
 This will pass:
 ```
