@@ -80,15 +80,48 @@ In the above example both `--stream` and `--scope` are passed to `lerna run`, bu
 `lerna publish --conventional-commits` will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
 
 ### Conventional commits
-When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, but that we should take a bit more time to make sure our commit messages follow the convention so that all of these will be included when a package is released.
+When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
-Read and understand [the specs](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to see how to format your commit messages. Specific to this monorepo is that scopes are important for the changelogs. E.g.:
-```
-feat(@novicell/css-utils): Added postcss support
+#### Message formatting
+You will have to include an empty line between the summary, description, and footer when writing a multiline message. When committing a breaking change, use a bang (`!`) after the type (and scope if there is any) or add the `BREAKING CHANGE` footer.
 
-Uncompiled postcss is now available in dist/src
+🙂:
 ```
-The previous example specifies a feature, which will bump the minor version automatically of the changed package, that has also been specified in the parenthesis scope so that the changelog for that package will display the postcss support change with the longer message.
+> git commit -m "feat!: something is not backwards compatible"
+```
+😁:
+```
+> git commit
+feat: something is not backwards compatible
+
+description goes here
+
+BREAKING CHANGE: the thing that broke compatibility
+```
+👿:
+```
+git commit -m "BREAKING CHANGE: something is not backwards compatible"
+```
+
+Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
+
+#### commitlint
+Too see if your commit message is formatted correctly, test it with `commitlint`:
+
+This will pass:
+```
+> echo 'feat(vue-breadcrumb): added more features' | npx commitlint
+```
+or for multiline commit messages - just omit the last `'` on the first line:
+```
+> echo 'feat(vue-breadcrumb): added more features
+>
+> this is an in depth description of the features added
+>
+> BREAKING CHANGE: this one feature needs to bump the major version of the package' | npx commitlint
+```
+**Note:**
+When using `!` to indicate a breaking change with `commitlint`, you will have to echo with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
