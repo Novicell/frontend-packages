@@ -6,6 +6,17 @@
     "new-version": "lerna version --conventional-commits --yes"
   },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-lerna-scopes": "^11.0.0",
+    "commitlint": "^11.0.0",
+    "husky": "^4.3.8",
+    "lerna": "^3.22.1",
+    "lerna-changelog": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
