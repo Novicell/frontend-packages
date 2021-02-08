@@ -16,7 +16,7 @@ To make sure we can run commands on all packages at the same time with `lerna ru
 - **`"lint"`** should be the script to lint and/or fix code errors.
 - **`"test"`** should be used to run the packages' tests.
 - **`"prepublishOnly"`** should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
-- ~~**`"wipe"`** should use `rimraf` to delete the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`~~ **not yet implemented**.
+- **`"wipe"`** should use `rimraf` to delete the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
 
 ## Adding dependencies
 When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
@@ -58,9 +58,9 @@ Symlinked packages are mirrors of the linked package, which means that an update
 
 ## Cleaning up
 If the dependencies are acting wonky, using `lerna clean` will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
-~~Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.~~
+Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.
 
-~~To quickly reset all dependencies and builds, you can run:~~ **wipe not yet implemented**
+To quickly reset all dependencies and builds, you can run:
 ```
 lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
 ```
