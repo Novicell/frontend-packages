@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "wipe": "rimraf dist/",
+    "wipe": "bash ../../../scripts/wipe",
     "build:src": "npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache",
     "build:dist": "npm run lint:fix && cross-env NODE_ENV=compile parcel build src/*.css --no-content-hash --no-source-maps --no-cache",
     "build": "npm run build:src && npm run build:dist",
