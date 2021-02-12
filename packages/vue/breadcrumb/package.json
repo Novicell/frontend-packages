@@ -19,10 +19,11 @@
     "dist"
   ],
   "scripts": {
-    "wipe": "rimraf dist/",
+    "wipe": "bash ../../../scripts/wipe",
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "vue serve --help",
     "dev": "vue serve --open src/nc-breadcrumb.vue",
+    "dev:test": "bash ../scripts/dev",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-breadcrumb.umd.js",
     "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-breadcrumb.esm.js",
