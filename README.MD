@@ -1,5 +1,6 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
+
 ## Creating a package
 Create a new package with `lerna create`, or more commonly by copying another package and appropriating the package.json.
 
@@ -19,6 +20,8 @@ To make sure we can run commands on all packages at the same time with `lerna ru
 - **`"wipe"`** deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
 
 #### Common scripts
+To be able to run these scripts, **you are required to have bash installed on your system and available in your `PATH` variable.**
+
 When the same script is used in several places, we migrate them to a `scripts` folder as a bash script (or node etc.). A local package's script then point towards the common script and specifies how to run it (bash or node etc.) like this:
 
 `./flexbox-grid/package.json`
