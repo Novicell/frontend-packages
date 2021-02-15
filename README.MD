@@ -17,6 +17,7 @@ To make sure we can run commands on all packages at the same time with `lerna ru
 - **`"lint"`** should be the script to lint and/or fix code errors.
 - **`"test"`** should be used to run the packages' tests.
 - **`"prepublishOnly"`** should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
+<<<<<<< HEAD
 - **`"wipe"`** deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
 
 #### Common scripts
@@ -121,8 +122,13 @@ If the dependencies are acting wonky, using `lerna clean` will delete all `node_
 Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.
 
 To quickly reset all dependencies and builds, you can run:
+<<<<<<< HEAD
 ```bash
 > lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
+=======
+```
+lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
+>>>>>>> master
 ```
 
 ## Running arbitrary commands
