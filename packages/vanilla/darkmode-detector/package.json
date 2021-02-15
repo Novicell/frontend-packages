@@ -15,7 +15,7 @@
     "dist"
   ],
   "scripts": {
-    "wipe": "rimraf dist/",
+    "wipe": "bash ../../../scripts/wipe",
     "test": "echo \"Error: run tests from root\"",
     "build": "webpack --config config/webpack.prod.js",
     "dev": "webpack-dev-server --config config/webpack.dev.js",

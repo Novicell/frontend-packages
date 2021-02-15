@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Clears that package's dist/
+
+printf "🧹 Removing: %s/dist/ 🧹\n\n" "${PWD##*/}"
+
+rm -rf dist/

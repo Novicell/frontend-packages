@@ -19,14 +19,14 @@
     "dist"
   ],
   "scripts": {
-    "wipe": "rimraf dist/",
+    "wipe": "bash ../../../scripts/wipe",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "help": "vue serve --help",
-    "dev": "vue serve --open src/nc-breadcrumb.vue",
-    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config config/rollup.config.js --format umd --file dist/nc-breadcrumb.umd.js",
-    "build:es": "rollup --config config/rollup.config.js --format es --file dist/nc-breadcrumb.esm.js",
-    "build:unpkg": "rollup --config config/rollup.config.js --format iife --file dist/nc-breadcrumb.min.js",
+    "help": "bash ../scripts/help",
+    "dev": "bash ../scripts/dev src/nc-breadcrumb.vue",
+    "build": "bash ../scripts/build/index",
+    "build:umd": "bash ../scripts/build/umd dist/nc-breadcrumb.umd.js",
+    "build:es": "bash ../scripts/build/es dist/nc-breadcrumb.esm.js",
+    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-breadcrumb.min.js",
     "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
