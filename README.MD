@@ -2,26 +2,34 @@
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
 ## Creating a package
-Create a new package with `lerna create`, or more commonly by copying another package and appropriating the package.json.
+Create a new package with:
+```bash
+> lerna create
+```
+or more commonly by copying another package and appropriating the package.json.
 
 ## `package.json`
-- **`"name"`** should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
-- **`"files"`** should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder. The common property will look like this: `"files": [ "dist" ]`.
-- **`"main"`** is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
-- **`"private"`** defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+All package's `package.json` should have at least the following props:
+```json
+"name" // should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
+"files" // should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder. The common property will look like this: `"files": [ "dist" ]`.
+"main" // is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
+"private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+```
 
-### Scripts
-To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts.
+## Scripts
+To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
 
-- **`"build"`** should call whichever commands are required to generate publish-ready code in the `dist` folder.
-- **`"lint"`** should be the script to lint and/or fix code errors.
-- **`"test"`** should be used to run the packages' tests.
-- **`"prepublishOnly"`** should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
-<<<<<<< HEAD
-- **`"wipe"`** deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
+```json
+"wipe" // deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
+"build" // should call whichever commands are required to generate publish-ready code in the `dist` folder.
+"lint" // should be the script to lint and/or fix code errors.
+"test" // should be used to run the packages' tests.
+"prepublishOnly" // should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
+```
 
-#### Common scripts
-To be able to run these scripts, **you are required to have bash installed on your system and available in your `PATH` variable.**
+### Shared scripts
+To be able to run shared scripts **you are required to have bash installed on your system and available in your `PATH` variable.**
 
 When the same script is used in several places, we migrate them to a `scripts` folder as a bash script (or node etc.). A local package's script then point towards the common script and specifies how to run it (bash or node etc.) like this:
 
@@ -70,21 +78,21 @@ Scripts should be located and named in accordance with the `npm run` script that
 └── scripts
    └── wipe
 ```
-**Note:**
+**Note:** With a script that does not share a prefix with another script, you do not have to create a subfolder for the script inside the scripts directory, you can just name the file the same as the script. In the above case where there are several `build` scripts, you will use the `:` to denote a filepath, where the base `build` script will then be the `index` file inside the `build` directory (much alike how `pages` work for Nuxt).
 
-With a script that does not share a prefix with another script, you do not have to create a subfolder for the script inside the scripts directory, you can just name the file the same as the script. In the above case where there are several `build` scripts, you will use the `:` to denote a filepath, where the base `build` script will then be the `index` file inside the `build` directory (much alike how `pages` work for Nuxt).
+## Global scripts
+Scripts that are usually used for manipulating the whole repo at the same time and scripts that does not necessarily have anything to do with any specific packages are available in the repo's root scope (`/package.json`) through `npm run`. The scripts here reflect the correct way to use the interfaces lerna provides us, such as publishing with conventional changelogs and bootstrapping with hoisting, so we do not forget to do these things the correct way. There are also interfaces for common operations such as rebuilding everything.
+
+These scripts live inside `/repoScripts` to distinguish them from the scripts that you would run from inside a specific package. **When in doubt**, use these scripts instead of using the provided `lerna <command>`.
 
 ## Adding dependencies
+```bash
+> lerna add <package>
+```
+will automatically [bootstrap](#bootstrapping) your packages.
 When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
 
-**Note:**
-`lerna add` can only add one package at a time.
-
-### Hoisting quirk
-When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootstrapping)), binaries used to run any and all dependencies in a local package will still be kept inside the local package's `node_modules/.bin` directory, so an `npm run` command can still find the module. This, however, is dependent on the direct dependency being in the local `package.json`. Thus, a dependency's (or devDependecy's) dependency binary **will not** by default be present inside the local package's `node_modules/.bin`, as it would normally if your dependency depends on it.
-
-**This means:** You will have to be explicit with which packages you package uses. If (for example) `stylelint-config-standard` (which depends on `stylelint`) is installed and you want to use a command like `stylelint "src/**/*.css"` **you will have to** specify `stylelint` as a dependency or devDependency in your package as well.
-
+**Note:** `lerna add` can only add one package at a time.
 
 ### Examples:
 ```bash
@@ -107,44 +115,85 @@ lerna add module-1
 lerna add babel-core
 ```
 
+### Hoisting quirk
+When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootstrapping)), binaries used to run any and all dependencies in a local package will still be kept inside the local package's `node_modules/.bin` directory, so an `npm run` command can still find the module. This, however, is dependent on the direct dependency being in the local `package.json`. Thus, a dependency's (or devDependecy's) dependency binary **will not** by default be present inside the local package's `node_modules/.bin`, as it would normally if your dependency depends on it.
+
+**This means:** You will have to be explicit with which packages you package uses. If (for example) `stylelint-config-standard` (which depends on `stylelint`) is installed and you want to use a command like `stylelint "src/**/*.css"` **you will have to** specify `stylelint` as a dependency or devDependency in your package as well.
+
 ## Bootstrapping
-`lerna add <package>` will automatically bootstrap your packages.
-`lerna bootstrap --hoist` is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. As with `lerna add`, you can also use the `--scope=<package>` flag when bootstrapping to only install dependencies for a single package.
+```bash
+> lerna bootstrap --hoist
+```
+is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. To make sure we bootstrap and hoist the correct way, you can from the root repo scope (everywhere that is not inside another package) run:
+```bash
+> npm run bootstrap
+```
+Which will execute the script `/repoScripts/bootstrap`.
+
 
 ### Symlinks
-`lerna link` does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
+```bash
+> lerna link
+```
+does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
 
 **Note:**
 Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. In the depending package's `node_modules` you will also have access to all of the linked dependency's files (including configs and source code), even though the package might only expose its `dist` folder when published. This means that you *can* use (for example) source code from the dependency project in the depending project during development if the depending project can compile the source code, but these files wil not be accessible to the depending package when published.
 
 ## Cleaning up
-If the dependencies are acting wonky, using `lerna clean` will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
-Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.
-
-To quickly reset all dependencies and builds, you can run:
-<<<<<<< HEAD
+If the dependencies are acting wonky, using:
 ```bash
-> lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
-=======
+> lerna clean
 ```
-lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
->>>>>>> master
+will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
+Likewise:
+```bash
+> lerna run wipe
 ```
+or, from the root scope:
+```bash
+> npm run wipe-all
+```
+will clean out all `dist` folders. Scoping also applies when using `lerna run wipe`.
+
+To quickly clean out all `node_modules` and `dist/` folders as well as re-bootstrap and rebuild all dependencies and packages, you can from the root scope run:
+```bash
+> npm run reset <scope>
+```
+which will execute `/repoScripts/reset`. Adding a scope does not require calling `--scope` first.
 
 ## Running arbitrary commands
-`lerna run <script>` can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts"). `lerna run build` will automatically figure out the order in which to build packages on the basis of a package's dependencies.
+```bash
+> lerna run <script>
+```
+can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts").
+```bash
+lerna run build
+```
+will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
-Adding the `--stream` flag will stream the output of all of the run scripts to your terminal. To add parameters to the run scripts you will need to do add `--`. E.g.:
+Adding the `--stream` flag will stream the output of all of the run scripts to your terminal. To add parameters to the run scripts you will need to add `--`. E.g.:
 ```bash
 > lerna run lint --stream --scope=@novicell/flexbox-grid -- --fix
 ```
 In the above example both `--stream` and `--scope` are passed to `lerna run`, but `--fix` is passed on to the `lint` script.
 
 ## Versioning, changelogs & publishing
-`lerna publish --conventional-commits` will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
+From the root scope:
+```bash
+> npm run publish
+```
+or from anywhere:
+```bash
+> lerna publish --conventional-commits
+```
+will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
 
-It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `lerna publish --conventional-commits` you may see unpublished changes to other packages. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
+Publishing packages this way also creates [changelogs automatically](#conventional-commits), which is why it is important to publish packages in this fashion. Scoping is not (usually) applicable when publishing, since this would break interdependency versioning.
 
+It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `npm run publish` you may see unpublished changes to other packages than the one you have worked on. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
+
+**Note:** Versioning is only allowed on master/main and feature branches.
 ### Conventional commits
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
