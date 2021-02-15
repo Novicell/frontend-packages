@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# Called from inside packages, will distribute source css
-printf "🧱 Building Source CSS: %s 🧱" "${PWD##*/}"
+# Called from inside packages
+# Moves source css to dist/
+
+printf "🧱 Building Source CSS: %s 🧱\n\n" "${PWD##*/}"
 
 # Default to build every css file in src/, otherwise use first command line arg
 INFILE="src/*.css"

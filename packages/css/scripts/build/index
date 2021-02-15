@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-# Called from inside packages, will both build compiled css and move src to dist
-# Optional arguments are added in the package.json
+# Called from inside packages, optional arguments are added in the package.json
+# Both builds compiled css and moves src to dist
+
 npm run build:src && npm run build:dist

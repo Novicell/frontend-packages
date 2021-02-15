@@ -3,6 +3,7 @@
 # Called from inside packages
 # Serves component for development
 
-printf "🍽 Serving Vue component: %s 🍽" "${PWD##*/}"
+printf "🍟 Serving Vue component: %s 🍟\n\n" "${PWD##*/}"
+
 SERVEFILE="$1"
 vue serve --open $SERVEFILE

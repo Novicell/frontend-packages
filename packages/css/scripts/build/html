@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-# Called from inside packages, will build a demo site
-printf "🧱 Building demo CSS site: %s 🧱" "${PWD##*/}"
+# Called from inside packages
+# Builds a demo site
+
+printf "🧱 Building demo CSS site: %s 🧱\n\n" "${PWD##*/}"
+
 cross-env NODE_ENV=compile parcel build index.html --no-cache
