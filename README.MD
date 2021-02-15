@@ -16,7 +16,59 @@ To make sure we can run commands on all packages at the same time with `lerna ru
 - **`"lint"`** should be the script to lint and/or fix code errors.
 - **`"test"`** should be used to run the packages' tests.
 - **`"prepublishOnly"`** should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
-- ~~**`"wipe"`** should use `rimraf` to delete the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`~~ **not yet implemented**.
+- **`"wipe"`** deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
+
+#### Common scripts
+When the same script is used in several places, we migrate them to a `scripts` folder as a bash script (or node etc.). A local package's script then point towards the common script and specifies how to run it (bash or node etc.) like this:
+
+`./flexbox-grid/package.json`
+```json
+{
+  "wipe": "bash ../../../scripts/wipe",
+  "build:dist": "bash ../scripts/build/dist src/grid.css",
+  "build": "bash ../scripts/build/index",
+}
+```
+
+`./scripts/build/dist`
+```bash
+#!/usr/bin/env bash
+
+# Called from inside packages, will compile PostCSS into css
+printf "🧱 Building Compiled CSS: %s 🧱" "${PWD##*/}"
+
+# Default to build every css file in src/, otherwise use first command line arg
+INFILE="src/*.css"
+if [[ "$1" != "" ]]; then
+    INFILE="$1"
+fi
+
+npm run lint:fix && cross-env NODE_ENV=compile parcel build $INFILE --no-content-hash --no-source-maps --no-cache
+```
+
+You can add *global* scripts to `/scripts/`.
+
+You can add *scoped* scripts to a package's parent dir, e.g. `/packages/css/scripts/`.
+
+You can add *unique* scripts in the package's `package.json` or in a `scripts/` directory inside the package.
+
+Scripts should be located and named in accordance with the `npm run` script that calls it. E.g. if your scripts inside `package.json` are the same as above, the directory structure would look like this:
+
+`/`
+```
+├── packages
+|  ├── css-utils
+|  |  └── package.json
+|  └── scripts
+|     └── build
+|        ├── index
+|        └── dist
+└── scripts
+   └── wipe
+```
+**Note:**
+
+With a script that does not share a prefix with another script, you do not have to create a subfolder for the script inside the scripts directory, you can just name the file the same as the script. In the above case where there are several `build` scripts, you will use the `:` to denote a filepath, where the base `build` script will then be the `index` file inside the `build` directory (much alike how `pages` work for Nuxt).
 
 ## Adding dependencies
 When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
@@ -24,9 +76,14 @@ When adding a dependency to a package only use `npm i <package>` if the package 
 **Note:**
 `lerna add` can only add one package at a time.
 
+### Hoisting quirk
+When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootstrapping)), binaries used to run any and all dependencies in a local package will still be kept inside the local package's `node_modules/.bin` directory, so an `npm run` command can still find the module. This, however, is dependent on the direct dependency being in the local `package.json`. Thus, a dependency's (or devDependecy's) dependency binary **will not** by default be present inside the local package's `node_modules/.bin`, as it would normally if your dependency depends on it.
+
+**This means:** You will have to be explicit with which packages you package uses. If (for example) `stylelint-config-standard` (which depends on `stylelint`) is installed and you want to use a command like `stylelint "src/**/*.css"` **you will have to** specify `stylelint` as a dependency or devDependency in your package as well.
+
 
 ### Examples:
-```
+```bash
 # Adds the module-1 package to the packages in the 'prefix-' prefixed folders
 lerna add module-1 packages/prefix-*
 
@@ -48,7 +105,7 @@ lerna add babel-core
 
 ## Bootstrapping
 `lerna add <package>` will automatically bootstrap your packages.
-`lerna bootstrap --hoist` is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. As with `lerna add`, you can also use the `--scope=<package>` flag when bootstrapping to only install dependencies for a single package.
+`lerna bootstrap --hoist` is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. As with `lerna add`, you can also use the `--scope=<package>` flag when bootstrapping to only install dependencies for a single package.
 
 ### Symlinks
 `lerna link` does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
@@ -58,19 +115,19 @@ Symlinked packages are mirrors of the linked package, which means that an update
 
 ## Cleaning up
 If the dependencies are acting wonky, using `lerna clean` will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
-~~Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.~~
+Likewise `lerna run wipe` will clean out all `dist` folders in the repo (if the script has been specified in the individual packages) - scoping applies here as well.
 
-~~To quickly reset all dependencies and builds, you can run:~~ **wipe not yet implemented**
-```
-lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
+To quickly reset all dependencies and builds, you can run:
+```bash
+> lerna run wipe && lerna clean && lerna bootstrap --hoist && lerna run build
 ```
 
 ## Running arbitrary commands
 `lerna run <script>` can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts"). `lerna run build` will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
 Adding the `--stream` flag will stream the output of all of the run scripts to your terminal. To add parameters to the run scripts you will need to do add `--`. E.g.:
-```
-lerna run lint --stream --scope=@novicell/flexbox-grid -- --fix
+```bash
+> lerna run lint --stream --scope=@novicell/flexbox-grid -- --fix
 ```
 In the above example both `--stream` and `--scope` are passed to `lerna run`, but `--fix` is passed on to the `lint` script.
 
@@ -86,11 +143,11 @@ When making changes to the packages, we use [conventional commits](https://www.c
 You will have to include an empty line between the summary, description, and footer when writing a multiline message. When committing a breaking change, use a bang (`!`) after the type (and scope if there is any) or add the `BREAKING CHANGE` footer.
 
 🙂:
-```
+```bash
 > git commit -m "feat!: something is not backwards compatible"
 ```
 😁:
-```
+```bash
 > git commit
 feat: something is not backwards compatible
 
@@ -99,8 +156,8 @@ description goes here
 BREAKING CHANGE: the thing that broke compatibility
 ```
 👿:
-```
-git commit -m "BREAKING CHANGE: something is not backwards compatible"
+```bash
+> git commit -m "BREAKING CHANGE: something is not backwards compatible"
 ```
 
 Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
@@ -109,11 +166,11 @@ Scopes specified in the parentheses are the package's name (not folder name), bu
 Too see if your commit message is formatted correctly, test it with commitlint:
 
 This will pass:
-```
+```bash
 > echo 'feat(vue-breadcrumb): added more features' | npx commitlint
 ```
 or for multiline commit messages - just omit the last `'` on the first line:
-```
+```bash
 > echo 'feat(vue-breadcrumb): added more features
 >
 > this is an in depth description of the features added
@@ -125,11 +182,11 @@ When using `!` to indicate a breaking change with `commitlint`, you will have to
 
 ### Override default behaviour
 If for some reason the version numbers do not behave as expected or you need to manually version and publish packages, it is possible to change a version number manually by editing the `package.json`. When committing this change, you can use the flag `--no-verify` to circumvent commitlint and husky:
-```
+```bash
 > git commit -m "non-compliant commit message" --no-verify
 ```
 To then publish the package without implicitly calling `lerna version` you can use:
-```
+```bash
 > lerna publish from-package
 ```
 
