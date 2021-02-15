@@ -2,4 +2,12 @@
 
 # Called from inside packages, will distribute source css
 printf "🧱 Building Source CSS: %s 🧱" "${PWD##*/}"
-npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache
+
+# Default to build every css file in src/, otherwise use first command line arg
+INFILE="src/*.css"
+if [[ "$1" != "" ]]; then
+    INFILE="$1"
+fi
+
+
+npm run lint:fix && parcel build $INFILE --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Called from inside packages, will serve a demo site
+printf "🧱 Serving demo CSS site: %s 🧱" "${PWD##*/}"
+cross-env NODE_ENV=compile parcel index.html --no-cache
