@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Builds all versions of the component
+
+printf "🧱 Building Vue component: %s 🧱" "${PWD##*/}"
+npm run build:umd & npm run build:es & npm run build:unpkg

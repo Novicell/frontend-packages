@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Prints help
+
+vue serve --help
