@@ -5,5 +5,10 @@
     "packages/vue/*",
     "packages/css/*"
   ],
-  "version": "independent"
+  "version": "independent",
+  "command": {
+    "version": {
+      "allowBranch": ["master", "main", "feature/*", "feat/*"]
+    }
+  }
 }
