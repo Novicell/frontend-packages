@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# Called from inside packages, will clear that package's dist/
-printf "🧹 Removing: %s/dist/ 🧹" "${PWD##*/}"
-rm -rf dist/
+# Called from inside packages, will distribute source css
+printf "🧱 Building Source CSS: %s 🧱" "${PWD##*/}"
+npm run lint:fix && parcel build src/*.css --no-content-hash --no-source-maps --no-minify -d dist/src --no-cache

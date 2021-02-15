@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-# Called from inside packages, will clear that package's dist/
-printf "🧹 Removing: %s/dist/ 🧹" "${PWD##*/}"
-rm -rf dist/
+# Called from inside packages, will both build compiled css and move src to dist
+npm run build:src && npm run build:dist

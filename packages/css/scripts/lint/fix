@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Called from inside packages, will lint and fix css
+printf "🧱 Linting and fixing CSS: %s 🧱" "${PWD##*/}"
+stylelint "src/**/*.css" --fix
