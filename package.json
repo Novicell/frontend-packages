@@ -2,8 +2,12 @@
   "name": "root",
   "private": false,
   "scripts": {
+    "publish": "bash repoScripts/publish",
     "test": "lerna run test",
-    "new-version": "lerna version --conventional-commits --yes"
+    "new-version": "lerna version --conventional-commits --yes",
+    "bootstrap": "bash repoScripts/bootstrap",
+    "wipe-all": "lerna run wipe",
+    "reset": "bash repoScripts/reset"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
