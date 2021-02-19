@@ -1,5 +1,6 @@
-const { rootPath } = require("path")
-const { compilePlugins, srcPlugins } = require('../config/postcss')
+const path = require("path");
+
+const rootPath = path.resolve('');
 
 module.exports = {
   entry: {
@@ -12,11 +13,20 @@ module.exports = {
   },
   plugins: process.env.NODE_ENV === 'compile' ?
   [
-    ...compilePlugins,
-
+    require('stylelint'),
+    require('postcss-each'),
+    require('postcss-nested'),
     require('postcss-color-function'),
+    require('postcss-custom-properties')({
+      preserve: false
+    }),
+    require('postcss-calc'),
     require('postcss-custom-media')({
       importFrom: 'src/partials/_media-queries.css'
-    }),
-  ] : srcPlugins
+    })
+  ] :
+  [
+    require('stylelint'),
+    require('postcss-each')
+  ]
 }
