@@ -3,18 +3,20 @@
 // or because node_modules are hoisted - either way: it is not a problem
 
 const compilePlugins = [
-  require("stylelint"),
+  require('stylelint'),
   require('postcss-each'),
-  require('postcss-nested'),
   require('postcss-custom-properties')({
     preserve: false
   }),
   require('postcss-calc'),
+  require('postcss-custom-media')({
+    importFrom: 'src/partials/_media-queries.css'
+  }),
   require('postcss-percentage')
 ]
 
 const srcPlugins = [
-  require("stylelint"),
+  require('stylelint'),
   require('postcss-each'),
   require('postcss-percentage')
 ]
