@@ -15,12 +15,12 @@ printf "🧹👢🧱 Reinstalls dependencies & rebuilds everything 🧱👢🧹\
 
 if [[ "$1" != "" ]];
 then
-  lerna clean --scope $1
+  lerna clean -y --scope $1
   lerna run wipe --scope $1
   npm run bootstrap
   lerna run build --scope $1
 else
-  lerna clean
+  lerna clean -y
   lerna run wipe
   npm run bootstrap
   lerna run build
