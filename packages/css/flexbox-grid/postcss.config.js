@@ -1,7 +1,5 @@
-const path = require("path");
-const { compilePlugins, srcPlugins } = require('../config/postcss');
-
-const rootPath = path.resolve('');
+const { rootPath } = require("path")
+const { compilePlugins, srcPlugins } = require('../config/postcss')
 
 module.exports = {
   entry: {
