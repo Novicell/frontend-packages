@@ -45,5 +45,8 @@
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
   },
-  "gitHead": "6075b2e304398374456175fac308d4358f145572"
+  "gitHead": "6075b2e304398374456175fac308d4358f145572",
+  "dependencies": {
+    "@novicell/styles-breadcrumb": "^0.2.4"
+  }
 }
