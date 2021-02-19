@@ -4,8 +4,8 @@
 
 const compilePlugins = [
   require("stylelint"),
-  require('postcss-nested'),
   require('postcss-each'),
+  require('postcss-nested'),
   require('postcss-custom-properties')({
     preserve: false
   }),
