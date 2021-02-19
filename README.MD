@@ -86,16 +86,14 @@ Scripts that are usually used for manipulating the whole repo at the same time a
 These scripts live inside `/repoScripts` to distinguish them from the scripts that you would run from inside a specific package. **When in doubt**, use these scripts instead of using the provided `lerna <command>`.
 
 ## Config files
-To avoid duplications and to make sure that our environments are as alike as possible we should also hoist configuration files to as big a scope as possible. For example: we use stylelint and PostCSS for every CSS package inside `/packages/css/`. For this case we have created the `config` directory `/packages/css/config/` that contains base-configurations for every CSS-package. E.g.:
+To avoid duplications and to make sure that our environments are as alike as possible we should also hoist configuration files to as big a scope as possible. For example: we use stylelint for every CSS package inside `/packages/css/`. For this case we have created the `config` directory `/packages/css/config/` that contains base-configurations for every CSS-package. E.g.:
 
 `/packages/css/`
 ```
 ├── css-utils
-|  ├── .stylelintrc.json <- package-specific config
-|  └── postcss.config.js <- package-specific config
+|  └── .stylelintrc.json <- package-specific config
 └── config
-   ├── .stylelintrc.json <- extendable base-config
-   └── postcss.js        <- extendable base-config
+   └── .stylelintrc.json <- extendable base-config
 ```
 
 The configurations inside `*/config/` are implemented by either importing them and weaving them into the local configuration (for `*.js`) or by using the module-specific 'extends'-syntax.
