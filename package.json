@@ -6,7 +6,8 @@
     "test": "lerna run test",
     "bootstrap": "bash repoScripts/bootstrap",
     "wipe-all": "lerna run wipe",
-    "reset": "bash repoScripts/reset"
+    "reset": "bash repoScripts/reset",
+    "check-package": "node repoScripts/check-package"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

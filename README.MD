@@ -17,6 +17,22 @@ All package's `package.json` should have at least the following props:
 "private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 ```
 
+### Checking the `package.json`
+To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+
+The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
+
+`/`
+```bash
+> node repoScripts/check-package packages/vue/breadcrumb/package.json
+```
+or from anywhere outside of a sub-package's scope:
+
+`/`
+```bash
+> npm run check-package -- packages/vue/breadcrumb/package.json
+```
+
 ## Scripts
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
 
@@ -80,10 +96,23 @@ Scripts should be located and named in accordance with the `npm run` script that
 ```
 **Note:** With a script that does not share a prefix with another script, you do not have to create a subfolder for the script inside the scripts directory, you can just name the file the same as the script. In the above case where there are several `build` scripts, you will use the `:` to denote a filepath, where the base `build` script will then be the `index` file inside the `build` directory (much alike how `pages` work for Nuxt).
 
-## Global scripts
+### Global scripts
 Scripts that are usually used for manipulating the whole repo at the same time and scripts that does not necessarily have anything to do with any specific packages are available in the repo's root scope (`/package.json`) through `npm run`. The scripts here reflect the correct way to use the interfaces lerna provides us, such as publishing with conventional changelogs and bootstrapping with hoisting, so we do not forget to do these things the correct way. There are also interfaces for common operations such as rebuilding everything.
 
 These scripts live inside `/repoScripts` to distinguish them from the scripts that you would run from inside a specific package. **When in doubt**, use these scripts instead of using the provided `lerna <command>`.
+
+## Config files
+To avoid duplications and to make sure that our environments are as alike as possible we should also hoist configuration files to as big a scope as possible. For example: we use stylelint for every CSS package inside `/packages/css/`. For this case we have created the `config` directory `/packages/css/config/` that contains base-configurations for every CSS-package. E.g.:
+
+`/packages/css/`
+```
+├── css-utils
+|  └── .stylelintrc.json <- package-specific config
+└── config
+   └── .stylelintrc.json <- extendable base-config
+```
+
+The configurations inside `*/config/` are implemented by either importing them and weaving them into the local configuration (for `*.js`) or by using the module-specific 'extends'-syntax.
 
 ## Adding dependencies
 ```bash
@@ -179,6 +208,8 @@ Adding the `--stream` flag will stream the output of all of the run scripts to y
 In the above example both `--stream` and `--scope` are passed to `lerna run`, but `--fix` is passed on to the `lint` script.
 
 ## Versioning, changelogs & publishing
+Versioning can only take place on `master` / `main` or feature branches (`feat/*` / `feature/*`) to make sure that we don't bump version number for every little change.
+
 From the root scope:
 ```bash
 > npm run publish
@@ -193,7 +224,6 @@ Publishing packages this way also creates [changelogs automatically](#convention
 
 It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `npm run publish` you may see unpublished changes to other packages than the one you have worked on. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
 
-**Note:** Versioning is only allowed on master/main and feature branches.
 ### Conventional commits
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
