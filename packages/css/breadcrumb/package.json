@@ -1,6 +1,6 @@
 {
   "name": "@novicell/styles-breadcrumb",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "The stylesheet for @novicell/breadcrumb as compiled CSS and raw postCSS.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "homepage": "https://github.com/Novicell/frontend-packages#readme",
@@ -27,11 +27,11 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "stylelint": "^13.3.2",
-    "parcel-bundler": "^1.12.4",
     "cross-env": "^7.0.3",
+    "parcel-bundler": "^1.12.4",
     "parcel-plugin-stylelint-all": "^0.2.0",
     "postcss-nested": "^4.2.3",
+    "stylelint": "^13.3.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"
   },

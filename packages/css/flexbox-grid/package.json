@@ -1,6 +1,6 @@
 {
   "name": "@novicell/flexbox-grid",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A CSS flexbox grid package configurable via CSS Custom Properties and PostCSS.",
   "author": "Emil Østervig <ems@novicell.dk>",
   "homepage": "https://novicell-flexbox-grid.netlify.app",
@@ -29,7 +29,6 @@
   "license": "MIT",
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "stylelint": "^13.3.2",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-stylelint-all": "^0.2.0",
     "postcss-calc": "^7.0.5",
@@ -43,6 +42,7 @@
     "postcss-merge-rules": "^4.0.3",
     "postcss-nested": "^4.2.3",
     "postcss-preset-env": "^6.7.0",
+    "stylelint": "^13.3.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0"
   },
