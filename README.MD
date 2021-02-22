@@ -17,6 +17,22 @@ All package's `package.json` should have at least the following props:
 "private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 ```
 
+### Checking the `package.json`
+To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+
+The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
+
+`/`
+```bash
+> node repoScripts/check-package packages/vue/breadcrumb/package.json
+```
+or from anywhere outside of a sub-package's scope:
+
+`/`
+```bash
+> npm run check-package -- packages/vue/breadcrumb/package.json
+```
+
 ## Scripts
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
 
