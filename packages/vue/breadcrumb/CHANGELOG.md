@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [1.0.2](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-breadcrumb@1.0.0...@novicell/vue-breadcrumb@1.0.2) (2021-02-26)
+
+
+### Bug Fixes
+
+* **vue-breadcrumb:** move styles to devDeps and explain css usage in readme ([dc75710](https://github.com/Novicell/frontend-packages/commit/dc75710874e4e9bdf740fcbe12303a238955c225))
+
+
+
+
 ### [1.0.1](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-breadcrumb@1.0.0...@novicell/vue-breadcrumb@1.0.1) (2021-02-26)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.3.6](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-link@0.3.4...@novicell/vue-link@0.3.6) (2021-02-26)
+
+
+### Bug Fixes
+
+* **vue-breadcrumb:** move styles to devDeps and explain css usage in readme ([dc75710](https://github.com/Novicell/frontend-packages/commit/dc75710874e4e9bdf740fcbe12303a238955c225))
+
+
+
+
 ### [0.3.5](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-link@0.3.4...@novicell/vue-link@0.3.5) (2021-02-26)
 
 **Note:** Version bump only for package @novicell/vue-link
