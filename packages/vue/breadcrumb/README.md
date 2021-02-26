@@ -24,7 +24,7 @@ To reference the component in your project, add the following script tag to your
 The component will automatically register itself if Vue is present on the `window` object.
 
 ## Props
-The component takes two props:
+The component takes the following props:
 
 **`breadcrumbs`**
 
@@ -39,7 +39,11 @@ The links are in the format:
 }
 ```
 
-This component uses @novicell/vue-link behind the scenes, which will automatically use a `<NuxtLink>` if the linked resource is internal or an `<a>`-tag if the link is external.
+This component uses `@novicell/vue-link` behind the scenes, which will automatically use a `<NuxtLink>` if the linked resource is internal or an `<a>`-tag if the link is external.
+
+**`blockClass`**
+
+This is a class name string to put on the BEM block element and prepend to the BEM-classes of the child elements. [Read more](#differently-styled-instances).
 
 **`modifier`**
 
@@ -47,7 +51,9 @@ A BEM class name modifier that indicates a different variant of the component's 
 Currently the following modifiers are allowed:
 - `breadcrumb--shadow`: Sets a gradient shadow and heightens contrast.
 
-## Usage
+Alternatively the modifier class can also be set directly on the component instead of passing it in as a prop.
+
+## Styling
 Styling is not applied by default. If you want to apply the default styling, these files can be found in the `css` directory of this package:
 ```
 ├── css
@@ -61,9 +67,11 @@ Styling is not applied by default. If you want to apply the default styling, the
 
 `css/index.css` is the compiled and ready-to-use styling.
 
-`css/src/index.css` is PostCSS that will need to be compiled with `postcss-nested` installed in your favourite bundler.
+`css/src/index.css` is PostCSS that will need to be compiled with `postcss-nested` installed in your environment.
 
-To overwrite the default styling (after importing) or simply adding your own styling, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components inside the root element. For example:
+### Custom styling
+To overwrite the default styling (after importing) or simply adding your own styling, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components and elements inside the root element. For example:
+
 ```html
 <style scoped>
 .breadcrumb >>> .breadcrumb__item + .breadcrumb__item::before {
@@ -72,9 +80,19 @@ To overwrite the default styling (after importing) or simply adding your own sty
 </style>
 ```
 
-If you overwrite the class on the root element or add your own from the parent component's scope, this class name can be used instead of `.breadcrumb` in the above example.
+If you [overwrite the block class on the root element](#differently-styled-instances) or add your own from the parent component's scope, this class name can be used instead of `.breadcrumb` in the above example.
 
-### SFC
+### Differently styled instances
+
+If you wish to use this component in several different places and have them styled differently, you can overwrite the default block class (`breadcrumb`) of one of them (or both) by passing in a new `blockClass`, e.g.:
+
+```html
+<NcBreadcrumb blockClass="not-breadcrumb" >
+```
+
+Doing this will allow you to style the child elements with BEM classes as well by selecting for example `.not-breadcrumb__item`, but remember to use [deep selectors](#custom-styling).
+
+## SFC usage
 ```html
 <template>
   <NcBreadcrumb :breadcrumbs="links" modifier="breadcrumb--shadow" />
@@ -108,7 +126,7 @@ export default {
 }
 </script>
 ```
-### Browser
+### Browser usage
 ```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
