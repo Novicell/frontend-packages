@@ -228,24 +228,26 @@ It is not necessary to publish changes when refactoring (when no bugs are fixed 
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
 #### Message formatting
-You will have to include an empty line between the summary, description, and footer when writing a multiline message. When committing a breaking change, use a bang (`!`) after the type (and scope if there is any) or add the `BREAKING CHANGE` footer.
+You will have to include an empty line between the summary, description, and footer when writing a multiline message. When committing a breaking change you MUST add the `BREAKING CHANGE` footer, and optionally (recommended) use a bang (`!`) after the type (and scope if there is any) to give attention to the breaking change:
 
-🙂:
+👿:
 ```bash
 > git commit -m "feat!: something is not backwards compatible"
 ```
+
+👿:
+```bash
+> git commit -m "BREAKING CHANGE: something is not backwards compatible"
+```
+
 😁:
 ```bash
 > git commit
-feat: something is not backwards compatible
+feat!: something is not backwards compatible
 
 description goes here
 
 BREAKING CHANGE: the thing that broke compatibility
-```
-👿:
-```bash
-> git commit -m "BREAKING CHANGE: something is not backwards compatible"
 ```
 
 Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
@@ -259,14 +261,14 @@ This will pass:
 ```
 or for multiline commit messages - just omit the last `'` on the first line:
 ```bash
-> echo 'feat(vue-breadcrumb): added more features
+> echo 'feat(vue-breadcrumb)!: added more features
 >
-> this is an in depth description of the features added
+> this is an in-depth description of the features added
 >
 > BREAKING CHANGE: this one feature needs to bump the major version of the package' | npx commitlint
 ```
 **Note:**
-When using `!` to indicate a breaking change with `commitlint`, you will have to echo with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
+When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
 ### Override default behaviour
 If for some reason the version numbers do not behave as expected or you need to manually version and publish packages, it is possible to change a version number manually by editing the `package.json`. When committing this change, you can use the flag `--no-verify` to circumvent commitlint and husky:
@@ -287,5 +289,19 @@ To create and publish a new package you will often have to go through the follow
 5. Publish (and build) the package with `lerna publish --conventional-commits`
 6. Sip espresso ☕
 
+### Major version zero
+When creating a package that is not yet stable, they should have a major version 0, e.g.: `0.1.0`. According to the semver specs, every change at this stage could be breaking, so a breaking change will not bump the major version automatically to `1.0.0`. When your package is stable you can commit the changes as you normally would with a correctly formatted commit message, but instead of versioning with the flag `--conventional-commits` you should use:
+```bash
+> lerna version --conventional-graduate --amend
+```
+or
+```bash
+> lerna publish --conventional-graduate --amend
+```
+and choose a custom version number (`1.0.0`).
+
+**Note:**
+
+Alternatively you should be able to omit `--amend` and include the formatted commit message with `-m` (same syntax as with git) instead of committing your changes first.
 ### Making changes
 When making changes to a package, it is commonly a good idea to clear out the changed package's `dist` folder and `node_modules` since bootstrapping will only add dependencies, not remove them if they have been changed in `package.json` manually instead of being removed with `npm uninstall`. After this, you can bootstrap and build the package again so that any depending packages have access to the newly created distribution-files for testing before ultimately committing the changes and potentially publishing.
