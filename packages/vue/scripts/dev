@@ -5,5 +5,5 @@
 
 printf "🍟 Serving Vue component: %s 🍟\n\n" "${PWD##*/}"
 
-SERVEFILE="$1"
-vue serve --open $SERVEFILE
+#SERVEFILE="$1"
+vue serve --open dev/demo.vue #$SERVEFILE

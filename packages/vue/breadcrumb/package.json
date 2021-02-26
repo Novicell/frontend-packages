@@ -22,7 +22,7 @@
     "wipe": "bash ../../../scripts/wipe",
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "bash ../scripts/help",
-    "dev": "bash ../scripts/dev src/nc-breadcrumb.vue",
+    "dev": "bash ../scripts/dev",
     "build": "bash ../scripts/build/index && npm run build:css",
     "build:umd": "bash ../scripts/build/umd dist/nc-breadcrumb.umd.js",
     "build:es": "bash ../scripts/build/es dist/nc-breadcrumb.esm.js",
