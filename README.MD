@@ -224,6 +224,8 @@ Publishing packages this way also creates [changelogs automatically](#convention
 
 It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `npm run publish` you may see unpublished changes to other packages than the one you have worked on. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
 
+It is worth mentioning, that every change should at least bump a patch version, even though it did not change any functionality or fix any bugs (even if it is only in the development environment). This is to respect if a consumer of the package absolutely does not want any changes to their packages, since everything carries a risk of breaking something.
+
 ### Conventional commits
 When making changes to the packages, we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/ "Conventional Commits Spec") to help us with automatic versioning and changelogs. This means that we do not have to think about versioning and updating the changelog when publishing, as long as we format our commit messages correctly. See [the rules](https://www.npmjs.com/package/@commitlint/config-conventional/v/9.0.0 "NPM @commitlint/config-conventional") for more details.
 
@@ -268,17 +270,8 @@ or for multiline commit messages - just omit the last `'` on the first line:
 > BREAKING CHANGE: this one feature needs to bump the major version of the package' | npx commitlint
 ```
 **Note:**
-When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
-### Override default behaviour
-If for some reason the version numbers do not behave as expected or you need to manually version and publish packages, it is possible to change a version number manually by editing the `package.json`. When committing this change, you can use the flag `--no-verify` to circumvent commitlint and husky:
-```bash
-> git commit -m "non-compliant commit message" --no-verify
-```
-To then publish the package without implicitly calling `lerna version` you can use:
-```bash
-> lerna publish from-package
-```
+When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
