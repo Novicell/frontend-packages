@@ -5,9 +5,9 @@
 This package contains a basic, styled breadcrumb component for Vue and Nuxt. The links check for the presence of `this.$nuxt` to determine whether to use `router-link` (Vue) or `n-link` (Nuxt) for internal links.
 
 ## Demo
-A quick demo is available [on codepen](https://codepen.io/Novicell/pen/ExNPRoN "codepen.io").
+A small demo is available [on codepen](https://codepen.io/Novicell/pen/ExNPRoN "codepen.io").
 
-## How to use
+## Installation
 The breadcrumb Vue component can be used in both a browser environment and a self-built single file component. If you are using Vue, you will obviously have to configure Vue Router also.
 
 ### Single File Component
@@ -31,7 +31,7 @@ The component takes two props:
 This is an array of links to display in the component.
 
 The links are in the format:
-```
+```js
 {
   url: string // Relative route or absolute link
   title: string // The text to display when hovering over the link
@@ -47,14 +47,42 @@ A BEM class name modifier that indicates a different variant of the component's 
 Currently the following modifiers are allowed:
 - `breadcrumb--shadow`: Sets a gradient shadow and heightens contrast.
 
-## Examples
-### SFC
+## Usage
+Styling is not applied by default. If you want to apply the default styling, these files can be found in the `css` directory of this package:
 ```
+├── css
+|  ├── index.css
+|  └── src
+|     └── index.css
+├── nc-breadcrumb.esm.js
+├── nc-breadcrumb.min.js
+└── nc-breadcrumb.umd.js
+```
+
+`css/index.css` is the compiled and ready-to-use styling.
+
+`css/src/index.css` is PostCSS that will need to be compiled with `postcss-nested` installed in your favourite bundler.
+
+To overwrite the default styling (after importing) or simply adding your own styling, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components inside the root element. For example:
+```html
+<style scoped>
+.breadcrumb >>> .breadcrumb__item + .breadcrumb__item::before {
+  content: '>';
+}
+</style>
+```
+
+If you overwrite the class on the root element or add your own from the parent component's scope, this class name can be used instead of `.breadcrumb` in the above example.
+
+### SFC
+```html
 <template>
   <NcBreadcrumb :breadcrumbs="links" modifier="breadcrumb--shadow" />
 </template>
 
 <script>
+// Make sure your bundler aliases '@' to node_modules or give the full path
+import '@novicell/styles-breadcrumb'
 import NcBreadcrumb from '@novicell/vue-breadcrumb'
 
 export default {
@@ -81,10 +109,12 @@ export default {
 </script>
 ```
 ### Browser
-```
+```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/css/index.css"></script>
 
 <div id="app">
   <nc-breadcrumb :breadcrumbs="links" modifier="breadcrumb--shadow" />

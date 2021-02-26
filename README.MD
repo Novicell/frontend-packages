@@ -220,7 +220,7 @@ or from anywhere:
 ```
 will automatically include a versioning step, and as such it is not a requirement to use `lerna version`. It will also automatically run the `"prepublishOnly"` script in packages, which should build the packages before publishing. You will also need to login to NPM with the command `npm login`.
 
-Publishing packages this way also creates [changelogs automatically](#conventional-commits), which is why it is important to publish packages in this fashion. Scoping is not (usually) applicable when publishing, since this would break interdependency versioning.
+Publishing/versioning packages this way also creates [changelogs automatically](#conventional-commits), which is why it is important to publish packages in this fashion. Scoping is not (usually) applicable when publishing, since this would break interdependency versioning.
 
 It is not necessary to publish changes when refactoring (when no bugs are fixed or no features are added) or just fixing small bugs, that can be bundled together in a bigger release at a later point. This also means that if you run `npm run publish` you may see unpublished changes to other packages than the one you have worked on. If changes are specifically not meant to be published yet they should be put on a separate branch so the next publish will not catch them as well.
 
