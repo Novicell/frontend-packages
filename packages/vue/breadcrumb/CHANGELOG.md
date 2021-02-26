@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-breadcrumb@1.0.2...@novicell/vue-breadcrumb@1.1.0) (2021-02-26)
+
+
+### Features
+
+* **vue-breadcrumb:** allow for overwriting block class ([82b6538](https://github.com/Novicell/frontend-packages/commit/82b6538884a5b6eec35cfc332d7e93aec4f36fb5))
+
+
+
+
 ### [1.0.2](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-breadcrumb@1.0.0...@novicell/vue-breadcrumb@1.0.2) (2021-02-26)
 
 
