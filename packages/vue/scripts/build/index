@@ -5,4 +5,5 @@
 
 printf "🧱 Building Vue component: %s 🧱\n\n" "${PWD##*/}"
 
+# Concurrent
 npm run build:umd & npm run build:es & npm run build:unpkg

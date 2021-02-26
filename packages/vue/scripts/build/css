@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Takes content from a css directory and copies it into this package's dist/css
+
+INDIR="$1"
+cp -r $INDIR dist/css

@@ -10,5 +10,9 @@
     "version": {
       "allowBranch": ["master", "main", "feature/*", "feat/*"]
     }
+  },
+  "changelogPreset": {
+    "name": "conventionalcommits",
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
   }
 }

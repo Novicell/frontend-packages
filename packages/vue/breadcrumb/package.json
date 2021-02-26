@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-breadcrumb",
-  "version": "0.2.11",
+  "version": "1.0.0",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
@@ -23,16 +23,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "bash ../scripts/help",
     "dev": "bash ../scripts/dev src/nc-breadcrumb.vue",
-    "build": "bash ../scripts/build/index",
+    "build": "bash ../scripts/build/index && npm run build:css",
     "build:umd": "bash ../scripts/build/umd dist/nc-breadcrumb.umd.js",
     "build:es": "bash ../scripts/build/es dist/nc-breadcrumb.esm.js",
     "build:unpkg": "bash ../scripts/build/unpkg dist/nc-breadcrumb.min.js",
+    "build:css": "bash ../scripts/build/css node_modules/@novicell/styles-breadcrumb/dist",
     "prepublishOnly": "npm run build"
   },
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "license": "MIT",
   "devDependencies": {
-    "@novicell/styles-breadcrumb": "^0.2.4",
     "@novicell/vue-link": "^0.3.4",
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^16.0.0",
@@ -40,7 +40,6 @@
     "@vue/cli": "^4.5.8",
     "@vue/cli-service-global": "^4.5.8",
     "rollup": "~2.33.1",
-    "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"

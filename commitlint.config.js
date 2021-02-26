@@ -5,5 +5,8 @@ module.exports = {
   ],
   rules: {
     "header-max-length": [0, "always"]
-  }
+  },
+  ignores: [
+    (msg) => msg === 'Publish'
+  ]
 }
