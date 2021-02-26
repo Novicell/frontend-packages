@@ -7,6 +7,6 @@ module.exports = {
     "header-max-length": [0, "always"]
   },
   ignores: [
-    (msg) => msg.trim() === 'Publish'
+    (msg) => msg.includes('Publish')
   ]
 }

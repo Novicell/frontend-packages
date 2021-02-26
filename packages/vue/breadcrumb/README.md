@@ -82,7 +82,7 @@ If you overwrite the class on the root element or add your own from the parent c
 
 <script>
 // Make sure your bundler aliases '@' to node_modules or give the full path
-import '@novicell/styles-breadcrumb'
+import '@novicell/vue-breadcrumb/dist/css/index.css'
 import NcBreadcrumb from '@novicell/vue-breadcrumb'
 
 export default {
