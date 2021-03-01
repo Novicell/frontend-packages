@@ -252,7 +252,7 @@ description goes here
 BREAKING CHANGE: the thing that broke compatibility
 ```
 
-Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
+Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):` (no spaces between), and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
 
 #### commitlint
 Too see if your commit message is formatted correctly, test it with commitlint:
