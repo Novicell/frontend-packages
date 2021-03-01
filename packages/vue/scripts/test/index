@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Runs test scripts
+
+# For now this just runs unit tests, but more can be added
+
+printf "❔ Testing Vue component: %s ❔\n\n" "${PWD##*/}"
+
+npm run test:unit
