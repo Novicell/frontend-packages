@@ -1,64 +1,33 @@
-import { shallowMount, RouterLinkStub } from '@vue/test-utils' // has no children
-import NcLink from '@/nc-link.vue'
+import { mount } from '@vue/test-utils'
+import NcBreadcrumb from '@/nc-breadcrumb.vue'
+import NcLink from '@novicell/vue-link/src/nc-link.vue'
 
+describe('nc-breadcrumb.vue', () => {
 
-describe('nc-link.vue', () => {
+  const breadcrumbs = [
+    { url: 'https://www.google.com', title: 'Google', text: 'google.com', target: '_blank' },
+    { url: '/subpage1', title: 'Subpage1', text: '/subpage1' },
+    { url: 'subpage2', title: 'Subpage2', text: 'subpage2' },
+  ]
 
-  it('renders external urls as anchors', () => {
-    const wrapper = shallowMount(NcLink, {
+  it('renders an array of links with a span at the end', () => {
+
+    const wrapper = mount(NcBreadcrumb, {
       propsData: {
-        to: 'https://google.com',
-        name: 'Link to google',
-        title: 'Google.com'
-      }
-    })
-    expect(wrapper.element.tagName).toBe('A')
-  })
-
-
-  it('renders internal urls as router-link in vanilla Vue', () => {
-    const wrapper = shallowMount(NcLink, {
-      propsData: {
-        to: 'google.com',
-        name: 'Link to google subpage',
-        title: 'google subpage'
+        breadcrumbs
       },
 
-      // https://vue-test-utils.vuejs.org/api/components/#routerlinkstub
-      stubs: {
-        RouterLink: RouterLinkStub,
-      }
+      // router-link does not exist in this environment, but this makes
+      // jest stop complaining, since we are not testing the routing
+      stubs: ['router-link']
     })
 
-    expect(wrapper.getComponent(RouterLinkStub))
-  })
 
+    const NcLinks = wrapper.findAllComponents(NcLink)
+    const span = wrapper.get('span')
 
-  it('renders internal urls as n-link in Nuxt', () => {
-    const wrapper = shallowMount(NcLink, {
-      propsData: {
-        to: 'google.com',
-        name: 'Link to google subpage',
-        title: 'google subpage'
-      },
+    expect(NcLinks.length).toBe(2)
+    expect(span.exists()).toBe(true)
 
-      // Nuxt sets a global $nuxt-object which nc-link checks for
-      // when determining whether to use n-link or router-link.
-      // this hack basically emulates a nuxt-environment in the way
-      // that the component checks
-      created() {
-        this.$nuxt = true
-      },
-
-      // Makes jest know that n-links are just the same as router-links
-      // so it won't complain about an unknown tag and so we can just look
-      // for a RouterLink-formatted n-links
-      stubs: {
-        NLink: RouterLinkStub
-      }
-    })
-
-    // looks for n-link element formatted the same way as a router-link
-    expect(wrapper.getComponent(RouterLinkStub))
   })
 })
