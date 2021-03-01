@@ -1,6 +1,6 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 
-const { plugins } = require('../../config/rollup')
+const { sharedPlugins } = require('../../sharedConfig/rollup.config')
 
 export default {
     input: 'src/wrapper.js', // Path relative to package.json
@@ -10,6 +10,6 @@ export default {
     },
     plugins: [ // Order matters
         nodeResolve(),
-        ...plugins,
+        ...sharedPlugins,
     ]
 };

@@ -3,7 +3,7 @@ const vue = require('rollup-plugin-vue')
 const buble = require('@rollup/plugin-buble')
 
 
-const plugins = [
+const sharedPlugins = [
   commonjs(),
   // css({ output: 'css/index.css' }), // Til separat css-bundle
   vue({
@@ -16,4 +16,4 @@ const plugins = [
   buble(), // Transpile to ES5
 ]
 
-module.exports.plugins = exports.plugins = plugins
+module.exports.sharedPlugins = exports.sharedPlugins = sharedPlugins
