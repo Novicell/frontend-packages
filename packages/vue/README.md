@@ -32,3 +32,6 @@ This command does not serve the component directly, but rather the wrapper file,
    └── nc-link.vue
 ```
 This allows you to inject props, set classes, and change other things in the component's environment.
+
+## Storybook demos
+Inside every Vue component you can add a `stories` directory with a `{component}.stories.js` file that will be auto-imported into `@novicell/vue-storybook`.

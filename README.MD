@@ -1,6 +1,10 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
 - [Novicell Frontend Packages](#novicell-frontend-packages)
   - [Creating a package](#creating-a-package)
   - [package.json](#packagejson)
@@ -21,9 +25,12 @@ The official lerna docs can be found [here](https://github.com/lerna/lerna "lern
       - [Message formatting](#message-formatting)
       - [commitlint](#commitlint)
   - [Testing](#testing)
+  - [Storybook](#storybook)
   - [New package - what do?](#new-package-what-do)
     - [Major version zero](#major-version-zero)
     - [Making changes](#making-changes)
+
+<!-- /code_chunk_output -->
 
 ## Creating a package
 Create a new package with:
@@ -323,6 +330,18 @@ If it is necessary to commit changes where tests are failing, you can manually d
 
 **It is recommended** to just disable the tests to ensure that changelogs will be generated correctly etc, but the above example *will work for single-line commit messages*.
 
+## Storybook
+To see all components for a framework you can (from the root scope) run the command:
+`/`
+```bash
+> npm run <framework>-storybook
+```
+E.g.:
+`/`
+```bash
+> npm run vue-storybook
+```
+This will run the bash script `/repoScripts/storybook/vue`.
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:

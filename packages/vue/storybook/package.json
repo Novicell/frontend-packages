@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo 'No tests for storybook yet'",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build": "build-storybook"
   },
   "author": "Magnus Bendix Borregaard",
   "license": "MIT",

@@ -7,7 +7,8 @@
     "bootstrap": "bash repoScripts/bootstrap",
     "wipe-all": "lerna run wipe",
     "reset": "bash repoScripts/reset",
-    "check-package": "node repoScripts/check-package"
+    "check-package": "node repoScripts/check-package",
+    "vue-storybook": "bash repoScripts/storybook/vue"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
