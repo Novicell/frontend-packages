@@ -1,6 +1,30 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
+- [Novicell Frontend Packages](#novicell-frontend-packages)
+  - [Creating a package](#creating-a-package)
+  - [package.json](#packagejson)
+    - [Checking the package.json](#checking-the-packagejson)
+  - [Scripts](#scripts)
+    - [Shared scripts](#shared-scripts)
+    - [Global scripts](#global-scripts)
+  - [Config files](#config-files)
+  - [Adding dependencies](#adding-dependencies)
+    - [Examples:](#examples)
+    - [Hoisting quirk](#hoisting-quirk)
+  - [Bootstrapping](#bootstrapping)
+    - [Symlinks](#symlinks)
+  - [Cleaning up](#cleaning-up)
+  - [Running arbitrary commands](#running-arbitrary-commands)
+  - [Versioning, changelogs & publishing](#versioning-changelogs-publishing)
+    - [Conventional commits](#conventional-commits)
+      - [Message formatting](#message-formatting)
+      - [commitlint](#commitlint)
+  - [Testing](#testing)
+  - [New package - what do?](#new-package-what-do)
+    - [Major version zero](#major-version-zero)
+    - [Making changes](#making-changes)
+
 ## Creating a package
 Create a new package with:
 ```bash
@@ -8,7 +32,7 @@ Create a new package with:
 ```
 or more commonly by copying another package and appropriating the package.json.
 
-## `package.json`
+## package.json
 All package's `package.json` should have at least the following props:
 ```json
 "name" // should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
@@ -17,7 +41,7 @@ All package's `package.json` should have at least the following props:
 "private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 ```
 
-### Checking the `package.json`
+### Checking the package.json
 To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
 
 The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
@@ -252,7 +276,7 @@ description goes here
 BREAKING CHANGE: the thing that broke compatibility
 ```
 
-Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):`, and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
+Scopes specified in the parentheses are the package's name (not folder name), but with `@novicell/` omitted. Several scopes can be specified with commas: `feat(vue-breadcrumb,css-utils):` (no spaces between), and a repository-scale scope can be specified by omitting the scope entirely: `feat:`.
 
 #### commitlint
 Too see if your commit message is formatted correctly, test it with commitlint:
@@ -272,6 +296,24 @@ or for multiline commit messages - just omit the last `'` on the first line:
 **Note:**
 
 When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
+
+## Testing
+It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
+
+Testing on every commit is done for 3 reasons:
+
+1. It is easier to fix a problem immediately instead of at a later point.
+2. The person creating the problem is in the best position to fix it.
+3. In a monorepo with interdependecies, one change can affect multiple packages. Waiting to test until pushing or merging into master might bunch together a whole lot of problems that are harder to fix than incrementally fixing small problems.
+
+If it is necessary to commit changes where tests are failing, you can manually disable the tests (**by commenting them out or using `.skip()` in jest etc.**). Alternatively you can run `git commit` with the `--no-verify` flag, but this will also skip the hook that calls `commitlint`. This means, that if you use the `--no-verify` flag, you will have to [manually check your commit message](#commitlint) before committing your changes, e.g.:
+
+```bash
+> MSG='fix(vue-breadcrumb): commitlint compliant message' && echo "$MSG" | npx commitlint && git commit -m "$MSG" --no-verify
+```
+
+**It is recommended** to just disable the tests to ensure that changelogs will be generated correctly etc, but the above example *will work for single-line commit messages*.
+
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:

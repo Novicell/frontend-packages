@@ -1,45 +1,49 @@
 {
   "name": "@novicell/vue-link",
   "version": "0.3.6",
-  "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
-  "repository": {
-    "url": "https://github.com/Novicell/frontend-packages"
-  },
   "private": false,
-  "publishConfig": {
-    "access": "public"
+  "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "scripts": {
+    "build": "bash ../scripts/build/index",
+    "test": "bash ../scripts/test/index",
+    "test:unit": "bash ../scripts/test/unit",
+    "build:es": "bash ../scripts/build/es dist/nc-link.esm.js",
+    "build:umd": "bash ../scripts/build/umd dist/nc-link.umd.js",
+    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-link.min.js",
+    "dev": "bash ../scripts/dev",
+    "help": "bash ../scripts/help",
+    "prepublishOnly": "npm run build",
+    "wipe": "bash ../../../scripts/wipe"
   },
   "main": "dist/nc-link.umd.js",
   "module": "dist/nc-link.esm.js",
-  "unpkg": "dist/nc-link.min.js",
   "browser": {
     "./sfc": "src/nc-link.vue"
   },
+  "unpkg": "dist/nc-link.min.js",
   "files": [
     "dist"
   ],
-  "scripts": {
-    "wipe": "bash ../../../scripts/wipe",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "help": "bash ../scripts/help",
-    "dev": "bash ../scripts/dev",
-    "build": "bash ../scripts/build/index",
-    "build:umd": "bash ../scripts/build/umd dist/nc-link.umd.js",
-    "build:es": "bash ../scripts/build/es dist/nc-link.esm.js",
-    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-link.min.js",
-    "prepublishOnly": "npm run build"
-  },
-  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
-  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@vue/cli": "^4.5.8",
-    "@vue/cli-service-global": "^4.5.8",
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "@vue/cli-service-global": "^4.5.11",
+    "@vue/test-utils": "^1.0.3",
     "rollup": "~2.33.1",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
   },
-  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
+  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "https://github.com/Novicell/frontend-packages"
+  }
 }

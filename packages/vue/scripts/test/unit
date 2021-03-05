@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Runs unit tests
+
+vue-cli-service test:unit

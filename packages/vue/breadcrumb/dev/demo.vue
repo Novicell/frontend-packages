@@ -1,5 +1,5 @@
 <template>
-  <nc-breadcrumb />
+  <nc-breadcrumb :breadcrumbs="links" />
 </template>
 
 <script>
@@ -10,5 +10,15 @@ export default {
   components: {
     NcBreadcrumb
   },
+
+  data() {
+    return {
+      links: [
+        { url: 'https://www.google.com', title: 'Google', text: 'google.com', target: '_blank' },
+        { url: '/subpage1', title: 'Subpage1', text: '/subpage1' },
+        { url: 'subpage2', title: 'Subpage2', text: 'subpage2' },
+      ]
+    }
+  }
 };
 </script>

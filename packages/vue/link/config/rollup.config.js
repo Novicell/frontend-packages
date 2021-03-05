@@ -1,4 +1,4 @@
-const { plugins } = require('../../config/rollup')
+const { sharedPlugins } = require('../../sharedConfig/rollup.config')
 
 export default {
     input: 'src/wrapper.js', // Path relative to package.json
@@ -6,5 +6,5 @@ export default {
         name: 'NcLink',
         exports: 'named',
     },
-    plugins
+    plugins: sharedPlugins
 };
