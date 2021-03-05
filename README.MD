@@ -1,6 +1,30 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
+- [Novicell Frontend Packages](#novicell-frontend-packages)
+  - [Creating a package](#creating-a-package)
+  - [package.json](#packagejson)
+    - [Checking the package.json](#checking-the-packagejson)
+  - [Scripts](#scripts)
+    - [Shared scripts](#shared-scripts)
+    - [Global scripts](#global-scripts)
+  - [Config files](#config-files)
+  - [Adding dependencies](#adding-dependencies)
+    - [Examples:](#examples)
+    - [Hoisting quirk](#hoisting-quirk)
+  - [Bootstrapping](#bootstrapping)
+    - [Symlinks](#symlinks)
+  - [Cleaning up](#cleaning-up)
+  - [Running arbitrary commands](#running-arbitrary-commands)
+  - [Versioning, changelogs & publishing](#versioning-changelogs-publishing)
+    - [Conventional commits](#conventional-commits)
+      - [Message formatting](#message-formatting)
+      - [commitlint](#commitlint)
+  - [Testing](#testing)
+  - [New package - what do?](#new-package-what-do)
+    - [Major version zero](#major-version-zero)
+    - [Making changes](#making-changes)
+
 ## Creating a package
 Create a new package with:
 ```bash
@@ -8,7 +32,7 @@ Create a new package with:
 ```
 or more commonly by copying another package and appropriating the package.json.
 
-## `package.json`
+## package.json
 All package's `package.json` should have at least the following props:
 ```json
 "name" // should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
@@ -17,7 +41,7 @@ All package's `package.json` should have at least the following props:
 "private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 ```
 
-### Checking the `package.json`
+### Checking the package.json
 To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
 
 The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
