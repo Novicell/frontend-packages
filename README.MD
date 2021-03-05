@@ -273,6 +273,24 @@ or for multiline commit messages - just omit the last `'` on the first line:
 
 When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
+## Testing
+It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
+
+Testing on every commit is done for 3 reasons:
+
+1. It is easier to fix a problem immediately instead of at a later point.
+2. The person creating the problem is in the best position to fix it.
+3. In a monorepo with interdependecies, one change can affect multiple packages. Waiting to test until pushing or merging into master might bunch together a whole lot of problems that are harder to fix than incrementally fixing small problems.
+
+If it is necessary to commit changes where tests are failing, you can manually disable the tests (**by commenting them out or using `.skip()` in jest etc.**). Alternatively you can run `git commit` with the `--no-verify` flag, but this will also skip the hook that calls `commitlint`. This means, that if you use the `--no-verify` flag, you will have to [manually check your commit message](#commitlint) before committing your changes, e.g.:
+
+```bash
+> MSG='fix(vue-breadcrumb): commitlint compliant message' && echo "$MSG" | npx commitlint && git commit -m "$MSG" --no-verify
+```
+
+**It is recommended** to just disable the tests to ensure that changelogs will be generated correctly etc, but the above example *will work for single-line commit messages*.
+
+
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.

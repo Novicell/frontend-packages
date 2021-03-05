@@ -27,7 +27,7 @@ const files = package.files
 const main = package.main
 
 if (package.scripts) {
-  var { wipe, build, prepublishOnly } = package.scripts
+  var { wipe, build, prepublishOnly, test } = package.scripts
 }
 
 /* info message */
@@ -131,6 +131,16 @@ failstack.push(check({ prop: prepublishOnly, propName: 'scripts.prepublishOnly',
 }}))
 
 
+//* package.test
+
+failstack.push(check({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
+
+
+
+
+
+
+
 
 /* utils */
 
@@ -227,8 +237,10 @@ function check({ prop, propName, optional, type, customCheck = () => { return } 
 infoMsg('\n----------------------------')
 if (failstack.includes('err')) {
   err('\x1b[4mThere are properties in this package.json that MUST be corrected. See above.')
+
 } else if (failstack.includes('warn')) {
   warn('\x1b[4mThere are properties in this package.json that SHOULD be corrected, but it is not obligatory. See above.')
+
 } else {
-  pass('\x1b[4mEverything is this package.json is as it should be.')
+  pass('\x1b[4mEverything in this package.json is as it should be.')
 }
