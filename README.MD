@@ -181,7 +181,7 @@ When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootst
 
 ## Bootstrapping
 ```bash
-> lerna bootstrap --hoist
+> lerna link && lerna bootstrap --hoist
 ```
 is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. To make sure we bootstrap and hoist the correct way, you can from the root repo scope (everywhere that is not inside another package) run:
 ```bash
@@ -189,6 +189,9 @@ is the equivalent of `npm i` in that it installs all dependencies with the added
 ```
 Which will execute the script `/repoScripts/bootstrap`.
 
+**Note:**
+
+Bootstrapping by itself should also created internal dependency symlinks, but this can be buggy with private packages. To fix this, we just manually link interdependencies first.
 
 ### Symlinks
 ```bash
