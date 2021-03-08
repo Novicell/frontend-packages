@@ -1,37 +1,6 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
-- [Novicell Frontend Packages](#novicell-frontend-packages)
-  - [Creating a package](#creating-a-package)
-  - [package.json](#packagejson)
-    - [Checking the package.json](#checking-the-packagejson)
-  - [Scripts](#scripts)
-    - [Shared scripts](#shared-scripts)
-    - [Global scripts](#global-scripts)
-  - [Config files](#config-files)
-  - [Adding dependencies](#adding-dependencies)
-    - [Examples:](#examples)
-    - [Hoisting quirk](#hoisting-quirk)
-  - [Bootstrapping](#bootstrapping)
-    - [Symlinks](#symlinks)
-  - [Cleaning up](#cleaning-up)
-  - [Running arbitrary commands](#running-arbitrary-commands)
-  - [Versioning, changelogs & publishing](#versioning-changelogs-publishing)
-    - [Conventional commits](#conventional-commits)
-      - [Message formatting](#message-formatting)
-      - [commitlint](#commitlint)
-  - [Testing](#testing)
-  - [Storybook](#storybook)
-  - [New package - what do?](#new-package-what-do)
-    - [Major version zero](#major-version-zero)
-    - [Making changes](#making-changes)
-
-<!-- /code_chunk_output -->
-
 ## Creating a package
 Create a new package with:
 ```bash
@@ -42,14 +11,39 @@ or more commonly by copying another package and appropriating the package.json.
 ## package.json
 All package's `package.json` should have at least the following props:
 ```json
-"name" // should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
-"files" // should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder. The common property will look like this: `"files": [ "dist" ]`.
-"main" // is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
-"private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+"name"
+"files"
+"main"
+"private"
+```
+### name
+Should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package. The first part of the package's name should also reflect what type of package this is followed by a hyphen: `@novicell/{type}-{name}`. For example:
+
+Vue components
+```json
+"name": "@novicell/vue-breadcrumb"
 ```
 
-### Checking the package.json
-To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+Css packages
+```json
+"name": "@novicell/css-utils"
+```
+
+Non-distributed styling for components
+```json
+"private": true,
+"name": "@novicell/styles-breadcrumb"
+```
+
+### files
+Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder.
+### main
+This is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
+### private
+Defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+
+## Checking a package
+To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
 
 The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
 
@@ -63,6 +57,8 @@ or from anywhere outside of a sub-package's scope:
 ```bash
 > npm run check-package -- packages/vue/breadcrumb/package.json
 ```
+
+This script should be updated to reflect our standards for different types of packages whenever we add new types of content to this monorepo.
 
 ## Scripts
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
