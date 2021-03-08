@@ -13,6 +13,7 @@ All package's `package.json` should have at least the following props:
 ```json
 "name"
 "files"
+"publishConfig.directory"
 "main"
 "private"
 ```
@@ -36,14 +37,24 @@ Non-distributed styling for components
 ```
 
 ### files
-Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder.
+Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). Use the `dist` folder for this. If you need to package source code for the user to compile themselves, you can optionally put it in the `dist/src` folder, if you want to separate the built files and source files.
+
+### publishConfig.directory
+The following snippet tells lerna to make internally linked packages only link the content of `dist/`:
+```json
+"publishConfig": {
+  "directory": "dist"
+}
+```
+The default behaviour of lerna is to link whole packages as internal dependencies, even though the published package will only include the files specified in [`"files"`](#files). Adding the above snippet to the `package.json` makes sure that development import paths (etc.) behaves the same way as it would when the package is published.
+
 ### main
 This is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
 ### private
 Defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 
 ## Checking a package
-To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package have stories / tests (optional, but recommended).
 
 The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
 
@@ -64,12 +75,27 @@ This script should be updated to reflect our standards for different types of pa
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
 
 ```json
-"wipe" // deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
-"build" // should call whichever commands are required to generate publish-ready code in the `dist` folder.
-"lint" // should be the script to lint and/or fix code errors.
-"test" // should be used to run the packages' tests.
-"prepublishOnly" // should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
+"wipe"
+"build"
+"lint"
+"test"
+"prepublishOnly"
 ```
+
+### wipe
+Deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
+
+### build
+Should call whichever commands are required to generate publish-ready code in the `dist` folder.
+
+### lint
+Should be the script to lint and/or fix code errors.
+
+### test
+Should be used to run the packages' tests.
+
+### prepublishOnly
+Should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
 
 ### Shared scripts
 To be able to run shared scripts **you are required to have bash installed on your system and available in your `PATH` variable.**
@@ -203,7 +229,7 @@ Bootstrapping by itself should also created internal dependency symlinks, but th
 does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
 
 **Note:**
-Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. In the depending package's `node_modules` you will also have access to all of the linked dependency's files (including configs and source code), even though the package might only expose its `dist` folder when published. This means that you *can* use (for example) source code from the dependency project in the depending project during development if the depending project can compile the source code, but these files wil not be accessible to the depending package when published.
+Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. In the depending package's `package.json`, you should [add the `publishConfig.directory` prop](#publishconfig.directory) to make sure linked packages behave the same as when they are installed with NPM.
 
 ## Cleaning up
 If the dependencies are acting wonky, using:

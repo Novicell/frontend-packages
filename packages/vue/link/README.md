@@ -12,14 +12,28 @@ The link component can be used in both a browser environment and a self-built si
 
 ### Single File Component
 To install the component in your project, run the command:
-`npm i @novicell/vue-link`.
+```bash
+> npm i @novicell/vue-link
+```
+To import the uncompiled SFC, use the following import statement (Vue will optimize templates when doing this):
+```js
+import NcLink from '@novicell/vue-link/nc-link.vue
+```
 
-The component can then be imported inside your Vue project with:
-`import NcLink from '@novicell/vue-link`.
+You can also import the esm component with:
+```js
+import NcLink from '@novicell/vue-link
+```
 
 ### Browser
 To reference the component in your project, add the following script tag to your page:
-`<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-link/dist/nc-link.min.js"></script>`.
+```html
+<script src="https://unpkg.com/@novicell/vue-link"></script>
+```
+or
+```html
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-link/dist/nc-link.min.js"></script>
+```
 
 The component will automatically register itself if Vue is present on the `window` object.
 
@@ -60,7 +74,7 @@ default: '_self'
 
 ## Examples
 ### SFC
-```
+```html
 <template>
   <NcLink to="/subpage" title="Hover text" name="Explains the link if there is no text inside me" target="_blank">
     Take me to /subpage
@@ -68,7 +82,7 @@ default: '_self'
 </template>
 
 <script>
-import NcLink from '@novicell/vue-link'
+import NcLink from '@novicell/vue-link/nc-link.vue'
 
 export default {
   components: {
@@ -79,7 +93,7 @@ export default {
 ```
 
 ### Browser
-```
+```html
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@novicell/vue-link/dist/nc-link.min.js"></script>

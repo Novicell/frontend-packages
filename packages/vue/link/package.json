@@ -5,12 +5,13 @@
   "description": "A Vue link component, that automatically switches between and anchor-tag and NuxtLink, depending on whether the provided link is internal or external.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "scripts": {
-    "build": "bash ../scripts/build/index",
     "test": "bash ../scripts/test/index",
     "test:unit": "bash ../scripts/test/unit",
+    "build": "bash ../scripts/build/index && npm run build:sfc",
     "build:es": "bash ../scripts/build/es dist/nc-link.esm.js",
     "build:umd": "bash ../scripts/build/umd dist/nc-link.umd.js",
     "build:unpkg": "bash ../scripts/build/unpkg dist/nc-link.min.js",
+    "build:sfc": "bash ../scripts/build/sfc",
     "dev": "bash ../scripts/dev",
     "help": "bash ../scripts/help",
     "prepublishOnly": "npm run build",
@@ -18,13 +19,14 @@
   },
   "main": "dist/nc-link.umd.js",
   "module": "dist/nc-link.esm.js",
-  "browser": {
-    "./sfc": "src/nc-link.vue"
-  },
   "unpkg": "dist/nc-link.min.js",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^16.0.0",
@@ -40,9 +42,6 @@
   },
   "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
   }
