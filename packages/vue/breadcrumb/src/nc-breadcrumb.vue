@@ -12,9 +12,8 @@
 </template>
 
 <script>
-// '@rollup/plugin-node-resolve' sørger for at vi undgår absolutte stier:
-// import NcLink from '@novicell/vue-link' // Virker kun til at builde til browser - vue SFC ved ikke hvad den skal gøre med `global` i (default) *.esm.js-filen
-import NcLink from '@novicell/vue-link/nc-link.vue' // Virker både med `npm run dev` og buildet til browser - kunne være fedt med /sfc
+
+import NcLink from '@novicell/vue-link/dist/nc-link.vue'
 
 export default {
   components: {

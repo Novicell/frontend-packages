@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import NcBreadcrumb from '@/nc-breadcrumb.vue'
-import NcLink from '@novicell/vue-link/nc-link.vue'
+import NcLink from '@novicell/vue-link/dist/nc-link.vue'
 
 describe('nc-breadcrumb.vue', () => {
 
