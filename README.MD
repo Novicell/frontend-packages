@@ -325,17 +325,63 @@ or for multiline commit messages - just omit the last `'` on the first line:
 
 When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
-### Test publish
+### Test publishing
 If you want to test your published package without it going on NPM, you can use Verdaccio to create a local package registry:
 
 ```bash
-> npm i -g verdaccio # install globally
-> verdaccio # run local registry
+> npm i -g verdaccio
 ```
 
+Follow these steps to publish, test, unpublish, and reset packages to a local registry, leaving you exactly where you left off:
+
+#### Publish package to local registry
+The easiest way to only publish select packages (although it does not matter if you publish everything since it is a local registry):
+
+1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
+2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
+This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
+4. Run verdaccio, and copy the URL:
+```bash
+> verdaccio # E.g.: http://localhost:4873
+```
 Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+5. Publish packages:
+```bash
+> lerna publish from-package --registry <verdaccio url>
 
+# For example:
+> lerna publish from-package --registry http://localhost:4873
+```
+This will look at which packages have changed (from the version number in `package.json`) since last publish. Don't worry if there are other unpublished changed packages.
 
+#### Testing package from local registry
+As long as you keep verdaccio running, you can install your package on your computer (for example in a playground environment) by using the `--registry` flag as you did when publishing:
+```bash
+> npm i <package> --registry <verdaccio url>
+
+# For example:
+> npm i @novicell/vue-breadcrumb --registry Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+```
+
+#### Unpublishing package from local registry
+If you want to get rid of the clutter, or if you want to change the tested packages without changing the version numbers once again, you can unpublish from the local registry with the following command, as long as Verdaccio is running:
+
+```bash
+> npm unpublish <package> --registry <verdaccio url> --force
+
+# For example:
+> npm unpublish @novicell/vue-breadcrumb --registry http://localhost:4873 --force
+```
+
+#### Resetting changes
+To return to the exact state before bumping version numbers, use the command:
+
+```bash
+> git reset --hard HEAD~1
+```
+
+This will change files and git log back one commit, leaving you exactly in the state you were before publishing to Verdaccio.
 
 ## Testing
 It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
