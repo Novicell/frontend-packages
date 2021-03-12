@@ -5,4 +5,4 @@
 
 printf "👢 Installing & hoisting dependencies, making symlinks 👢\n\n"
 
-lerna link && lerna bootstrap --hoist
+lerna bootstrap --hoist
