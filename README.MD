@@ -325,6 +325,18 @@ or for multiline commit messages - just omit the last `'` on the first line:
 
 When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
+### Test publish
+If you want to test your published package without it going on NPM, you can use Verdaccio to create a local package registry:
+
+```bash
+> npm i -g verdaccio # install globally
+> verdaccio # run local registry
+```
+
+Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+
+
+
 ## Testing
 It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
 
