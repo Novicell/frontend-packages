@@ -19,7 +19,7 @@ To install the component in your project, run the command:
 
 To import the uncompiled SFC, use the following import statement (Vue will optimize templates when doing this):
 ```js
-import NcBreadcrumb from '@novicell/vue-breadcrumb/nc-breadcrumb.vue`
+import NcBreadcrumb from '@novicell/vue-breadcrumb/dist/nc-breadcrumb.vue`
 ```
 
 You can also import the esm component with:
@@ -117,7 +117,7 @@ Doing this will allow you to style the child elements with BEM classes as well b
 
 <script>
 import '@novicell/vue-breadcrumb/dist/css/index.css'
-import NcBreadcrumb from '@novicell/vue-breadcrumb/nc-breadcrumb.vue'
+import NcBreadcrumb from '@novicell/vue-breadcrumb/dist/nc-breadcrumb.vue'
 
 export default {
   components: {

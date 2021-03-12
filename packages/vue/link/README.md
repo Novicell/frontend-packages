@@ -17,7 +17,7 @@ To install the component in your project, run the command:
 ```
 To import the uncompiled SFC, use the following import statement (Vue will optimize templates when doing this):
 ```js
-import NcLink from '@novicell/vue-link/nc-link.vue
+import NcLink from '@novicell/vue-link/dist/nc-link.vue
 ```
 
 You can also import the esm component with:
@@ -82,7 +82,7 @@ default: '_self'
 </template>
 
 <script>
-import NcLink from '@novicell/vue-link/nc-link.vue'
+import NcLink from '@novicell/vue-link/dist/nc-link.vue'
 
 export default {
   components: {
