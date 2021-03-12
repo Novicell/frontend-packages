@@ -1,24 +1,45 @@
-const { info } = require('console')
 const fs = require('fs')
 const path = require('path')
+const glob = require('glob')
 
-/* load file correctly */
+/* load package correctly */
 
 if (process.argv.length != 3) {
-  throw new Error('check-package takes exactly one argument, which is the path to a package.json\n')
+  throw new Error('check-package takes exactly one argument, which is the path to a package containing a package.json\n')
 }
 
-const file = process.argv[2]
+const packageDir = process.argv[2]
 
-const basename = path.win32.basename(file)
+const packageFile = path.join(packageDir, 'package.json')
 
-if (basename.toLowerCase() != 'package.json') {
-  throw new Error('file must be a package.json\n')
+// Will only check for the presence of stories in these kinds of packages
+const packsWithStorybook = ['vue', 'react']
+
+let package
+try {
+  package = JSON.parse(fs.readFileSync(packageFile))
+} catch (err) {
+  throw new Error(`Cannot find a package.json in this directory:\n${packageDir}`)
 }
 
-const package = JSON.parse(fs.readFileSync(file))
 
-/* grab important props */
+/* info message */
+
+infoMsg(`Checking ${packageDir}`)
+infoMsg('Non-optional settings will be logged like this:')
+err("I use the word 'must'.")
+infoMsg('Optional settings will be logged like this:')
+warn("I use the word 'should'.")
+infoMsg('----------------------------\n')
+
+
+// Only used to display a summary message saying whether everything is okay, something SHOULD be changed or if something MUST be changed
+// every check will display the specific warning/error if there are any
+const failstack = []
+
+/* ------------------------------------ */
+/* ---------- package.json -------------*/
+/* ------------------------------------ */
 
 const name = package.name
 
@@ -30,24 +51,11 @@ if (package.scripts) {
   var { wipe, build, prepublishOnly, test } = package.scripts
 }
 
-/* info message */
-
-infoMsg(`Checking ${file}`)
-infoMsg('Non-optional settings will be logged like this:')
-err("I use the word 'must'.")
-infoMsg('Optional settings will be logged like this:')
-warn("I use the word 'should'.")
-infoMsg('----------------------------\n')
-
-
-/* check syntax */
-
-// To see if everything went well.
-const failstack = []
+/* check syntax of package.json */
 
 //* package.name
 
-failstack.push(check({ prop: name, propName: 'name', optional: false, type: 'string', customCheck: () => {
+failstack.push(checkJSON({ prop: name, propName: 'name', optional: false, type: 'string', customCheck: () => {
 
   const splitName = name.split('/')
   const prefix = splitName[0]
@@ -62,7 +70,7 @@ failstack.push(check({ prop: name, propName: 'name', optional: false, type: 'str
 
 //* package.files
 
-failstack.push(check({ prop: files, propName: 'files', optional: true, type: 'array', customCheck: () => {
+failstack.push(checkJSON({ prop: files, propName: 'files', optional: true, type: 'array', customCheck: () => {
 
   if (!files.includes('dist')) {
     warn('"files" should contain the exact value "dist".')
@@ -74,7 +82,7 @@ failstack.push(check({ prop: files, propName: 'files', optional: true, type: 'ar
 
 //* package.main
 
-failstack.push(check({ prop: main, propName: 'main', optional: false, type: 'string', customCheck: () => {
+failstack.push(checkJSON({ prop: main, propName: 'main', optional: false, type: 'string', customCheck: () => {
 
   const splitPath = main.split('/')
   const prefix = splitPath[0]
@@ -89,7 +97,7 @@ failstack.push(check({ prop: main, propName: 'main', optional: false, type: 'str
 
 //* package.scripts.wipe
 
-failstack.push(check({ prop: wipe, propName: 'scripts.wipe', optional: true, type: 'string', customCheck: () => {
+failstack.push(checkJSON({ prop: wipe, propName: 'scripts.wipe', optional: true, type: 'string', customCheck: () => {
 
   let err = false
   // split on / or space
@@ -116,12 +124,12 @@ failstack.push(check({ prop: wipe, propName: 'scripts.wipe', optional: true, typ
 
 //* package.scripts.build
 
-failstack.push(check({ prop: build, propName: 'scripts.build', optional: false, type: 'string' })) // only check presence
+failstack.push(checkJSON({ prop: build, propName: 'scripts.build', optional: false, type: 'string' })) // only check presence
 
 
 //* package.scripts.prepublishOnly
 
-failstack.push(check({ prop: prepublishOnly, propName: 'scripts.prepublishOnly', optional: false, type: 'string', customCheck: () => {
+failstack.push(checkJSON({ prop: prepublishOnly, propName: 'scripts.prepublishOnly', optional: false, type: 'string', customCheck: () => {
 
   if (prepublishOnly !== 'npm run build') {
     err('"scripts.prepublishOnly" must contain the exact value of "npm run build".')
@@ -133,16 +141,22 @@ failstack.push(check({ prop: prepublishOnly, propName: 'scripts.prepublishOnly',
 
 //* package.test
 
-failstack.push(check({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
+failstack.push(checkJSON({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
+
+
+
+/* ------------------------------------ */
+/* ---------- files --------------------*/
+/* ------------------------------------ */
+
+failstack.push(checkStories(packageDir))
 
 
 
 
-
-
-
-
-/* utils */
+/* ------------------------------------ */
+/* ---------- utils --------------------*/
+/* ------------------------------------ */
 
 function pass(msg) {
   // green
@@ -187,7 +201,7 @@ function noProp(prop, logger) {
 }
 
 // every check will either warn or error in the console if it is not fulfilled
-function check({ prop, propName, optional, type, customCheck = () => { return } }) {
+function checkJSON({ prop, propName, optional, type, customCheck = () => { return } }) {
 
   // returns true if everything passed, false if an obligatory prop failed and 'warn' if only something optional failed
   let failstack = []
@@ -232,6 +246,29 @@ function check({ prop, propName, optional, type, customCheck = () => { return } 
     return 'warn'
   }
 }
+
+function checkStories(packageDir) {
+  const storiesDir = path.join(packageDir, 'stories')
+
+  // Only check if package type is in the list of package types that should have stories
+  const packageType = name.split(/\/|-/)[1]
+  if (!packsWithStorybook.includes(packageType)) return
+
+  // Will call a warning if there is not stories dir OR if the stories dir is empty
+  if (!fs.existsSync(storiesDir)) {
+    warn("This package should have a 'stories' directory for displaying its components.")
+    return 'warn'
+
+  } else { // stories dir exists
+    const storyFiles = glob.sync('*.stories.js', { cwd: storiesDir })
+
+    if (storyFiles.length <= 0) {
+      warn("There should be at least one story file for this component in the 'stories' directory.")
+      return 'warn'
+    }
+  }
+}
+
 
 
 infoMsg('\n----------------------------')

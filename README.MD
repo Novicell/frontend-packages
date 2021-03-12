@@ -1,30 +1,6 @@
 # Novicell Frontend Packages
 The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
 
-- [Novicell Frontend Packages](#novicell-frontend-packages)
-  - [Creating a package](#creating-a-package)
-  - [package.json](#packagejson)
-    - [Checking the package.json](#checking-the-packagejson)
-  - [Scripts](#scripts)
-    - [Shared scripts](#shared-scripts)
-    - [Global scripts](#global-scripts)
-  - [Config files](#config-files)
-  - [Adding dependencies](#adding-dependencies)
-    - [Examples:](#examples)
-    - [Hoisting quirk](#hoisting-quirk)
-  - [Bootstrapping](#bootstrapping)
-    - [Symlinks](#symlinks)
-  - [Cleaning up](#cleaning-up)
-  - [Running arbitrary commands](#running-arbitrary-commands)
-  - [Versioning, changelogs & publishing](#versioning-changelogs-publishing)
-    - [Conventional commits](#conventional-commits)
-      - [Message formatting](#message-formatting)
-      - [commitlint](#commitlint)
-  - [Testing](#testing)
-  - [New package - what do?](#new-package-what-do)
-    - [Major version zero](#major-version-zero)
-    - [Making changes](#making-changes)
-
 ## Creating a package
 Create a new package with:
 ```bash
@@ -35,14 +11,39 @@ or more commonly by copying another package and appropriating the package.json.
 ## package.json
 All package's `package.json` should have at least the following props:
 ```json
-"name" // should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package.
-"files" // should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder. The common property will look like this: `"files": [ "dist" ]`.
-"main" // is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
-"private" // defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+"name"
+"files"
+"main"
+"private"
+```
+### name
+Should be scoped with the prefix `@novicell/`, e.g.: `@novicell/css-utils`. This is the name of the package on NPM and the name used to install and import the package. The first part of the package's name should also reflect what type of package this is followed by a hyphen: `@novicell/{type}-{name}`. For example:
+
+Vue components
+```json
+"name": "@novicell/vue-breadcrumb"
 ```
 
-### Checking the package.json
-To make sure that the `package.json` is formatted correctly, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+Css packages
+```json
+"name": "@novicell/css-utils"
+```
+
+Non-distributed styling for components
+```json
+"private": true,
+"name": "@novicell/styles-breadcrumb"
+```
+
+### files
+Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder.
+### main
+This is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
+### private
+Defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
+
+## Checking a package
+To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
 
 The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
 
@@ -56,6 +57,8 @@ or from anywhere outside of a sub-package's scope:
 ```bash
 > npm run check-package -- packages/vue/breadcrumb/package.json
 ```
+
+This script should be updated to reflect our standards for different types of packages whenever we add new types of content to this monorepo.
 
 ## Scripts
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
@@ -140,10 +143,16 @@ The configurations inside `*/config/` are implemented by either importing them a
 
 ## Adding dependencies
 ```bash
-> lerna add <package>
+> lerna add <package> --scope <scope>
 ```
-will automatically [bootstrap](#bootstrapping) your packages.
+
 When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
+
+`lerna add` does not hoist dependencies when bootstrapping, so to make sure that everything behaves as expected, it is strongly recommended to run the following afterwards:
+
+```bash
+> lerna clean && lerna bootstrap --hoist
+```
 
 **Note:** `lerna add` can only add one package at a time.
 
@@ -175,7 +184,7 @@ When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootst
 
 ## Bootstrapping
 ```bash
-> lerna bootstrap --hoist
+> lerna link && lerna bootstrap --hoist
 ```
 is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. To make sure we bootstrap and hoist the correct way, you can from the root repo scope (everywhere that is not inside another package) run:
 ```bash
@@ -183,6 +192,9 @@ is the equivalent of `npm i` in that it installs all dependencies with the added
 ```
 Which will execute the script `/repoScripts/bootstrap`.
 
+**Note:**
+
+Bootstrapping by itself should also created internal dependency symlinks, but this can be buggy with private packages. To fix this, we just manually link interdependencies first.
 
 ### Symlinks
 ```bash
@@ -314,6 +326,18 @@ If it is necessary to commit changes where tests are failing, you can manually d
 
 **It is recommended** to just disable the tests to ensure that changelogs will be generated correctly etc, but the above example *will work for single-line commit messages*.
 
+## Storybook
+To see all components for a framework you can (from the root scope) run the command:
+`/`
+```bash
+> npm run <framework>-storybook
+```
+E.g.:
+`/`
+```bash
+> npm run vue-storybook
+```
+This will run the bash script `/repoScripts/storybook/vue`.
 
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
