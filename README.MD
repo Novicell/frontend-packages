@@ -13,7 +13,6 @@ All package's `package.json` should have at least the following props:
 ```json
 "name"
 "files"
-"publishConfig.directory"
 "main"
 "private"
 ```
@@ -38,15 +37,6 @@ Non-distributed styling for components
 
 ### files
 Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). Use the `dist` folder for this. If you need to package source code for the user to compile themselves, you can optionally put it in the `dist/src` folder, if you want to separate the built files and source files.
-
-### publishConfig.directory
-The following snippet tells lerna to make internally linked packages only link the content of `dist/`:
-```json
-"publishConfig": {
-  "directory": "dist"
-}
-```
-The default behaviour of lerna is to link whole packages as internal dependencies, even though the published package will only include the files specified in [`"files"`](#files). Adding the above snippet to the `package.json` makes sure that development import paths (etc.) behaves the same way as it would when the package is published.
 
 ### main
 This is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
@@ -229,7 +219,7 @@ Bootstrapping by itself should also created internal dependency symlinks, but th
 does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
 
 **Note:**
-Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. In the depending package's `package.json`, you should [add the `publishConfig.directory` prop](#publishconfig.directory) to make sure linked packages behave the same as when they are installed with NPM.
+Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. The link allows access to the whole package, although **only `dist/` will be available when the package is published and distributed.
 
 ## Cleaning up
 If the dependencies are acting wonky, using:

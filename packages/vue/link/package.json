@@ -24,8 +24,7 @@
     "dist"
   ],
   "publishConfig": {
-    "access": "public",
-    "directory": "dist"
+    "access": "public"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",

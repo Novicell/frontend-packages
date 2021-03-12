@@ -47,12 +47,6 @@ const files = package.files
 
 const main = package.main
 
-// const publishConfig = package.publishConfig
-
-if (package.publishConfig) {
-  var publishDirectory = package.publishConfig.directory
-}
-
 if (package.scripts) {
   var { wipe, build, prepublishOnly, test } = package.scripts
 }
@@ -104,18 +98,6 @@ failstack.push(checkJSON({ prop: main, propName: 'main', optional: false, type: 
 //* package.test
 
 failstack.push(checkJSON({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
-
-
-//* package.publishConfig.directory
-
-failstack.push(checkJSON({ prop: publishDirectory, propName: 'publishConfig.directory', optional: false, type: 'string', customCheck: () => {
-
-  if (publishDirectory !== 'dist') {
-    err('"publishConfig.directory" must be set to "dist".')
-    return 'err'
-  }
-
-}}))
 
 
 /* ------------------------------------ */
