@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.0 (2021-03-15)
+
+
+### Features
+
+* **vue-breadcrumb2:** this is a change ([5abc0c2](https://github.com/Novicell/frontend-packages/commit/5abc0c2277bd3bd2b998498fbf2d87500af92aa6))
+
+
+
+
 ## [1.1.0](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-breadcrumb@1.0.2...@novicell/vue-breadcrumb@1.1.0) (2021-02-26)
 
 

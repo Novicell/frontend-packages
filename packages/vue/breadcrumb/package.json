@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-breadcrumb",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vue implementation of a breadcrumb component.",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
@@ -32,7 +32,7 @@
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "license": "MIT",
   "dependencies": {
-    "@novicell/vue-link": "^0.3.6"
+    "@novicell/vue-link": "^0.3.7"
   },
   "devDependencies": {
     "@novicell/styles-breadcrumb": "^0.2.5",
