@@ -249,7 +249,7 @@ which will execute `/repoScripts/reset`. Adding a scope does not require calling
 ```
 can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts").
 ```bash
-lerna run build
+> lerna run build
 ```
 will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
@@ -338,14 +338,18 @@ Follow these steps to publish, test, unpublish, and reset packages to a local re
 The easiest way to only publish select packages (although it does not matter if you publish everything since it is a local registry):
 
 1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
+
 2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
 This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+
 3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
+
 4. Run verdaccio, and copy the URL:
 ```bash
 > verdaccio # E.g.: http://localhost:4873
 ```
 Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+
 5. Publish packages:
 ```bash
 > lerna publish from-package --registry <verdaccio url>
@@ -361,7 +365,7 @@ As long as you keep verdaccio running, you can install your package on your comp
 > npm i <package> --registry <verdaccio url>
 
 # For example:
-> npm i @novicell/vue-breadcrumb --registry Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+> npm i @novicell/vue-breadcrumb --registry http://localhost:4873
 ```
 
 #### Unpublishing package from local registry
