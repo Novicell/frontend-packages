@@ -46,17 +46,17 @@ Defaults to `false`. Set this property to `true` if you only have internal depen
 ## Checking a package
 To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package have stories / tests (optional, but recommended).
 
-The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
+The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the package as the only argument. Example:
 
 `/`
 ```bash
-> node repoScripts/check-package packages/vue/breadcrumb/package.json
+> node repoScripts/check-package packages/vue/breadcrumb
 ```
 or from anywhere outside of a sub-package's scope:
 
 `/`
 ```bash
-> npm run check-package -- packages/vue/breadcrumb/package.json
+> npm run check-package -- packages/vue/breadcrumb
 ```
 
 This script should be updated to reflect our standards for different types of packages whenever we add new types of content to this monorepo.
@@ -249,7 +249,7 @@ which will execute `/repoScripts/reset`. Adding a scope does not require calling
 ```
 can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts").
 ```bash
-lerna run build
+> lerna run build
 ```
 will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
@@ -338,14 +338,18 @@ Follow these steps to publish, test, unpublish, and reset packages to a local re
 The easiest way to only publish select packages (although it does not matter if you publish everything since it is a local registry):
 
 1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
+
 2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
 This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+
 3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
+
 4. Run verdaccio, and copy the URL:
 ```bash
 > verdaccio # E.g.: http://localhost:4873
 ```
 Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+
 5. Publish packages:
 ```bash
 > lerna publish from-package --registry <verdaccio url>
@@ -361,7 +365,7 @@ As long as you keep verdaccio running, you can install your package on your comp
 > npm i <package> --registry <verdaccio url>
 
 # For example:
-> npm i @novicell/vue-breadcrumb --registry Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+> npm i @novicell/vue-breadcrumb --registry http://localhost:4873
 ```
 
 #### Unpublishing package from local registry
@@ -416,7 +420,7 @@ This will run the bash script `/repoScripts/storybook/vue`.
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.
-2. Add dependencies with `lerna add @novicell/<package> --scope=@novicell/<this-package>` - Bootstrapping and symlinking comes automatically - if you change/break things refer to [Bootstrapping](#bootstrapping "Bootstrapping") and [Cleaning up](#cleaning-up "Cleaning up").
+2. Add dependencies with `lerna add @novicell/<package> --scope=@novicell/<this-package>` followed by a hoisted bootstrap - refer to [Bootstrapping](#bootstrapping "Bootstrapping") and [Cleaning up](#cleaning-up "Cleaning up").
 3. Commit the package with [Conventional Commits](#conventional-commits "Conventional Commits").
 4. Login to NPM with `npm login`.
 5. Publish (and build) the package with `lerna publish --conventional-commits`
