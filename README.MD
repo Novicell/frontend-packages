@@ -85,7 +85,7 @@ Should be the script to lint and/or fix code errors.
 Should be used to run the packages' tests.
 
 ### prepublishOnly
-Should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
+Should run your `build` command (`npm run build`). This command is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
 
 ### Shared scripts
 To be able to run shared scripts **you are required to have bash installed on your system and available in your `PATH` variable.**
@@ -210,7 +210,7 @@ Which will execute the script `/repoScripts/bootstrap`.
 
 **Note:**
 
-Bootstrapping by itself should also created internal dependency symlinks, but this can be buggy with private packages. If this is an issue, we just manually link interdependencies first.
+Bootstrapping by itself should also creat internal dependency symlinks, but this can be buggy with private packages. If this is an issue, we just manually link interdependencies first.
 
 ### Symlinks
 ```bash
@@ -226,7 +226,7 @@ If the dependencies are acting wonky, using:
 ```bash
 > lerna clean
 ```
-will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
+will delete all `node_modules` in all packages, but not the root `node_modules` (use `rm -rf` to remove this dir if necessary). `--scope=<package>` can be used to select individual packages.
 Likewise:
 ```bash
 > lerna run wipe
@@ -239,9 +239,9 @@ will clean out all `dist` folders. Scoping also applies when using `lerna run wi
 
 To quickly clean out all `node_modules` and `dist/` folders as well as re-bootstrap and rebuild all dependencies and packages, you can from the root scope run:
 ```bash
-> npm run reset <scope>
+> npm run reset <optional-scope>
 ```
-which will execute `/repoScripts/reset`. Adding a scope does not require calling `--scope` first.
+which will execute `/repoScripts/reset`. Adding a scope here does not require using `--scope`.
 
 ## Running arbitrary commands
 ```bash
@@ -387,8 +387,8 @@ To return to the exact state before bumping version numbers, use the command:
 
 This will change files and git log back one commit, leaving you exactly in the state you were before publishing to Verdaccio.
 
-## Testing
-It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
+## Testing packages
+It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package - [read more](#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
 
 Testing on every commit is done for 3 reasons:
 
