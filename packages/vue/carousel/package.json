@@ -42,5 +42,9 @@
   "license": "MIT",
   "repository": {
     "url": "https://github.com/Novicell/frontend-packages"
+  },
+  "dependencies": {
+    "swiper": "5.3.6",
+    "vue-awesome-swiper": "4.1.0"
   }
 }
