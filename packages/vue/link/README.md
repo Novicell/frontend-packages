@@ -108,6 +108,7 @@ export default {
   const app = new Vue({
     el: '#app'
     // I am already a registered component
+  })
 </script>
 ```
 

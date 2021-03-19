@@ -1,0 +1,46 @@
+{
+  "name": "@novicell/vue-carousel",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A Vue carousel component to display slideshows or create inline navigations etc.",
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "scripts": {
+    "test": "echo 'No tests for vue-carousel yet'",
+    "test:unit": "bash ../scripts/test/unit",
+    "build": "bash ../scripts/build/index && npm run build:sfc",
+    "build:es": "bash ../scripts/build/es dist/nc-carousel.esm.js",
+    "build:umd": "bash ../scripts/build/umd dist/nc-carousel.umd.js",
+    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-carousel.min.js",
+    "build:sfc": "bash ../scripts/build/sfc",
+    "dev": "bash ../scripts/dev",
+    "help": "bash ../scripts/help",
+    "prepublishOnly": "npm run build",
+    "wipe": "bash ../../../scripts/wipe"
+  },
+  "main": "dist/nc-carousel.umd.js",
+  "module": "dist/nc-carousel.esm.js",
+  "unpkg": "dist/nc-carousel.min.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@vue/cli": "^4.5.8",
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "@vue/cli-service-global": "^4.5.11",
+    "@vue/test-utils": "^1.0.3",
+    "rollup": "~2.33.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "2.6.12",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/Novicell/frontend-packages"
+  }
+}
