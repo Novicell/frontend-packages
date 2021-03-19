@@ -163,16 +163,18 @@ The configurations inside `*/config/` are implemented by either importing them a
 
 ## Adding dependencies
 ```bash
-> lerna add <package> --scope <scope>
+> lerna add <package> --scope <scope> --no-bootstrap
 ```
 
-When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
+When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your `package.json` and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
 
-`lerna add` does not hoist dependencies when bootstrapping, so to make sure that everything behaves as expected, it is strongly recommended to run the following afterwards:
+`lerna add` does not hoist dependencies when bootstrapping after getting the dependency, which is why we skip that step with `--no-bootstrap`. To make sure that everything behaves as expected, we manually run the following afterwards:
 
 ```bash
 > lerna clean && lerna bootstrap --hoist
 ```
+
+If you are adding dependencies to the repo as a whole, you will just use `npm` or `yarn` as you normally would from the root scope.
 
 **Note:** `lerna add` can only add one package at a time.
 
