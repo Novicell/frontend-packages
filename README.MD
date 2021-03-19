@@ -1,5 +1,9 @@
 # Novicell Frontend Packages
-The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
+The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands. If you don't like reading, we have a few quickstart videos that cover the most essential parts of this README:
+1. [Overview](https://web.microsoftstream.com/video/ae174148-66d5-4761-95c7-1cdaeac2537b)
+2. [Creating packages & adding dependencies](https://web.microsoftstream.com/video/54a2ce35-a60c-4765-9edf-2f9abcf613a1)
+3. [Commands and troubleshooting](https://web.microsoftstream.com/video/c09c6486-1542-4b82-861c-a6ced847335d)
+4. [Committing, versioning, & publishing](https://web.microsoftstream.com/video/535ee892-2045-4f92-963f-e6192e2755f7)
 
 ## Creating a package
 Create a new package with:
