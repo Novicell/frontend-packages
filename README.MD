@@ -427,18 +427,13 @@ To create and publish a new package you will often have to go through the follow
 6. Sip espresso ☕
 
 ### Major version zero
-When creating a package that is not yet stable, they should have a major version 0, e.g.: `0.1.0`. According to the semver specs, every change at this stage could be breaking, so a breaking change will not bump the major version automatically to `1.0.0`. When your package is stable you can commit the changes as you normally would with a correctly formatted commit message, but instead of versioning with the flag `--conventional-commits` you should use:
+When creating a package that is not yet stable, they should have a major version 0, e.g.: `0.1.0`. According to the semver specs, every change at this stage could be breaking, so a breaking change will not bump the major version automatically to `1.0.0`. When your package is stable you can commit the changes as you normally would with a correctly formatted commit message and version / publish the other packages that need to be published. Don't worry about the fact that the major version of your desired package will not change. If your package is private at this point, go ahead and set that property to false in the `package.json`. At this point you can either manually edit the version number to a major version 1 in the `package.json` and commit with conventional commits. Or you can just commit the changes you have and version the package manually with:
 ```bash
-> lerna version --conventional-graduate --amend
+> lerna version # should only show your edited package
 ```
-or
+After this has been done, you will have to tell lerna to publish the package without bumping the version again, which can be done with:
 ```bash
-> lerna publish --conventional-graduate --amend
+> lerna publish from-package
 ```
-and choose a custom version number (`1.0.0`).
-
-**Note:**
-
-Alternatively you should be able to omit `--amend` and include the formatted commit message with `-m` (same syntax as with git) instead of committing your changes first.
 ### Making changes
 When making changes to a package, it is commonly a good idea to clear out the changed package's `dist` folder and `node_modules` since bootstrapping will only add dependencies, not remove them if they have been changed in `package.json` manually instead of being removed with `npm uninstall`. After this, you can bootstrap and build the package again so that any depending packages have access to the newly created distribution-files for testing before ultimately committing the changes and potentially publishing.
