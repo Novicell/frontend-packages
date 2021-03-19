@@ -36,26 +36,27 @@ Non-distributed styling for components
 ```
 
 ### files
-Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). In most, if not all cases use a `dist` folder, and if you need to package source code for the user to compile themselves, put it in the `dist/src/` folder.
+Should be set to an array specifying the directories and/or files to distribute with your package (without this specified, all of the source code will be packaged). Use the `dist` folder for this. If you need to package source code for the user to compile themselves, you can optionally put it in the `dist/src` folder, if you want to separate the built files and source files.
+
 ### main
 This is the entrypoint to your package, i.e. the file that is fetched when the package is imported. This file will be located somewhere in your `dist` folder, e.g.: `"main": "dist/all.css"`.
 ### private
 Defaults to `false`. Set this property to `true` if you only have internal dependencies of this package, and it does not need to be published to NPM.
 
 ## Checking a package
-To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package build to `dist/` (preferred, but optional).
+To make sure that the `package.json` is formatted correctly and that the recommended / required setup is present, you can run `/repoScripts/check-package`. This script will distinguish between obligatory and optional properties on the package.json etc, e.g. is `"name"` prefixed with the `@novicell/` scope (obligatory) and does the package have stories / tests (optional, but recommended).
 
-The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the `package.json` as the only argument. Example:
+The script is called with `node` (from anywhere) or `npm run check-package` (from the repo root scope), and the path to the package as the only argument. Example:
 
 `/`
 ```bash
-> node repoScripts/check-package packages/vue/breadcrumb/package.json
+> node repoScripts/check-package packages/vue/breadcrumb
 ```
 or from anywhere outside of a sub-package's scope:
 
 `/`
 ```bash
-> npm run check-package -- packages/vue/breadcrumb/package.json
+> npm run check-package -- packages/vue/breadcrumb
 ```
 
 This script should be updated to reflect our standards for different types of packages whenever we add new types of content to this monorepo.
@@ -64,12 +65,27 @@ This script should be updated to reflect our standards for different types of pa
 To make sure we can run commands on all packages at the same time with `lerna run <script>` we have a convention for naming important scripts inside `package.json`.
 
 ```json
-"wipe" // deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
-"build" // should call whichever commands are required to generate publish-ready code in the `dist` folder.
-"lint" // should be the script to lint and/or fix code errors.
-"test" // should be used to run the packages' tests.
-"prepublishOnly" // should run your `build` command (`npm run build`). This commands is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
+"wipe"
+"build"
+"lint"
+"test"
+"prepublishOnly"
 ```
+
+### wipe
+Deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
+
+### build
+Should call whichever commands are required to generate publish-ready code in the `dist` folder.
+
+### lint
+Should be the script to lint and/or fix code errors.
+
+### test
+Should be used to run the packages' tests.
+
+### prepublishOnly
+Should run your `build` command (`npm run build`). This command is run automatically when publishing packages with lerna, removing the necessity for building every package manually before publishing.
 
 ### Shared scripts
 To be able to run shared scripts **you are required to have bash installed on your system and available in your `PATH` variable.**
@@ -184,7 +200,7 @@ When installing dependencies with `lerna bootstrap --hoist` ([reference](#bootst
 
 ## Bootstrapping
 ```bash
-> lerna link && lerna bootstrap --hoist
+> lerna bootstrap --hoist
 ```
 is the equivalent of `npm i` in that it installs all dependencies with the added benefit of checking if any dependencies are present in the monorepo first and creating symlinks where possible while also making sure the dependencies are hoisted to reduce duplicate files. Hoisting makes sure we have a central `node_modules` for common libraries. Refrain from using `npm i` to install all dependencies for a package since this will neither hoist dependencies or create symlinks. To make sure we bootstrap and hoist the correct way, you can from the root repo scope (everywhere that is not inside another package) run:
 ```bash
@@ -194,7 +210,7 @@ Which will execute the script `/repoScripts/bootstrap`.
 
 **Note:**
 
-Bootstrapping by itself should also created internal dependency symlinks, but this can be buggy with private packages. To fix this, we just manually link interdependencies first.
+Bootstrapping by itself should also creat internal dependency symlinks, but this can be buggy with private packages. If this is an issue, we just manually link interdependencies first.
 
 ### Symlinks
 ```bash
@@ -203,14 +219,14 @@ Bootstrapping by itself should also created internal dependency symlinks, but th
 does the same as bootstrapping, except it only symlinks internal dependencies and does not install third party packages.
 
 **Note:**
-Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. In the depending package's `node_modules` you will also have access to all of the linked dependency's files (including configs and source code), even though the package might only expose its `dist` folder when published. This means that you *can* use (for example) source code from the dependency project in the depending project during development if the depending project can compile the source code, but these files wil not be accessible to the depending package when published.
+Symlinked packages are mirrors of the linked package, which means that an update to the files in one package does not necessitate re-linking during development, the update is instant. The link allows access to the whole package, although **only `dist/` will be available when the package is published and distributed.
 
 ## Cleaning up
 If the dependencies are acting wonky, using:
 ```bash
 > lerna clean
 ```
-will delete all `node_modules` in the repo. `--scope=<package>` can be used to select individual packages.
+will delete all `node_modules` in all packages, but not the root `node_modules` (use `rm -rf` to remove this dir if necessary). `--scope=<package>` can be used to select individual packages.
 Likewise:
 ```bash
 > lerna run wipe
@@ -223,9 +239,9 @@ will clean out all `dist` folders. Scoping also applies when using `lerna run wi
 
 To quickly clean out all `node_modules` and `dist/` folders as well as re-bootstrap and rebuild all dependencies and packages, you can from the root scope run:
 ```bash
-> npm run reset <scope>
+> npm run reset <optional-scope>
 ```
-which will execute `/repoScripts/reset`. Adding a scope does not require calling `--scope` first.
+which will execute `/repoScripts/reset`. Adding a scope here does not require using `--scope`.
 
 ## Running arbitrary commands
 ```bash
@@ -233,7 +249,7 @@ which will execute `/repoScripts/reset`. Adding a scope does not require calling
 ```
 can be used to run any script in all packages (with optional scoping) as [seen previously](#cleaning-up "Cleaning up"), which is also why it is important to always [name the scripts the same thing in every package](#scripts "Scripts").
 ```bash
-lerna run build
+> lerna run build
 ```
 will automatically figure out the order in which to build packages on the basis of a package's dependencies.
 
@@ -309,8 +325,70 @@ or for multiline commit messages - just omit the last `'` on the first line:
 
 When using `!` to call attention to a breaking change with `commitlint`, you will have to `echo` with single ticks, e.g.: `echo 'feat(vue-breadcrumb)!: something is not backwards compatible'`.
 
-## Testing
-It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package ([read more])(#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
+### Test publishing
+If you want to test your published package without it going on NPM, you can use Verdaccio to create a local package registry:
+
+```bash
+> npm i -g verdaccio
+```
+
+Follow these steps to publish, test, unpublish, and reset packages to a local registry, leaving you exactly where you left off:
+
+#### Publish package to local registry
+The easiest way to only publish select packages (although it does not matter if you publish everything since it is a local registry):
+
+1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
+
+2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
+This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+
+3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
+
+4. Run verdaccio, and copy the URL:
+```bash
+> verdaccio # E.g.: http://localhost:4873
+```
+Verdaccio will run and show you a URL you will need to tell NPM / lerna where to publish the packages. Opening the URL in your browser will show the packages published to your local registry.
+
+5. Publish packages:
+```bash
+> lerna publish from-package --registry <verdaccio url>
+
+# For example:
+> lerna publish from-package --registry http://localhost:4873
+```
+This will look at which packages have changed (from the version number in `package.json`) since last publish. Don't worry if there are other unpublished changed packages.
+
+#### Testing package from local registry
+As long as you keep verdaccio running, you can install your package on your computer (for example in a playground environment) by using the `--registry` flag as you did when publishing:
+```bash
+> npm i <package> --registry <verdaccio url>
+
+# For example:
+> npm i @novicell/vue-breadcrumb --registry http://localhost:4873
+```
+
+#### Unpublishing package from local registry
+If you want to get rid of the clutter, or if you want to change the tested packages without changing the version numbers once again, you can unpublish from the local registry with the following command, as long as Verdaccio is running:
+
+```bash
+> npm unpublish <package> --registry <verdaccio url> --force
+
+# For example:
+> npm unpublish @novicell/vue-breadcrumb --registry http://localhost:4873 --force
+```
+
+#### Resetting changes
+To return to the exact state before bumping version numbers, use the command:
+
+```bash
+> git reset --hard HEAD~1
+```
+
+This will change files and git log back one commit, leaving you exactly in the state you were before publishing to Verdaccio.
+
+## Testing packages
+It is recommended to add a `"test"` script to your package.json that calls the shared testing script for that type of package - [read more](#shared-scripts). Tests can of course be run regularly with `npm run test` (single package) or `lerna run test` (all packages), but testing is also done automatically before every commit.
 
 Testing on every commit is done for 3 reasons:
 
@@ -342,25 +420,20 @@ This will run the bash script `/repoScripts/storybook/vue`.
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.
-2. Add dependencies with `lerna add @novicell/<package> --scope=@novicell/<this-package>` - Bootstrapping and symlinking comes automatically - if you change/break things refer to [Bootstrapping](#bootstrapping "Bootstrapping") and [Cleaning up](#cleaning-up "Cleaning up").
+2. Add dependencies with `lerna add @novicell/<package> --scope=@novicell/<this-package>` followed by a hoisted bootstrap - refer to [Bootstrapping](#bootstrapping "Bootstrapping") and [Cleaning up](#cleaning-up "Cleaning up").
 3. Commit the package with [Conventional Commits](#conventional-commits "Conventional Commits").
 4. Login to NPM with `npm login`.
 5. Publish (and build) the package with `lerna publish --conventional-commits`
 6. Sip espresso ☕
 
 ### Major version zero
-When creating a package that is not yet stable, they should have a major version 0, e.g.: `0.1.0`. According to the semver specs, every change at this stage could be breaking, so a breaking change will not bump the major version automatically to `1.0.0`. When your package is stable you can commit the changes as you normally would with a correctly formatted commit message, but instead of versioning with the flag `--conventional-commits` you should use:
+When creating a package that is not yet stable, they should have a major version 0, e.g.: `0.1.0`. According to the semver specs, every change at this stage could be breaking, so a breaking change will not bump the major version automatically to `1.0.0`. When your package is stable you can commit the changes as you normally would with a correctly formatted commit message and version / publish the other packages that need to be published. Don't worry about the fact that the major version of your desired package will not change. If your package is private at this point, go ahead and set that property to false in the `package.json`. At this point you can either manually edit the version number to a major version 1 in the `package.json` and commit with conventional commits. Or you can just commit the changes you have and version the package manually with:
 ```bash
-> lerna version --conventional-graduate --amend
+> lerna version # should only show your edited package
 ```
-or
+After this has been done, you will have to tell lerna to publish the package without bumping the version again, which can be done with:
 ```bash
-> lerna publish --conventional-graduate --amend
+> lerna publish from-package
 ```
-and choose a custom version number (`1.0.0`).
-
-**Note:**
-
-Alternatively you should be able to omit `--amend` and include the formatted commit message with `-m` (same syntax as with git) instead of committing your changes first.
 ### Making changes
 When making changes to a package, it is commonly a good idea to clear out the changed package's `dist` folder and `node_modules` since bootstrapping will only add dependencies, not remove them if they have been changed in `package.json` manually instead of being removed with `npm uninstall`. After this, you can bootstrap and build the package again so that any depending packages have access to the newly created distribution-files for testing before ultimately committing the changes and potentially publishing.

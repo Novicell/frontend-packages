@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Takes .vue files from src/ and copies it into this package's dist/
+
+cp src/*.vue dist/

@@ -70,11 +70,11 @@ failstack.push(checkJSON({ prop: name, propName: 'name', optional: false, type: 
 
 //* package.files
 
-failstack.push(checkJSON({ prop: files, propName: 'files', optional: true, type: 'array', customCheck: () => {
+failstack.push(checkJSON({ prop: files, propName: 'files', optional: false, type: 'array', customCheck: () => {
 
   if (!files.includes('dist')) {
-    warn('"files" should contain the exact value "dist".')
-    return 'warn'
+    err('"files" must contain the exact value "dist".')
+    return 'err'
   }
 
 }}))
@@ -94,6 +94,15 @@ failstack.push(checkJSON({ prop: main, propName: 'main', optional: false, type: 
 
 }}))
 
+
+//* package.test
+
+failstack.push(checkJSON({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
+
+
+/* ------------------------------------ */
+/* ---------- package.scripts ----------*/
+/* ------------------------------------ */
 
 //* package.scripts.wipe
 
@@ -139,9 +148,6 @@ failstack.push(checkJSON({ prop: prepublishOnly, propName: 'scripts.prepublishOn
 }}))
 
 
-//* package.test
-
-failstack.push(checkJSON({ prop: test, propName: 'scripts.test', optional: true, type: 'string' })) // only check presence
 
 
 
@@ -273,11 +279,11 @@ function checkStories(packageDir) {
 
 infoMsg('\n----------------------------')
 if (failstack.includes('err')) {
-  err('\x1b[4mThere are properties in this package.json that MUST be corrected. See above.')
+  err('\x1b[4mThere are properties in this package.json that MUST be corrected. See above & refer to the README.')
 
 } else if (failstack.includes('warn')) {
-  warn('\x1b[4mThere are properties in this package.json that SHOULD be corrected, but it is not obligatory. See above.')
+  warn('\x1b[4mThere are properties in this package.json that SHOULD be corrected, but it is not obligatory. See above & refer to the README.')
 
 } else {
-  pass('\x1b[4mEverything in this package.json is as it should be.')
+  pass('\x1b[4mEverything in this package.json is as it should be. Good job!')
 }

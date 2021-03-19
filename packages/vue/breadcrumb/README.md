@@ -12,14 +12,30 @@ The breadcrumb Vue component can be used in both a browser environment and a sel
 
 ### Single File Component
 To install the component in your project, run the command:
-`npm i @novicell/vue-breadcrumb`.
 
-The component can then be imported inside your Vue project with:
-`import NcBreadcrumb from '@novicell/vue-breadcrumb`.
+```bash
+> npm i @novicell/vue-breadcrumb
+```
+
+To import the uncompiled SFC, use the following import statement (Vue will optimize templates when doing this):
+```js
+import NcBreadcrumb from '@novicell/vue-breadcrumb/dist/nc-breadcrumb.vue`
+```
+
+You can also import the esm component with:
+```js
+import NcBreadcrumb from '@novicell/vue-breadcrumb`
+```
 
 ### Browser
 To reference the component in your project, add the following script tag to your page:
-`<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>`.
+```html
+<script src="https://unpkg.com/@novicell/vue-breadcrumb"></script>
+```
+or
+```html
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>
+```
 
 The component will automatically register itself if Vue is present on the `window` object.
 
@@ -62,7 +78,8 @@ Styling is not applied by default. If you want to apply the default styling, the
 |     └── index.css
 ├── nc-breadcrumb.esm.js
 ├── nc-breadcrumb.min.js
-└── nc-breadcrumb.umd.js
+├── nc-breadcrumb.min.js
+└── nc-breadcrumb.vue
 ```
 
 `css/index.css` is the compiled and ready-to-use styling.
@@ -99,9 +116,8 @@ Doing this will allow you to style the child elements with BEM classes as well b
 </template>
 
 <script>
-// Make sure your bundler aliases '@' to node_modules or give the full path
 import '@novicell/vue-breadcrumb/dist/css/index.css'
-import NcBreadcrumb from '@novicell/vue-breadcrumb'
+import NcBreadcrumb from '@novicell/vue-breadcrumb/dist/nc-breadcrumb.vue'
 
 export default {
   components: {
