@@ -1,0 +1,24 @@
+.slideshow {
+  height: 50vh;
+  margin-top: 25vh;
+}
+
+.item {
+  height: 100%;
+  width: 100%;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.funky {
+  background: hotpink;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+}

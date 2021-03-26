@@ -1,25 +1,26 @@
 {
-  "name": "@novicell/vue-carousel",
+  "name": "@novicell/vue-slideshow",
   "version": "0.1.0",
   "private": false,
-  "description": "A Vue carousel component to display slideshows or create inline navigations etc.",
+  "description": "A Vue carousel component built on vue-awesome-swiper to display image slideshows with a fade effect.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "scripts": {
-    "test": "echo 'No tests for vue-carousel yet'",
+    "test": "bash ../scripts/test/index",
     "test:unit": "bash ../scripts/test/unit",
-    "build": "bash ../scripts/build/index && npm run build:sfc",
-    "build:es": "bash ../scripts/build/es dist/nc-carousel.esm.js",
-    "build:umd": "bash ../scripts/build/umd dist/nc-carousel.umd.js",
-    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-carousel.min.js",
+    "build": "bash ../scripts/build/index && npm run build:css && npm run build:sfc",
+    "build:es": "bash ../scripts/build/es dist/nc-slideshow.esm.js",
+    "build:umd": "bash ../scripts/build/umd dist/nc-slideshow.umd.js",
+    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-slideshow.min.js",
     "build:sfc": "bash ../scripts/build/sfc",
+    "build:css": "bash ../scripts/build/css node_modules/@novicell/styles-slideshow/dist",
     "dev": "bash ../scripts/dev",
     "help": "bash ../scripts/help",
     "prepublishOnly": "npm run build",
     "wipe": "bash ../../../scripts/wipe"
   },
-  "main": "dist/nc-carousel.umd.js",
-  "module": "dist/nc-carousel.esm.js",
-  "unpkg": "dist/nc-carousel.min.js",
+  "main": "dist/nc-slideshow.umd.js",
+  "module": "dist/nc-slideshow.esm.js",
+  "unpkg": "dist/nc-slideshow.min.js",
   "files": [
     "dist"
   ],
@@ -37,7 +38,8 @@
     "rollup": "~2.33.1",
     "rollup-plugin-vue": "^5.0.1",
     "vue": "2.6.12",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "@novicell/styles-slideshow": "^0.1.0"
   },
   "license": "MIT",
   "repository": {

@@ -1,11 +1,8 @@
-
-
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/css/swiper.css'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+
 /*
 SPECS:
-- Take any amount of content to display through slots
 - Add interfaces for common swiper options (pagination buttons, indicators etc)
 - Include only structurally important css from vue-awesome-swiper, copy it over instead of importing
 - If any css is not 100% structurally important, make it overwritable like with breadcrumb and decoupled
@@ -13,12 +10,6 @@ SPECS:
 - Tree shake everything from vue-awesome-swiper that is not used (import {} from 'vue-awesome-swiper'?)
 */
 
-//TODO: Expose swiperOptions as a prop for full customization
-//TODO: Figure out which parts of swiper.css are needed (is everything just structural? in that case we can copy or include file completely)
-//TODO: See which elements are variable and v-if them according to the swiperOptions passed in
-//TODO: figure out how to render every slot as the element/component given when the v-for is on SwiperSlide
-
-//! use: https://github.surmon.me/vue-awesome-swiper/?ref=madewithvuejs.com
 export default {
   components: {
     Swiper,
@@ -39,6 +30,9 @@ export default {
             clickable: true,
             el: '.swiper-pagination'
           },
+          keyboard: {
+            enabled: true
+          }
           // a11y: {
           //   prevSlideMessage: this.$t('Accessibility.SlideShow.PrevSlideMessage'),
           //   nextSlideMessage: this.$t('Accessibility.SlideShow.NextSlideMessage'),
@@ -115,7 +109,7 @@ export default {
       Swiper,
       {
         ref: 'image-slider',
-        class: 'carousel',
+        class: 'slideshow',
         props: {
           options: this.options // The Vue Awesome Swiper options passed from outside
         }
@@ -123,20 +117,5 @@ export default {
       children
     )
   },
-
 }
-
 </script>
-
-<style scoped>
-/*
-! move this to reusable styling
-*/
-
-.carousel {
-  --swiper-theme-color: white;
-
-  height: 50vh;
-  width: 100%;
-}
-</style>
