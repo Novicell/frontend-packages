@@ -6,7 +6,9 @@
 INDIR="$1"
 
 # Remove old one
+if [ -d "dist/css"]; then
 rm -r dist/css
+fi
 
 # Copy dir
 cp -r $INDIR dist/css
