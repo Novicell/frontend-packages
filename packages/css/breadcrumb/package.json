@@ -1,7 +1,7 @@
 {
   "name": "@novicell/styles-breadcrumb",
   "version": "0.2.5",
-  "description": "The stylesheet for @novicell/breadcrumb as compiled CSS and raw postCSS.",
+  "description": "The stylesheet for Novicell Breadcrumb as compiled CSS and raw postCSS.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "homepage": "https://github.com/Novicell/frontend-packages#readme",
   "license": "MIT",
