@@ -3,22 +3,26 @@
   margin-top: 25vh;
 }
 
-.item {
+.slideshow .item {
   height: 100%;
   width: 100%;
 }
 
-.img {
+.slideshow .img {
   object-fit: cover;
   object-position: center;
 }
 
-.funky {
+.slideshow .funky {
   background: hotpink;
 
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
+  font-family: sans-serif;
+}
+
+.slideshow h3 {
   font-family: sans-serif;
 }

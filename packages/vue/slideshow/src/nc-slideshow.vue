@@ -1,15 +1,6 @@
 <script>
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
-/*
-SPECS:
-- Add interfaces for common swiper options (pagination buttons, indicators etc)
-- Include only structurally important css from vue-awesome-swiper, copy it over instead of importing
-- If any css is not 100% structurally important, make it overwritable like with breadcrumb and decoupled
-- Write readme about how to include the complete default styling
-- Tree shake everything from vue-awesome-swiper that is not used (import {} from 'vue-awesome-swiper'?)
-*/
-
 export default {
   components: {
     Swiper,

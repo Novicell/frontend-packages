@@ -1,0 +1,39 @@
+{
+  "name": "@novicell/styles-inline-nav",
+  "version": "0.1.0",
+  "description": "The stylesheet for Novicell Inline Nav as compiled CSS and raw postCSS.",
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "homepage": "https://github.com/Novicell/frontend-packages#readme",
+  "license": "MIT",
+  "main": "dist/index.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Novicell/frontend-packages.git"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "wipe": "bash ../../../scripts/wipe",
+    "build:src": "bash ../scripts/build/src",
+    "build:dist": "bash ../scripts/build/dist",
+    "build": "bash ../scripts/build/index",
+    "lint": "bash ../scripts/lint/index",
+    "lint:fix": "bash ../scripts/lint/fix",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-stylelint-all": "^0.2.0",
+    "postcss-nested": "^4.2.3",
+    "stylelint": "^13.3.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0"
+  },
+  "gitHead": "37f4586372e3a1fde721eee4ca9609770eca18b0"
+}
