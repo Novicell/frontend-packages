@@ -5,7 +5,7 @@
   "description": "A Vue carousel component built on vue-awesome-swiper to display inline navigation items such as cards.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
   "scripts": {
-    "test": "echo 'No tests for vue-inline-nav yet.'",
+    "test": "bash ../scripts/test/index",
     "test:unit": "bash ../scripts/test/unit",
     "build": "bash ../scripts/build/index && npm run build:css && npm run build:sfc",
     "build:es": "bash ../scripts/build/es dist/nc-inline-nav.esm.js",

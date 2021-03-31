@@ -74,7 +74,7 @@ export default {
         this.isCarousel ? SwiperSlide : 'div',
         {
           key: node.key, // move the passed key onto SwiperSlide or div (if using v-for)
-          class: this.isCarousel ? '' : ['col-xs-12 col-ms-6 col-md-4 mb-4', this.gridClass]
+          class: this.isCarousel ? '' : ['row__slide col-xs-12 col-ms-6 col-md-4 mb-4', this.gridClass]
         },
         [node] // must be an array although there is just one node
       )
