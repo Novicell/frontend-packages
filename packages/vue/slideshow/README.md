@@ -64,6 +64,12 @@ default() {
 
 If you want to use other options than the defaults, you will have to [include the necessary styles](#full-stylesheet).
 
+## Slots
+
+**`default`**
+
+The default slot takes any number of elements and wraps them in slideshow slides.
+
 ## Styling
 Styling is not applied by default. If you want to apply the default (minimal) Novicell style guide styling, these files can be found in the `css` directory of this package:
 ```
@@ -83,7 +89,7 @@ Styling is not applied by default. If you want to apply the default (minimal) No
 
 ### Full stylesheet
 When using more Swiper features than the default, you will need to either:
-- Overwrite the styling on the default swiper classes manually (good luck)
+- Overwrite the styling on the default swiper classes manually
 OR
 - Import the standard swiper styles from `'swiper/css/swiper.css'`
 
