@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/@novicell/vue-carousel) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-carousel)
 
-A Vue carousel component built on vue-awesome-swiper to display inline navigation items such as cards.
+A Vue carousel component built on vue-awesome-swiper to display inline navigation items such as cards. The component can function as a carousel or wrapping rows of items.
 
 ## How to use
 The inline navigation component can be used in both a browser environment and a self-built single file component.
@@ -35,26 +35,52 @@ or
 The component will automatically register itself if Vue is present on the `window` object.
 
 ## Props
-The component takes 1 prop:
+The component takes 3 props:
+
+**`type`**
+
+A string representing the mode to use. If the string starts with 'carousel', this will render as a Swiper carousel with navigation buttons. Otherwise it will display wrapping lists of items.
+```js
+type: String,
+default: 'carousel'
+```
+
+**`itemsPerRow`**
+
+An integer representing the amount of items to show on a row or in the carousel at a time on xl-screens (over 1200px).
+```js
+type: Number,
+default: 4
+```
 
 **`options`**
 
-This object directly represents the [Swiper options](https://swiperjs.com/ "SwiperJS"). The defaults follow the Novicell style guide.
+This object directly represents the [Swiper options](https://swiperjs.com/ "SwiperJS"). The defaults follow the Novicell style guide. These are only used in 'carousel' mode.
 ```js
 type: Object,
 default() {
   return {
+    loop: false,
+    slidesPerView: 1.1,
     spaceBetween: 30,
-    slidesPerView: 1,
-    grabCursor: true,
-    effect: 'fade',
-    autoplay: true,
-    pagination: {
-      clickable: true,
-      el: '.swiper-pagination'
+    watchSlidesVisibility: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
     },
-    keyboard: {
-      enabled: true
+    breakpoints: {
+      1200: {
+        slidesPerView: this.itemsPerRow
+      },
+      991: {
+        slidesPerView: 3
+      },
+      767: {
+        slidesPerView: 2.1
+      },
+      575: {
+        slidesPerView: 1.4
+      }
     }
   }
 }
@@ -62,7 +88,21 @@ default() {
 
 **Note:**
 
-If you want to use other options than the defaults, you will have to [include the necessary styles](#full-stylesheet).
+If you want to use other Swiper options than the defaults, you will have to [include the necessary styles](#full-stylesheet).
+
+## Slots
+
+**`default`**
+
+The default slot takes any number of elements and wraps them in carousel slides.
+
+**`button-next`**
+
+The icon to display on the 'next' navigation button.
+
+**`button-prev`**
+
+The icon to display on the 'previous' navigation button. This will be rotated 180deg to allow for using the same icon as in `button-next`.
 
 ## Styling
 Styling is not applied by default. If you want to apply the default (minimal) Novicell style guide styling, these files can be found in the `css` directory of this package:
@@ -83,7 +123,7 @@ Styling is not applied by default. If you want to apply the default (minimal) No
 
 ### Full stylesheet
 When using more Swiper features than the default, you will need to either:
-- Overwrite the styling on the default swiper classes manually (good luck)
+- Overwrite the styling on the default swiper classes manually
 OR
 - Import the standard swiper styles from `'swiper/css/swiper.css'`
 
@@ -91,11 +131,19 @@ OR
 ### SFC
 ```html
 <template>
-  <NcInlineNav>
-    <img class="img" src="https://source.unsplash.com/random/1920x1080" alt="random splash">
-    <img class="img" src="https://source.unsplash.com/random/800x600" alt="random splash">
-    <img class="img" src="https://source.unsplash.com/random/1440x900" alt="random splash">
-  </NcInlineNav>
+  <nc-inline-nav class="inline-nav">
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <template v-slot:button-prev>
+      <svg>...</svg>
+    </template>
+    <template v-slot:button-next>
+      <svg>...</svg>
+    </template>
+  </nc-inline-nav>
 </template>
 
 <script>
@@ -110,14 +158,22 @@ export default {
 
 <style>
 .inline-nav {
-  height: 50vh;
+    height: 50vh;
+    width: 100%;
 }
+.item {
+    height: 100%;
 
-.img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
+    background: hotpink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+}
+svg {
+  height: 25px;
+  width: 25px;
 }
 </style>
 ```
@@ -128,10 +184,18 @@ export default {
 <script src="https://cdn.jsdelivr.net/npm/@novicell/vue-inline-nav/dist/nc-inline-nav.min.js"></script>
 
 <div id="app">
-  <nc-inline-nav>
-    <img class="img" src="https://source.unsplash.com/random/1920x1080" alt="random splash">
-    <img class="img" src="https://source.unsplash.com/random/800x600" alt="random splash">
-    <img class="img" src="https://source.unsplash.com/random/1440x900" alt="random splash">
+  <nc-inline-nav class="inline-nav">
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <div class="item"><h1>This is a navigation card</h1></div>
+    <template v-slot:button-prev>
+      <svg>...</svg>
+    </template>
+    <template v-slot:button-next>
+      <svg>...</svg>
+    </template>
   </nc-inline-nav>
 </div>
 
@@ -144,14 +208,22 @@ export default {
 
 <style>
 .inline-nav {
-  height: 50vh;
+    height: 50vh;
+    width: 100%;
 }
+.item {
+    height: 100%;
 
-.img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
+    background: hotpink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+}
+svg {
+  height: 25px;
+  width: 25px;
 }
 </style>
 ```

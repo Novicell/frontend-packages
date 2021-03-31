@@ -31,7 +31,7 @@ export default {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           },
-          // Does not seem to follow css pixels (retina screens will use a too high bp)
+
           breakpoints: {
             1200: {
               slidesPerView: this.itemsPerRow
