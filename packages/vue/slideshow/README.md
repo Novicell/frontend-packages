@@ -1,6 +1,6 @@
 # Novicell Slideshow Vue Component
 
-![npm](https://img.shields.io/npm/v/@novicell/vue-carousel) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-carousel)
+![npm](https://img.shields.io/npm/v/@novicell/vue-inline-nav) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-inline-nav)
 
 A Vue carousel component built on vue-awesome-swiper to display full width image slideshows with a fade effect.
 

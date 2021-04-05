@@ -1,6 +1,6 @@
 # Novicell Inline Navigation Vue Component
 
-![npm](https://img.shields.io/npm/v/@novicell/vue-carousel) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-carousel)
+![npm](https://img.shields.io/npm/v/@novicell/vue-inline-nav) ![npm bundle size](https://img.shields.io/bundlephobia/min/@novicell/vue-inline-nav)
 
 A Vue carousel component built on vue-awesome-swiper to display inline navigation items such as cards. The component can function as a carousel or wrapping rows of items.
 
