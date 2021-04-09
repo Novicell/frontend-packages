@@ -365,6 +365,10 @@ Verdaccio will run and show you a URL you will need to tell NPM / lerna where to
 ```
 This will look at which packages have changed (from the version number in `package.json`) since last publish. Don't worry if there are other unpublished changed packages.
 
+**Note:**
+
+Don't worry if you get an error from lerna because of uncommitted changes. This happens because lerna itself changes `gitHead` while publishing but does not clean up after itself (which seems to be a bug). The packages are still published to Verdaccio and the change will be reset afterwards anyway.
+
 #### Testing package from local registry
 As long as you keep verdaccio running, you can install your package on your computer (for example in a playground environment) by using the `--registry` flag as you did when publishing:
 ```bash
