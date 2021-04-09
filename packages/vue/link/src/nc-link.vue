@@ -59,7 +59,6 @@ function isExternal(url) {
 
 <style scoped>
 * {
-  color: inherit;
   text-decoration: none;
 }
 </style>
