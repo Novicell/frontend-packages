@@ -1,3 +1,5 @@
+/* the commented lines are from a buggy fade effect on half-visible slides
+on mobile brwosers. */
 .swiper {
   &-container {
     --swiper-navigation-size: 44px;
