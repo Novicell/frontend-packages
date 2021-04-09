@@ -17,7 +17,7 @@
   },
   "scripts": {
     "wipe": "bash ../../../scripts/wipe",
-    "test": "echo 'No tests for vue-cta yet'",
+    "test": "bash ../scripts/test/index",
     "test:unit": "bash ../scripts/test/unit",
     "help": "bash ../scripts/help",
     "dev": "bash ../scripts/dev",

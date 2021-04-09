@@ -39,32 +39,46 @@ The component will automatically register itself if Vue is present on the `windo
 ## Props
 The component takes the following props:
 
-**`breadcrumbs`**
+**`alias`**
 
-This is an array of links to display in the component.
-
-The links are in the format:
+The existence of this string determines whether to render inside a wrapper div to easier position with `position`.
 ```js
-{
-  url: string // Relative route or absolute link
-  title: string // The text to display when hovering over the link
-  text: string // The text to display on the link
-}
+type: String,
+required: false
 ```
 
-This component uses `@novicell/vue-link` behind the scenes, which will automatically use a `<NuxtLink>` or `<RouterLink>` if the linked resource is internal or an `<a>`-tag if the link is external.
+**`position`**
 
-**`blockClass`**
+This string will be concatenated onto `'text-'` to create a positioning class on the outermost div if an `alias` is set.
+```js
+type: String,
+required: false
+```
 
-This is a class name string to put on the BEM block element and prepend to the BEM-classes of the child elements. [Read more](#differently-styled-instances).
+**`url`**
 
-**`modifier`**
+The endpoint for the cta button to point to (see `@novicell/vue-link`).
+```js
+type: String,
+required: true
+```
 
-A BEM class name modifier that indicates a different variant of the component's styling.
-Currently the following modifiers are allowed:
-- `breadcrumb--shadow`: Sets a gradient shadow and heightens contrast.
+**`name`**
 
-Alternatively the modifier class can also be set directly on the component instead of passing it in as a prop.
+The text string that sets the `aria-label` and `title` when hovering over the cta button.
+```js
+type: String,
+required: true
+```
+
+**`target`**
+
+The text string that sets how the link should be opened. The most common:
+`'_blank'` opens in a new tab, `'_self'` redirects the current tab.
+```js
+type: String,
+default: '_blank'
+```
 
 ## Styling
 Styling is not applied by default. If you want to apply the default styling, these files can be found in the `css` directory of this package:
@@ -84,57 +98,34 @@ Styling is not applied by default. If you want to apply the default styling, the
 `css/src/index.css` is PostCSS that will need to be compiled with `postcss-nested` installed in your environment.
 
 ### Custom styling
-To overwrite the default styling (after importing) or simply adding your own styling, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components and elements inside the root element. For example:
+To overwrite the default styling (after importing) or simply adding your own styling from scoped styled components, you might need to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components and elements inside the root element. This should, however, only be necessary if you are setting an alias (which will nest `.button` inside a div, since the icon can also be styled when passing it in as a prop. For example:
 
 ```html
 <style scoped>
-.breadcrumb >>> .breadcrumb__item + .breadcrumb__item::before {
-  content: '>';
+.your-wrapper-class >>> .button {
+  background-color: hotpink;
 }
 </style>
 ```
 
-If you [overwrite the block class on the root element](#differently-styled-instances) or add your own from the parent component's scope, this class name can be used instead of `.breadcrumb` in the above example.
-
-### Differently styled instances
-
-If you wish to use this component in several different places and have them styled differently, you can overwrite the default block class (`breadcrumb`) of one of them (or both) by passing in a new `blockClass`, e.g.:
-
-```html
-<NcBreadcrumb blockClass="not-breadcrumb" >
-```
-
-Doing this will allow you to style the child elements with BEM classes as well by selecting for example `.not-breadcrumb__item`, but remember to use [deep selectors](#custom-styling).
-
 ## SFC usage
 ```html
 <template>
-  <NcBreadcrumb :breadcrumbs="links" modifier="breadcrumb--shadow" />
+  <NcCta url="https://google.dk" name="Google" target="_self">
+    Google
+    <template v-slot:icon>
+      <svg>your icon</svg>
+    </template>
+  </NcCta>
 </template>
 
 <script>
-import '@novicell/vue-breadcrumb/dist/css/index.css'
-import NcBreadcrumb from '@novicell/vue-breadcrumb/dist/nc-breadcrumb.vue'
+import '@novicell/vue-cta/dist/css/index.css'
+import NcCta from '@novicell/vue-cta/dist/nc-cta.vue'
 
 export default {
   components: {
-    NcBreadcrumb
-  },
-  data() {
-    return {
-      links: [
-        {
-          url: 'subpage',
-          title: "A relative link",
-          text: "Subpage"
-        },
-        {
-          url: 'https://external-site.com',
-          title: "An absolute link",
-          text: "External Site"
-        },
-      ]
-    }
+    NcCta
   }
 }
 </script>
@@ -144,33 +135,22 @@ export default {
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/nc-breadcrumb.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-breadcrumb/dist/css/index.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-cta/dist/nc-cta.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@novicell/vue-cta/dist/css/index.css"></script>
 
 <div id="app">
-  <nc-breadcrumb :breadcrumbs="links" modifier="breadcrumb--shadow" />
+  <nc-cta url="https://google.dk" name="Google" target="_self">
+    Google
+    <template v-slot:icon>
+      <svg>your icon</svg>
+    </template>
+  </nc-cta>
 </div>
 
 <script>
   const app = new Vue({
-    el: '#app',
+    el: '#app'
     // I am already a registered component
-    data() {
-      return {
-        links: [
-          {
-            url: 'subpage',
-            title: "A relative link",
-            text: "Subpage"
-          },
-          {
-            url: 'https://external-site.com',
-            title: "An absolute link",
-            text: "External Site"
-          },
-        ]
-      }
-    }
   })
 </script>
 ```
@@ -179,4 +159,4 @@ export default {
 Looking to contribute something? Here's how you can help. Please take a moment to review our [contribution guidelines](https://github.com/Novicell/novicell-frontend/wiki/Contribution-guidelines) in order to make the contribution process easy and effective for everyone involved.
 
 ## License
-The Novicell Breadcrumb Vue Component is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+The Novicell CTA Vue Component is licensed under the MIT license. (http://opensource.org/licenses/MIT)
