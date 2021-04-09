@@ -346,7 +346,7 @@ The easiest way to only publish select packages (although it does not matter if 
 1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
 
 2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
-This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+This makes lerna (when using `from-package`) pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
 
 3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
 

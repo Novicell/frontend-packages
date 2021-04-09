@@ -87,7 +87,7 @@ Styling is not applied by default. If you want to apply the default styling, the
 `css/src/index.css` is PostCSS that will need to be compiled with `postcss-nested` installed in your environment.
 
 ### Custom styling
-To overwrite the default styling (after importing) or simply adding your own styling, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components and elements inside the root element. For example:
+To overwrite the default styling (after importing) or simply adding your own styling from scoped styled components, you will have to use [deep selectors](https://vue-loader.vuejs.org/guide/scoped-css.html#deep-selectors "Vue docs") to style nested components and elements inside the root element. For example:
 
 ```html
 <style scoped>

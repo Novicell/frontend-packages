@@ -232,7 +232,7 @@ svg {
 Looking to contribute something? Here's how you can help. Please take a moment to review our [contribution guidelines](https://github.com/Novicell/novicell-frontend/wiki/Contribution-guidelines) in order to make the contribution process easy and effective for everyone involved.
 
 ## License
-The Novicell Breadcrumb Vue Component is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+The Novicell Inline Nav Vue Component is licensed under the MIT license. (http://opensource.org/licenses/MIT)
 
 
 
