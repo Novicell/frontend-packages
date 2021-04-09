@@ -21,7 +21,7 @@
     "test:unit": "bash ../scripts/test/unit",
     "help": "bash ../scripts/help",
     "dev": "bash ../scripts/dev",
-    "build": "bash ../scripts/build/index && npm run build:sfc",
+    "build": "bash ../scripts/build/index && npm run build:css && npm run build:sfc",
     "build:umd": "bash ../scripts/build/umd dist/nc-cta.umd.js",
     "build:es": "bash ../scripts/build/es dist/nc-cta.esm.js",
     "build:unpkg": "bash ../scripts/build/unpkg dist/nc-cta.min.js",
@@ -48,5 +48,5 @@
     "vue": "2.6.12",
     "vue-template-compiler": "^2.6.12"
   },
-  "gitHead": "6075b2e304398374456175fac308d4358f145572"
+  "gitHead": "10388836762e5fcd94c7cc982a75d36d9257c1ac"
 }

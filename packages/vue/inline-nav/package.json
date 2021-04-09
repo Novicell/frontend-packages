@@ -48,5 +48,6 @@
   "dependencies": {
     "swiper": "5.3.6",
     "vue-awesome-swiper": "4.1.0"
-  }
+  },
+  "gitHead": "10388836762e5fcd94c7cc982a75d36d9257c1ac"
 }
