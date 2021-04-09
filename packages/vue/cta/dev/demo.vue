@@ -1,6 +1,6 @@
 <template>
     <nc-cta url="https://google.dk" name="Google" target="_self">
-        gOogLe
+        Google
         <template v-slot:icon>
             <svg
                 version="1.1"
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-// import '@novicell/styles-cta' // styles are not included by default
+import '@novicell/styles-cta' // styles are not included by default
 import NcCta from '../src/nc-cta.vue'
 
 export default {
