@@ -49,25 +49,6 @@
   }
 }
 
-/* .button[disabled] {
-} */
-
-/* .button--ghost {
-  color: var(--button-background-color);
-  background-color: transparent;
-  border: solid 1px var(--button-background-color);
-} */
-
-/* .button--center {
-  left: 50%;
-  transform: translateX(-50%);
-} */
-
-/* .button--right {
-  left: 100%;
-  transform: translateX(-100%);
-} */
-
 .icon {
   display: none;
 
