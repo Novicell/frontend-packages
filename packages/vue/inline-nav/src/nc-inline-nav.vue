@@ -68,8 +68,11 @@ export default {
   },
 
   render(h) {
+    // Filter off sneaky empty elements
+    const slots = this.$slots.default.filter(node => node.text !== ' ')
+
     // For every element passed into default slot: wrap it in a SwiperSlide or div
-    const slides = this.$slots.default.map((node) => {
+    const slides = slots.map((node) => {
       return h(
         this.isCarousel ? SwiperSlide : 'div',
         {

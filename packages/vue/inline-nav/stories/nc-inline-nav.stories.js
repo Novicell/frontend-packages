@@ -10,7 +10,6 @@ storiesOf('NcInlineNav', module)
     components: { NcInlineNav },
     template:
     `
-    <div>
       <nc-inline-nav class="inline-nav">
         <div class="item funky"><h1>This is a navigation card</h1></div>
         <div class="item funky"><h1>This is a navigation card</h1></div>
@@ -59,8 +58,6 @@ storiesOf('NcInlineNav', module)
           </svg>
         </template>
       </nc-inline-nav>
-      <h3>There is a bug with storybook that renders generated elements twice, this is not a problem with the component</h3>
-    </div>
     `
   }))
 
@@ -70,14 +67,11 @@ storiesOf('NcInlineNav', module)
     components: { NcInlineNav },
     template:
     `
-    <div>
       <nc-inline-nav class="inline-nav" type="not carousel">
         <div class="item funky"><h1>This is a navigation card</h1></div>
         <div class="item funky"><h1>This is a navigation card</h1></div>
         <div class="item funky"><h1>This is a navigation card</h1></div>
       </nc-inline-nav>
-      <h3>There is a bug with storybook that renders generated elements twice, this is not a problem with the component. Use devtools to see the proper layout.</h3>
-    </div>
     `
   }))
 
