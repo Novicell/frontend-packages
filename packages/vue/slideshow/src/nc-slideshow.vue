@@ -23,7 +23,8 @@ export default {
           },
           keyboard: {
             enabled: true
-          }
+          },
+
           // a11y: {
           //   prevSlideMessage: this.$t('Accessibility.SlideShow.PrevSlideMessage'),
           //   nextSlideMessage: this.$t('Accessibility.SlideShow.NextSlideMessage'),
@@ -37,8 +38,11 @@ export default {
   },
 
   render(h) {
+    // Filter off sneaky empty elements
+    const slots = this.$slots.default.filter(node => node.text !== ' ')
+
     // For every element passed into default slot: wrap it in a SwiperSlide
-    const slides = this.$slots.default.map((node) => {
+    const slides = slots.map((node) => {
       return h(
         SwiperSlide,
         {
