@@ -80,7 +80,7 @@ To make sure we can run commands on all packages at the same time with `lerna ru
 Deletes the `dist` folder. Should not be confused with `lerna clean` which deletes `node_modules`.
 
 ### build
-Should call whichever commands are required to generate publish-ready code in the `dist` folder.
+Should call whichever commands are required to generate publish-ready code in the `dist` folder. The exception to this rule is if the package is a storybook, which should only be rebuilt on publish.
 
 ### lint
 Should be the script to lint and/or fix code errors.
