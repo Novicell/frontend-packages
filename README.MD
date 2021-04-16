@@ -427,6 +427,8 @@ E.g.:
 ```
 This will run the bash script `/repoScripts/storybook/vue`.
 
+Storybooks only rebuild on `prepublishOnly` to make sure that generated files will not clutter commits. If needed, the files can be rebuilt manually.
+
 ### Live storybooks
 The Vue storybook is published on Azure in the `NovicellTech` resource group. The resource is called `FrontendPackagesVueStorybook`.
 
