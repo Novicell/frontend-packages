@@ -427,6 +427,9 @@ E.g.:
 ```
 This will run the bash script `/repoScripts/storybook/vue`.
 
+### Live storybooks
+The Vue storybook is published on Azure in the `NovicellTech` resource group. The resource is called `FrontendPackagesVueStorybook`.
+
 ## New package - what do?
 To create and publish a new package you will often have to go through the following steps:
 1. Copy an existing package and edit the `package.json` as specified in [package.json](#package.json "package.json") and write the code.
