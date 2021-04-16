@@ -29,7 +29,12 @@ storiesOf('NcBreadcrumb', module)
     template:
     `
     <nc-breadcrumb :breadcrumbs="links" class="breadcrumb--shadow" />
-    `
+    `,
+    data() {
+      return {
+        links
+      }
+    }
   }))
 
   .add('Pull down', () => ({
@@ -37,6 +42,11 @@ storiesOf('NcBreadcrumb', module)
     template:
     `
     <nc-breadcrumb :breadcrumbs="links" class="breadcrumb--pull-down" />
-    `
+    `,
+    data() {
+      return {
+        links
+      }
+    }
   }))
 
