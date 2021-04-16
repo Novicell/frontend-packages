@@ -1,0 +1,40 @@
+.inline-nav {
+  margin-top: 15vh;
+  height: 100%;
+  width: 100%;
+}
+
+.inline-nav.row {
+  width: auto;
+}
+
+.inline-nav .item {
+  height: 70vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.inline-nav.row .item {
+  height: 15rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.inline-nav .funky {
+  background: hotpink;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+.inline-nav svg {
+  height: 25px;
+  width: 25px;
+}
+
+.inline-nav h3 {
+  font-family: sans-serif;
+}

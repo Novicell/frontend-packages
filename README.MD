@@ -1,5 +1,9 @@
 # Novicell Frontend Packages
-The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands.
+The official lerna docs can be found [here](https://github.com/lerna/lerna "lerna Github") for an overview over the different commands. If you don't like reading, we have a few quickstart videos that cover the most essential parts of this README:
+1. [Overview](https://web.microsoftstream.com/video/ae174148-66d5-4761-95c7-1cdaeac2537b)
+2. [Creating packages & adding dependencies](https://web.microsoftstream.com/video/54a2ce35-a60c-4765-9edf-2f9abcf613a1)
+3. [Commands and troubleshooting](https://web.microsoftstream.com/video/c09c6486-1542-4b82-861c-a6ced847335d)
+4. [Committing, versioning, & publishing](https://web.microsoftstream.com/video/535ee892-2045-4f92-963f-e6192e2755f7)
 
 ## Creating a package
 Create a new package with:
@@ -159,16 +163,18 @@ The configurations inside `*/config/` are implemented by either importing them a
 
 ## Adding dependencies
 ```bash
-> lerna add <package> --scope <scope>
+> lerna add <package> --scope <scope> --no-bootstrap
 ```
 
-When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your package.json and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
+When adding a dependency to a package only use `npm i <package>` if the package is external to the monorepo. This is to make sure symlinks are created when a dependency is internal to the monorepo. The catch-all way to add packages with lerna is to use `lerna add <package>[@version]`. The default behaviour is to add the package to all packages - to add it only to a single package use the `--scope=<package>` flag. Doing so will look for local packages first and add a symlinked folder in `node_modules`, but if the package is a third party module it will install it normally as with `npm i`. You can also write the dependency in your `package.json` and use [bootstrapping](#bootstrapping "Bootstrapping") to create the symlinks manually.
 
-`lerna add` does not hoist dependencies when bootstrapping, so to make sure that everything behaves as expected, it is strongly recommended to run the following afterwards:
+`lerna add` does not hoist dependencies when bootstrapping after getting the dependency, which is why we skip that step with `--no-bootstrap`. To make sure that everything behaves as expected, we manually run the following afterwards:
 
 ```bash
 > lerna clean && lerna bootstrap --hoist
 ```
+
+If you are adding dependencies to the repo as a whole, you will just use `npm` or `yarn` as you normally would from the root scope.
 
 **Note:** `lerna add` can only add one package at a time.
 
@@ -340,7 +346,7 @@ The easiest way to only publish select packages (although it does not matter if 
 1. Commit everything (don't push it) - this will act as a starting point that is easy to return to if anything goes wrong.
 
 2. Go to the `package.json` of the packages you wish to test publish and bump the version number in any way.
-This makes lerna (when using `from-package` pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
+This makes lerna (when using `from-package`) pick up on the fact that a package has been changed so it can be published. Otherwise lerna will not publish the packages.
 
 3. Commit everything again with a message such as "chore: test publish" - you should only have changes in the `package.json` of the packages you wish to publish. Lerna will not let you publish packages with uncommitted changes.
 
@@ -358,6 +364,10 @@ Verdaccio will run and show you a URL you will need to tell NPM / lerna where to
 > lerna publish from-package --registry http://localhost:4873
 ```
 This will look at which packages have changed (from the version number in `package.json`) since last publish. Don't worry if there are other unpublished changed packages.
+
+**Note:**
+
+Don't worry if you get an error from lerna because of uncommitted changes. This happens because lerna itself changes `gitHead` while publishing but does not clean up after itself (which seems to be a bug). The packages are still published to Verdaccio and the change will be reset afterwards anyway.
 
 #### Testing package from local registry
 As long as you keep verdaccio running, you can install your package on your computer (for example in a playground environment) by using the `--registry` flag as you did when publishing:

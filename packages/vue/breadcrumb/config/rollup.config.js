@@ -1,5 +1,3 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-
 const { sharedPlugins } = require('../../sharedConfig/rollup.config')
 
 export default {
@@ -9,7 +7,6 @@ export default {
         exports: 'named',
     },
     plugins: [ // Order matters
-        nodeResolve(),
         ...sharedPlugins,
     ]
 };

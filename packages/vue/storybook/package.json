@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-storybook",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "We store the Vue packages in here, they can depend on both Vanilla, Core packages, and eachother.",
   "private": true,
   "scripts": {
@@ -17,6 +17,5 @@
     "@storybook/addon-links": "^6.1.21",
     "@storybook/vue": "^6.1.21",
     "babel-loader": "^8.2.2"
-  },
-  "dependencies": {}
+  }
 }
