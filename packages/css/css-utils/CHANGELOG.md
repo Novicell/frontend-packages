@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Novicell/frontend-packages/compare/@novicell/css-utils@3.0.1...@novicell/css-utils@4.0.0) (2021-09-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **css-utils:** fix error in flex order classes
+
+### Bug Fixes
+
+* **css-utils:** fix error in flex order classes ([a79a946](https://github.com/Novicell/frontend-packages/commit/a79a946fd13c3358f8b1aac94bde042b74782290))
+
+
+
 ### [3.0.1](https://github.com/Novicell/frontend-packages/compare/@novicell/css-utils@3.0.0...@novicell/css-utils@3.0.1) (2021-09-29)
 
 **Note:** Version bump only for package @novicell/css-utils

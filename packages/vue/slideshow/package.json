@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-slideshow",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "A Vue carousel component built on vue-awesome-swiper to display image slideshows with a fade effect.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",

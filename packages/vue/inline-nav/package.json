@@ -1,6 +1,6 @@
 {
   "name": "@novicell/vue-inline-nav",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": false,
   "description": "A Vue carousel component built on vue-awesome-swiper to display inline navigation items such as cards.",
   "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
