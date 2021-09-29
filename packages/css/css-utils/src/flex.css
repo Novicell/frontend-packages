@@ -78,77 +78,77 @@
 /* Repsonsive */
 @each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
-    .flex$(breakpoint)-row { flex-direction: row; }
+    .flex-$(breakpoint)-row { flex-direction: row; }
 
-    .flex$(breakpoint)-column { flex-direction: column; }
+    .flex-$(breakpoint)-column { flex-direction: column; }
 
-    .flex$(breakpoint)-row-reverse { flex-direction: row-reverse; }
+    .flex-$(breakpoint)-row-reverse { flex-direction: row-reverse; }
 
-    .flex$(breakpoint)-column-reverse { flex-direction: column-reverse; }
+    .flex-$(breakpoint)-column-reverse { flex-direction: column-reverse; }
 
-    .flex$(breakpoint)-wrap { flex-wrap: wrap; }
+    .flex-$(breakpoint)-wrap { flex-wrap: wrap; }
 
-    .flex$(breakpoint)-nowrap { flex-wrap: nowrap; }
+    .flex-$(breakpoint)-nowrap { flex-wrap: nowrap; }
 
-    .flex$(breakpoint)-wrap-reverse { flex-wrap: wrap-reverse; }
+    .flex-$(breakpoint)-wrap-reverse { flex-wrap: wrap-reverse; }
 
-    .flex$(breakpoint)-fill { flex: 1 1 auto; }
+    .flex-$(breakpoint)-fill { flex: 1 1 auto; }
 
-    .flex$(breakpoint)-grow-0 { flex-grow: 0; }
+    .flex-$(breakpoint)-grow-0 { flex-grow: 0; }
 
-    .flex$(breakpoint)-grow-1 { flex-grow: 1; }
+    .flex-$(breakpoint)-grow-1 { flex-grow: 1; }
 
-    .flex$(breakpoint)-shrink-0 { flex-shrink: 0; }
+    .flex-$(breakpoint)-shrink-0 { flex-shrink: 0; }
 
-    .flex$(breakpoint)-shrink-1 { flex-shrink: 1; }
+    .flex-$(breakpoint)-shrink-1 { flex-shrink: 1; }
 
-    .justify-content$(breakpoint)-start { justify-content: flex-start; }
+    .justify-content-$(breakpoint)-start { justify-content: flex-start; }
 
-    .justify-content$(breakpoint)-end { justify-content: flex-end; }
+    .justify-content-$(breakpoint)-end { justify-content: flex-end; }
 
-    .justify-content$(breakpoint)-center { justify-content: center; }
+    .justify-content-$(breakpoint)-center { justify-content: center; }
 
-    .justify-content$(breakpoint)-between { justify-content: space-between; }
+    .justify-content-$(breakpoint)-between { justify-content: space-between; }
 
-    .justify-content$(breakpoint)-around { justify-content: space-around; }
+    .justify-content-$(breakpoint)-around { justify-content: space-around; }
 
-    .justify-content$(breakpoint)-evenly { justify-content: space-evenly; }
+    .justify-content-$(breakpoint)-evenly { justify-content: space-evenly; }
 
-    .align-items$(breakpoint)-start { align-items: flex-start; }
+    .align-items-$(breakpoint)-start { align-items: flex-start; }
 
-    .align-items$(breakpoint)-end { align-items: flex-end; }
+    .align-items-$(breakpoint)-end { align-items: flex-end; }
 
-    .align-items$(breakpoint)-center { align-items: center; }
+    .align-items-$(breakpoint)-center { align-items: center; }
 
-    .align-items$(breakpoint)-baseline { align-items: baseline; }
+    .align-items-$(breakpoint)-baseline { align-items: baseline; }
 
-    .align-items$(breakpoint)-stretch { align-items: stretch; }
+    .align-items-$(breakpoint)-stretch { align-items: stretch; }
 
-    .align-content$(breakpoint)-start { align-content: flex-start; }
+    .align-content-$(breakpoint)-start { align-content: flex-start; }
 
-    .align-content$(breakpoint)-end { align-content: flex-end; }
+    .align-content-$(breakpoint)-end { align-content: flex-end; }
 
-    .align-content$(breakpoint)-center { align-content: center; }
+    .align-content-$(breakpoint)-center { align-content: center; }
 
-    .align-content$(breakpoint)-between { align-content: space-between; }
+    .align-content-$(breakpoint)-between { align-content: space-between; }
 
-    .align-content$(breakpoint)-around { align-content: space-around; }
+    .align-content-$(breakpoint)-around { align-content: space-around; }
 
-    .align-content$(breakpoint)-evenly { align-content: space-evenly; }
+    .align-content-$(breakpoint)-evenly { align-content: space-evenly; }
 
-    .align-content$(breakpoint)-stretch { align-content: stretch; }
+    .align-content-$(breakpoint)-stretch { align-content: stretch; }
 
-    .align-self$(breakpoint)-auto { align-self: auto; }
+    .align-self-$(breakpoint)-auto { align-self: auto; }
 
-    .align-self$(breakpoint)-start { align-self: flex-start; }
+    .align-self-$(breakpoint)-start { align-self: flex-start; }
 
-    .align-self$(breakpoint)-end { align-self: flex-end; }
+    .align-self-$(breakpoint)-end { align-self: flex-end; }
 
-    .align-self$(breakpoint)-center { align-self: center; }
+    .align-self-$(breakpoint)-center { align-self: center; }
 
-    .align-self$(breakpoint)-baseline { align-self: baseline; }
+    .align-self-$(breakpoint)-baseline { align-self: baseline; }
 
-    .align-self$(breakpoint)-stretch { align-self: stretch; }
+    .align-self-$(breakpoint)-stretch { align-self: stretch; }
   }
 }
 
@@ -161,7 +161,7 @@
 @each $breakpoint, $breakpoint-name in (ms, sm, md, lg, xl), (--viewport-ms-min, --viewport-sm-min, --viewport-md-min, --viewport-lg-min, --viewport-xl-min) {
   @media ($(breakpoint-name)) {
     @each $i in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
-      .order-$(breakpoint)-$(i) { order: $(i); }
+      .order--$(breakpoint)-$(i) { order: $(i); }
     }
   }
 }
