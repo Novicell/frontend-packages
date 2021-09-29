@@ -83,9 +83,10 @@ https://www.npmjs.com/package/postcss-each
 
 ```bash
 npm run dev // starts demo site with HMR
-npm run build // run clean build without PostCSS transformation
+npm run build // runs both build and compile
+npm run build:src // run build without PostCSS transformation
+npm run build:dist // run build with PostCSS transformation
 npm run compile // run build with PostCSS transformation
-npm run generate // runs both build and compile
 npm run lint // run stylelint
 npm run lint:fix // run stylelint and fix fixable errors/warnings
 ```
