@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-link@0.3.6...@novicell/vue-link@0.5.0) (2021-09-29)
+
+
+### Features
+
+* **vue-link:** no longer sets any color on content ([eb4e411](https://github.com/Novicell/frontend-packages/commit/eb4e411ddd63cd20305f35b5d9745df7ba1d5767))
+
+
+
 ## [0.4.0](https://github.com/Novicell/frontend-packages/compare/@novicell/vue-link@0.3.6...@novicell/vue-link@0.4.0) (2021-04-12)
 
 
