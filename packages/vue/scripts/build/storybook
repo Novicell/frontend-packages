@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Lets storybook build itself and then copies over the robots.txt
+
+printf "🧱 Building Vue storybook 🧱\n\n"
+
+build-storybook
+
+cp robots.txt storybook-static/robots.txt
+

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Publishes all changed packages with conventional changelog
+# Scoping cannot be used since it breaks interdependency versioning
+
+printf "📰 Versioning & publishing changed packages to NPM 📰\n\n"
+
+lerna publish --conventional-commits

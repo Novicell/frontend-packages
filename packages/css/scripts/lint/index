@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Lints css
+
+printf "⚡ Linting CSS: %s ⚡\n\n" "${PWD##*/}"
+
+stylelint "src/**/*.css"

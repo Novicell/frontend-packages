@@ -1,0 +1,22 @@
+{
+  "name": "@novicell/vue-storybook",
+  "version": "1.1.0",
+  "description": "We store the Vue packages in here, they can depend on both Vanilla, Core packages, and eachother.",
+  "private": true,
+  "scripts": {
+    "test": "echo 'No tests for storybook yet'",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "bash ../scripts/build/storybook",
+    "prepublishOnly": "npm run build:storybook"
+  },
+  "author": "Magnus Bendix Borregaard",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/vue": "^6.1.21",
+    "babel-loader": "^8.2.2"
+  }
+}

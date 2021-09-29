@@ -2,10 +2,27 @@
   "name": "root",
   "private": false,
   "scripts": {
+    "publish": "bash repoScripts/publish",
     "test": "lerna run test",
-    "new-version": "lerna version --conventional-commits --yes"
+    "bootstrap": "bash repoScripts/bootstrap",
+    "wipe-all": "lerna run wipe",
+    "reset": "bash repoScripts/reset",
+    "check-package": "node repoScripts/check-package",
+    "storybook:vue": "bash repoScripts/storybook/vue"
   },
   "devDependencies": {
-    "lerna": "^3.18.4"
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-lerna-scopes": "^11.0.0",
+    "commitlint": "^11.0.0",
+    "husky": "^4.3.8",
+    "lerna": "^3.22.1",
+    "lerna-changelog": "^1.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lerna run test"
+    }
   }
 }

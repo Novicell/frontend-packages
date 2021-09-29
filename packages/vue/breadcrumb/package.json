@@ -1,0 +1,52 @@
+{
+  "name": "@novicell/vue-breadcrumb",
+  "version": "1.1.1",
+  "description": "Vue implementation of a breadcrumb component.",
+  "repository": {
+    "url": "https://github.com/Novicell/frontend-packages"
+  },
+  "private": false,
+  "main": "dist/nc-breadcrumb.umd.js",
+  "module": "dist/nc-breadcrumb.esm.js",
+  "unpkg": "dist/nc-breadcrumb.min.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "wipe": "bash ../../../scripts/wipe",
+    "test": "bash ../scripts/test/index",
+    "test:unit": "bash ../scripts/test/unit",
+    "help": "bash ../scripts/help",
+    "dev": "bash ../scripts/dev",
+    "build": "bash ../scripts/build/index && npm run build:css && npm run build:sfc",
+    "build:umd": "bash ../scripts/build/umd dist/nc-breadcrumb.umd.js",
+    "build:es": "bash ../scripts/build/es dist/nc-breadcrumb.esm.js",
+    "build:unpkg": "bash ../scripts/build/unpkg dist/nc-breadcrumb.min.js",
+    "build:css": "bash ../scripts/build/css node_modules/@novicell/styles-breadcrumb/dist",
+    "build:sfc": "bash ../scripts/build/sfc",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Magnus Bendix Borregaard <mbb@novicell.dk>",
+  "license": "MIT",
+  "dependencies": {
+    "@novicell/vue-link": "^0.4.0"
+  },
+  "devDependencies": {
+    "@novicell/styles-breadcrumb": "^0.2.6",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@vue/cli": "^4.5.8",
+    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "@vue/cli-service-global": "^4.5.11",
+    "@vue/test-utils": "^1.0.3",
+    "rollup": "~2.33.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "2.6.12",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "gitHead": "6075b2e304398374456175fac308d4358f145572"
+}

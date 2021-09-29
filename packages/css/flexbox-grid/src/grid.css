@@ -13,8 +13,13 @@
   max-width: var(--flexbox-grid-container-width, 1200px);
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--flexbox-grid-container-spacing, 40px);
-  padding-left: var(--flexbox-grid-container-spacing, 40px);
+  padding-right: var(--flexbox-grid-container-spacing--mobile, 20px);
+  padding-left: var(--flexbox-grid-container-spacing--mobile, 20px);
+
+  @media (--viewport-md-min) {
+    padding-right: var(--flexbox-grid-container-spacing, 40px);
+    padding-left: var(--flexbox-grid-container-spacing, 40px);
+  }
 
   &--fluid {
     max-width: 100%;
@@ -78,7 +83,6 @@
         flex-basis: auto;
         flex-grow: 0;
       }
-
     }
 
     @each $i in (1,2,3,4,5,6,7,8,9,10,11,12) {

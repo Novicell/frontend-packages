@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/Novicell/frontend-packages/compare/@novicell/darkmode-detector@0.2.2...@novicell/darkmode-detector@0.3.0) (2021-04-12)
+
+
+### Features
+
+* **vue-storybook:** add storybook ([b452576](https://github.com/Novicell/frontend-packages/commit/b452576ba720f1d86c279b4215edbea93a712e5f))
+
+
+
+
+## [0.2.2](https://github.com/Novicell/frontend-packages/compare/@novicell/darkmode-detector@0.2.1...@novicell/darkmode-detector@0.2.2) (2021-02-22)
+
+
+### Bug Fixes
+
+* gitignore and add .cache to gitignore ([45797d3](https://github.com/Novicell/frontend-packages/commit/45797d39dc4125bb0ae3665a575fc8400b55ff55))
+
+
+
+
+
+
 # [0.2.0](https://github.com/Novicell/frontend-packages/compare/@novicell/darkmode-detector@0.1.0...@novicell/darkmode-detector@0.2.0) (2019-11-28)
 
 

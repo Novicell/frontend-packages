@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Installs all dependencies & hoists them. Also creates symlinks when dependency is internal to the repo
+# Makes no sense to use scoped, since symlinking is not possible then
+
+printf "👢 Installing & hoisting dependencies, making symlinks 👢\n\n"
+
+lerna bootstrap --hoist

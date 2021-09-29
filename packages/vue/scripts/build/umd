@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Called from inside packages
+# Builds the legacy version of the component
+
+OUTFILE="$1"
+rollup --config config/rollup.config.js --format umd --file $OUTFILE

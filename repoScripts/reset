@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Removes all node_modules & dist/, reinstalls & links deps, rebuilds everything
+
+# lerna clean: remove node_modules - can take a scope
+# lerna run wipe: remove dist/ - can take a scope
+# lerna bootstrap --hoist: link and install everything - cannot and should not take a scope
+# lerna run build: rebuild everything - can take a scope
+
+printf "🧹👢🧱 Reinstalls dependencies & rebuilds everything 🧱👢🧹\n\n"
+
+# Scope is passed in as first command line arg if run directly
+# Scope is passed in after -- if run with 'npm run'
+# Scope is @novicell/package-name
+
+if [[ "$1" != "" ]];
+then
+  lerna clean -y --scope $1
+  lerna run wipe --scope $1
+  npm run bootstrap
+  lerna run build --scope $1
+else
+  lerna clean -y
+  lerna run wipe
+  npm run bootstrap
+  lerna run build
+fi
+
