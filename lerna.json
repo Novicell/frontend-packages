@@ -3,7 +3,8 @@
     "packages/core/*",
     "packages/vanilla/*",
     "packages/vue/*",
-    "packages/css/*"
+    "packages/css/*",
+    "packages/linting/*"
   ],
   "version": "independent",
   "command": {
