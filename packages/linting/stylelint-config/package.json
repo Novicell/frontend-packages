@@ -1,6 +1,6 @@
 {
   "name": "@novicell/stylelint-config",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A Stylelint config for CSS or PostCSS",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
