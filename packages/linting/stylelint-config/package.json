@@ -1,0 +1,21 @@
+{
+  "name": "@novicell/stylelint-config",
+  "version": "1.0.0",
+  "description": "A Stylelint config for CSS or PostCSS",
+  "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
+  "main": "index.js",
+  "private": false,
+  "scripts": {
+    "test": "stylelint '**/*.css' --config index.js"
+  },
+  "keywords": [
+    "linting",
+    "stylelint"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "stylelint": "^14.9.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^26.0.0"
+  }
+}

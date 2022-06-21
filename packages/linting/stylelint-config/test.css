@@ -1,0 +1,207 @@
+/* Based on https://novicell.atlassian.net/wiki/spaces/NK/pages/1447985153/CSS+Guidelines */
+
+/* Brace spacing rule */
+.brace-spacing-bad{
+  display: block;
+  padding: 15px;
+}
+
+.brace-spacing-good {
+  display: block;
+  padding: 15px;
+}
+
+
+/* Block spacing rule */
+.block-spacing-bad {
+  display: block;
+  padding: 15px;
+}
+.block-spacing-bad {
+  display: block;
+  padding: 15px;
+}
+
+.block-spacing-second-good {
+  display: block;
+  padding: 15px;
+}
+
+.block-spacing-second-bad {
+  display: block;
+  padding: 15px;
+}
+
+/* Rule spacing */
+.rule-spacing-bad {
+  display: block;
+  padding:15px;
+}
+
+.rule-spacing-good {
+  display: block;
+  padding: 15px;
+}
+
+/* Comma-separated properties */
+.comma-separated-bad {
+  display: block;
+  box-shadow: 1px 1px 1px #000, 2px 2px 1px 1px #ccc inset;
+}
+
+.comma-separated-good {
+  display: block;
+  box-shadow:
+    1px 1px 1px #000,
+    2px 2px 1px 1px #ccc inset;
+}
+
+/* Grouping selectors */
+.grouping-selector-bad, .grouping-selector-two-bad {
+  display: block;
+  padding: 15px;
+}
+
+.grouping-selector-good,
+.grouping-selector-two-good {
+  display: block;
+  padding: 15px;
+}
+
+/* Pseudo elements */ 
+.pseudo-elements-bad:before {
+  display: block;
+  padding: 15px;
+}
+
+.pseudo-elements-good::before {
+  display: block;
+  padding: 15px;
+}
+
+/* Hex values */
+.hex-values-bad {
+  display: block;
+  color: #FFFFFF;
+}
+
+.hex-values-good {
+  display: block;
+  color: #fff;
+}
+
+/* Traling units */
+.trailing-units-bad {
+  display: block;
+  margin: 0px;
+}
+
+.trailing-units-good {
+  display: block;
+  margin: 0;
+}
+
+/* Border */
+.border-bad {
+  display: block;
+  border: none;
+}
+
+.border-good {
+  display: block;
+  border: 0;
+}
+
+/* Line height */
+.line-height-bad {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.line-height-good {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Leading zeros */
+.leading-zeros-bad {
+  display: block;
+  padding: .5px;
+}
+
+.leading-zeros-good {
+  display: block;
+  padding: 0.5px;
+}
+
+/* Prefixed properties */
+.prefixed-properties-bad {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.prefixed-properties-good {
+  display: block;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Single declarations */
+.single-declarations-bad {
+  padding: 15px;
+}
+
+
+
+.single-declarations-good { padding: 15px; }
+
+/* Shorthand notation */
+.shorthand-notation-bad {
+  display: block;
+  margin: 10px 10px 10px 10px;
+}
+
+.shorthand-notation-good {
+  display: block;
+  margin: 10px;
+}
+
+/* Specificity */
+#specificity-bad {
+  display: block;
+  padding: 15px;
+}
+
+.specificity-bad {
+  display: block;
+  padding: 15px;
+}
+
+/* Nesting */
+.nesting-bad {
+  &__something {
+    display: block;
+    padding: 15px;
+
+    &__something-more {
+      display: block;
+      padding: 15px;
+
+      &__something-more-more {
+        display: block;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+.nesting-good {
+  &__something {
+    display: block;
+    padding: 15px;
+
+    &__something-more {
+      display: block;
+      padding: 15px;
+    }
+  }
+}
