@@ -1,12 +1,12 @@
 {
   "name": "@novicell/stylelint-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Stylelint config for CSS or PostCSS",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
   "private": false,
   "scripts": {
-    "test": "stylelint '**/*.css' --config index.js"
+    "stylelint": "stylelint '**/*.css' --config index.js"
   },
   "keywords": [
     "linting",
