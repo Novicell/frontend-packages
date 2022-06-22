@@ -28,7 +28,7 @@ This is an Stylelint config for all projects written with either vanilla CSS or 
     }
     ```
 5. Make VS Code autofix issues on save (optional)
-   * Create a `.vscode` folder in root and add `settings.json` to it
+   * Create a `.vscode` folder in root and add `settings.json` to it. **Remember to disable Prettier!**
    * Add the following
    ```json
     {
@@ -37,7 +37,8 @@ This is an Stylelint config for all projects written with either vanilla CSS or 
       "scss.validate": false,
       "editor.codeActionsOnSave": {
         "source.fixAll.stylelint": true,
-      }
+      },
+      "prettier.enable": false
     }
 
    ```
