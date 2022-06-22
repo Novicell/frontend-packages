@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/@novicell/stylelint-config)
 
-This is Stylelint config for all projects written with either vanilla CSS or PostCSS.
+This is an Stylelint config for all projects written with either vanilla CSS or PostCSS.
 
 ## How to install
 1.
