@@ -38,9 +38,10 @@ function rule (expectation, options, context) {
         return;
       }
       
-			const decls = rule.nodes.filter((node) => node.type === 'decl' || node.type === 'rule');
-
-			if (!isSingleLineString(block) && decls.length === 1) {
+			const decls = rule.nodes.filter((node) => node.type === 'decl');
+			const hasPseudo = rule.nodes.filter((node) => node.selector?.includes(':'));
+      
+			if (!isSingleLineString(block) && decls.length === 1 && !hasPseudo.length) {
         if (context.fix) {
           rule.raws.after = expectation ? ' ' : '\n'
           rule.nodes.forEach((node) => {
