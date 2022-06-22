@@ -1,4 +1,4 @@
-# Novicell ESLint config
+# Novicell ESLint config for Nuxt.js with TypeScript
 
 ![npm](https://img.shields.io/npm/v/@novicell/eslint-config-nuxt)
 
