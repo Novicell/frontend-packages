@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.1](https://github.com/Novicell/frontend-packages/compare/@novicell/eslint-config-nuxt@0.2.0...@novicell/eslint-config-nuxt@0.2.1) (2022-06-22)
+
+
+### Bug Fixes
+
+* add  @nuxtjs/eslint-config ([baee91e](https://github.com/Novicell/frontend-packages/commit/baee91e7a098a85a6df0cef1e0b1cc88968ea5cd))
+
+
+
 ## 0.2.0 (2022-06-22)
 
 
