@@ -38,12 +38,12 @@ function rule (expectation, options, context) {
         return;
       }
       
-			const decls = rule.nodes.filter((node) => node.type === 'decl');
-			const hasPseudo = rule.nodes.filter((node) => node.selector?.includes(':'));
+      const hasChildren = rule.nodes.filter((node) => node.nodes).length > 0;
       
-			if (!isSingleLineString(block) && decls.length === 1 && !hasPseudo.length) {
+			if (!isSingleLineString(block) && rule.nodes.length === 1 && !hasChildren) {
         if (context.fix) {
           rule.raws.after = expectation ? ' ' : '\n'
+          rule.raws.before = expectation ? ' ' : '\n'
           rule.nodes.forEach((node) => {
             node.raws.before = expectation ? ' ' : '\n'
           })
