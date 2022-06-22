@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.6](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.5...@novicell/stylelint-config@0.2.6) (2022-06-22)
+
+
+### Bug Fixes
+
+* fix pseudo logic ([3752c30](https://github.com/Novicell/frontend-packages/commit/3752c30509e0003c2420a5417a5e135b3bfcb2b2))
+
+
+
 ### [0.2.5](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.4...@novicell/stylelint-config@0.2.5) (2022-06-22)
 
 
