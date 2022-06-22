@@ -30,7 +30,7 @@ function rule (expectation, options, context) {
 		root.walkRules((rule) => {
 			const block = blockString(rule);
 
-      if (!isSingleLineString(block)) {
+      if (isSingleLineString(block)) {
         return;
       }
 
