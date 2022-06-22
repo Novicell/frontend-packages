@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.4](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.3...@novicell/stylelint-config@0.2.4) (2022-06-22)
+
+
+### Bug Fixes
+
+* add missing rules ([e407877](https://github.com/Novicell/frontend-packages/commit/e40787735aed77a4aa12649e36c199cc4d88f653))
+* fix single line rule ([992c7d1](https://github.com/Novicell/frontend-packages/commit/992c7d1f17489ea2a501fa08fab1ee1d901dbf0c))
+
+
+
 ### [0.2.3](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.2...@novicell/stylelint-config@0.2.3) (2022-06-22)
 
 **Note:** Version bump only for package @novicell/stylelint-config
