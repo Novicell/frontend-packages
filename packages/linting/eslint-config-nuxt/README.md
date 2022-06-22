@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/@novicell/eslint-config-nuxt)
 
-This is an ESLint config for all Nuxt.js projects.
+This is an ESLint config for Nuxt 2 and 3 projects with TypeScript.
 
 ## How to install
 1.
@@ -23,8 +23,8 @@ This is an ESLint config for all Nuxt.js projects.
 4. Add lint scripts to `package.json`
     ```json
     "scripts": {
-      "eslint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-      "eslint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
+      "eslint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore .",
+      "eslint:fix": "eslint --ext .js,.vue,.ts --ignore-path .gitignore . --fix",
     }
     ```
 5. Make VS Code autofix issues on save (optional)
