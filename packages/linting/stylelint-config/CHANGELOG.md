@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.5](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.4...@novicell/stylelint-config@0.2.5) (2022-06-22)
+
+
+### Bug Fixes
+
+* add support for nested pseudo elements ([d564beb](https://github.com/Novicell/frontend-packages/commit/d564beb6c6491a9e82833f2213e3b7f10c238a72))
+
+
+
 ### [0.2.4](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.3...@novicell/stylelint-config@0.2.4) (2022-06-22)
 
 
