@@ -33,12 +33,13 @@ function rule (expectation, options, context) {
       if (isSingleLineString(block)) {
         return;
       }
-
+      
       if (!rule.nodes) {
         return;
       }
+      
+			const decls = rule.nodes.filter((node) => node.type === 'decl' || node.type === 'rule');
 
-			const decls = rule.nodes.filter((node) => node.type === 'decl');
 			if (!isSingleLineString(block) && decls.length === 1) {
         if (context.fix) {
           rule.raws.after = expectation ? ' ' : '\n'
