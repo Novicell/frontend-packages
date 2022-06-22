@@ -30,6 +30,14 @@ function rule (expectation, options, context) {
 		root.walkRules((rule) => {
 			const block = blockString(rule);
 
+      if (!isSingleLineString(block)) {
+        return;
+      }
+
+      if (!rule.nodes) {
+        return;
+      }
+
 			const decls = rule.nodes.filter((node) => node.type === 'decl');
 			if (!isSingleLineString(block) && decls.length === 1) {
         if (context.fix) {

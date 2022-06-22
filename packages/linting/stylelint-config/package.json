@@ -16,6 +16,7 @@
   "dependencies": {
     "stylelint": "^14.9.1",
     "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^26.0.0"
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  extends: [ 'stylelint-config-standard', 'stylelint-config-rational-order' ],
+  extends: [ 'stylelint-config-recommended-vue', 'stylelint-config-standard', 'stylelint-config-rational-order' ],
   ignoreFiles: [
     'dist/**/*'
   ],
@@ -38,9 +38,9 @@ module.exports = {
       '/^border/': ['none']
     },
     'declaration-property-unit-allowed-list': {
-      "font-size": ["em", "px", "rem"],
-      "/^animation/": "s",
-      "line-height": []
+      'font-size': ['em', 'px', 'rem', '%'],
+      '/^animation/': 's',
+      'line-height': []
     },
     'color-function-notation': 'legacy',
     'alpha-value-notation': 'number',
@@ -50,5 +50,6 @@ module.exports = {
     'max-nesting-depth': 2,
     '@novicell/declaration-block-single-line': true,
     'max-empty-lines': 1,
+    'function-url-quotes': null,
   }
 };
