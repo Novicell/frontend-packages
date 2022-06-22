@@ -35,14 +35,18 @@ module.exports = {
     'selector-list-comma-newline-after': 'always',
     'declaration-colon-newline-after': 'always-multi-line',
     'declaration-property-value-disallowed-list': {
-      '/^border/': ['none']
+      "border": ["none"],
+      "border-top": ["none"],
+      "border-bottom": ["none"],
+      "border-right": ["none"],
+      "border-left": ["none"]
     },
     'declaration-property-unit-allowed-list': {
       'font-size': ['em', 'px', 'rem', '%'],
       '/^animation/': 's',
       'line-height': []
     },
-    'color-function-notation': 'legacy',
+    'color-function-notation': null,
     'alpha-value-notation': 'number',
     'declaration-block-single-line-max-declarations': 1,
     'shorthand-property-no-redundant-values': true,
@@ -51,5 +55,6 @@ module.exports = {
     '@novicell/declaration-block-single-line': true,
     'max-empty-lines': 1,
     'function-url-quotes': null,
+    'selector-class-pattern': '^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$',
   }
 };
