@@ -7,7 +7,7 @@ This is an ESLint config for Nuxt 2 and 3 projects with TypeScript.
 ## How to install
 1.
     ```bash
-    npm i @novicell/eslint-config-nuxt
+    npm i eslint @novicell/eslint-config-nuxt
     ```
 
 2. Create a `.eslintrc.json` in the root of the project
