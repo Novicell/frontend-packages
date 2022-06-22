@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.7](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.6...@novicell/stylelint-config@0.2.7) (2022-06-22)
+
+
+### Bug Fixes
+
+* add handling for edge-caes ([919cd5b](https://github.com/Novicell/frontend-packages/commit/919cd5b665a6bc581e4125f356eea47344d81aa1))
+
+
+
 ### [0.2.6](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.5...@novicell/stylelint-config@0.2.6) (2022-06-22)
 
 
