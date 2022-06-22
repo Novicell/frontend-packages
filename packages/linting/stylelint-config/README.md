@@ -7,7 +7,7 @@ This is an Stylelint config for all projects written with either vanilla CSS or 
 ## How to install
 1.
     ```bash
-    npm i stylelint @novicell/stylelint-config
+    npm i @novicell/stylelint-config
     ```
 
 2. Create a `.stylelintrc.json` in the root of the project
