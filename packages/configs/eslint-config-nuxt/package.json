@@ -1,6 +1,6 @@
 {
   "name": "@novicell/eslint-config-nuxt",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A Eslint config for Nuxt projects with TypeScript",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
