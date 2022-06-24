@@ -4,7 +4,7 @@
     "packages/vanilla/*",
     "packages/vue/*",
     "packages/css/*",
-    "packages/linting/*"
+    "packages/configs/*"
   ],
   "version": "independent",
   "command": {
