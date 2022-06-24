@@ -1,0 +1,17 @@
+/**
+ * Settings: Variables
+ */
+
+:root {
+  /* Theme */
+
+  /* Novicell color */
+  --color-primary: #c80046;
+  --color-white: #fff;
+  --color-dark: #242424;
+
+  /* Vite colors */
+  --color-vite: #646cffaa;
+  --color-vite-light: #747bff;
+  --color-javascript: #f7df1eaa;
+}

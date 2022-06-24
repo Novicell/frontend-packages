@@ -1,0 +1,20 @@
+{
+  "name": "@novicell/postcss-config",
+  "version": "0.1.0",
+  "description": "A postCSS 8 config for Nuxt and vite",
+  "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
+  "main": "index.js",
+  "keywords": [
+    "postcss",
+    "config",
+    "postcss8"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "postcss-calc": "^8.2.4",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.7.2",
+    "postcss-reporter": "^7.0.5"
+  }
+}
