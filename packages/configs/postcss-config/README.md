@@ -4,6 +4,14 @@
 
 This is an PostCSS 8 config for vite or Nuxt projects written with PostCSS.
 
+## Included plugins
+
+- [PostCSS Import](https://www.npmjs.com/package/postcss-import)
+- [PostCSS Inline Media](https://www.npmjs.com/package/postcss-inline-media)
+- [PostCSS Nested](https://www.npmjs.com/package/postcss-nested)
+- [PostCSS Calc](https://www.npmjs.com/package/postcss-calc)
+- [PostCSS Preset Env](https://www.npmjs.com/package/postcss-preset-env)
+- [PostCSS Reporter](https://www.npmjs.com/package/postcss-reporter)
 ## How to install in a Nuxt 3 project
 1.
     ```bash
@@ -55,6 +63,7 @@ These are the default plugins and options provided by `@novicell/postcss-config`
 ```javascript
 {
   'postcss-import': {},
+  'postcss-inline-media': {},
   'postcss-nested': {},
   'postcss-calc': {},
   'postcss-preset-env': {
