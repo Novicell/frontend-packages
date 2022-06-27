@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.2.1...@novicell/postcss-config@0.3.0) (2022-06-27)
+
+
+### Features
+
+* add postcss-inline-media plugin ([329ad1a](https://github.com/Novicell/frontend-packages/commit/329ad1aaad5432b9f7072f10e3ac1ed1d790fd20))
+
+
+
 ### [0.2.1](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.2.0...@novicell/postcss-config@0.2.1) (2022-06-27)
 
 **Note:** Version bump only for package @novicell/postcss-config

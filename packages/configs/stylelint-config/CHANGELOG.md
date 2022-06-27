@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.9](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.8...@novicell/stylelint-config@0.2.9) (2022-06-27)
+
+
+### Bug Fixes
+
+* allow postcss-inline-media function ([757a3a5](https://github.com/Novicell/frontend-packages/commit/757a3a592fe1520a6338f551b18f1a9da14e9caa))
+
+
+
 ### [0.2.8](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.7...@novicell/stylelint-config@0.2.8) (2022-06-24)
 
 **Note:** Version bump only for package @novicell/stylelint-config

@@ -1,6 +1,6 @@
 {
   "name": "@novicell/postcss-config",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A postCSS 8 config for Nuxt and vite",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
