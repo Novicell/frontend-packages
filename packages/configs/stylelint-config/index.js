@@ -56,5 +56,11 @@ module.exports = {
     'max-empty-lines': 1,
     'function-url-quotes': null,
     'selector-class-pattern': '^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$',
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [ "@" ]
+      }
+    ]
   }
 };
