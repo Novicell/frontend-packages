@@ -13,6 +13,7 @@
   "dependencies": {
     "postcss-calc": "^8.2.4",
     "postcss-import": "^14.1.0",
+    "postcss-inline-media": "^1.4.0",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.7.2",
     "postcss-reporter": "^7.0.5"

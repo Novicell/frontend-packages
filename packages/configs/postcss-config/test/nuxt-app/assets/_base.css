@@ -6,5 +6,5 @@
 }
 
 svg {
-  color: var(--color-primary);
+  color: var(--color-white) @(--viewport-md-min) var(--color-primary);
 }

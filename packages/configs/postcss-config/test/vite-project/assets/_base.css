@@ -29,7 +29,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: var(--color-primary);
+  color: var(--color-vite) @(--viewport-md-min) var(--color-primary);
 }
 
 #app {
