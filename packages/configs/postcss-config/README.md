@@ -16,14 +16,12 @@ This is an PostCSS 8 config for vite or Nuxt projects written with PostCSS.
     ```
    * Add the config inside `defineNuxtConfig` section
     ```javascript
-    build: {
-      postcss: {
-        postcssOptions: {
-          plugins: {
-            ...postcssConfig({
-              // Your overriding options
-            })
-          }
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          ...postcssConfig({
+            // Your overriding options
+          })
         }
       }
     }
