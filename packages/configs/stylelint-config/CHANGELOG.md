@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.10](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.9...@novicell/stylelint-config@0.2.10) (2022-06-28)
+
+
+### Bug Fixes
+
+* make autofix work for .vue files ([e78c299](https://github.com/Novicell/frontend-packages/commit/e78c2997f1f2f27b28156bf901a97d88bda11292))
+
+
+
 ### [0.2.9](https://github.com/Novicell/frontend-packages/compare/@novicell/stylelint-config@0.2.8...@novicell/stylelint-config@0.2.9) (2022-06-27)
 
 
