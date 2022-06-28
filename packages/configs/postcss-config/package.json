@@ -17,5 +17,8 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.7.2",
     "postcss-reporter": "^7.0.5"
+  },
+  "devDependencies": {
+    "lodash.merge": "^4.6.2"
   }
 }

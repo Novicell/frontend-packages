@@ -1,3 +1,5 @@
+import mergeObjects from 'lodash.merge';
+
 let defaultConfig = {
   'postcss-import': {},
   'postcss-inline-media': {},
@@ -9,7 +11,10 @@ let defaultConfig = {
     importFrom: ['assets/css/_mediaqueries.css', 'assets/css/_variables.css'],
     features: {
       'color-function': { unresolved: 'warn' },
-      'custom-media-queries': {}
+      'custom-media-queries': {},
+      'custom-properties': {
+        disableDeprecationNotice: true,
+      }
     },
     browsers: ['>= 5% in DK']
   },
@@ -19,10 +24,7 @@ let defaultConfig = {
 }
 
 export default function postcssObjectConfig(userConfig) {
-  const config = {
-    ...defaultConfig,
-    ...userConfig
-  }
+  const config = mergeObjects(defaultConfig, userConfig);
 
   return {
     'postcss-import': {
@@ -54,10 +56,7 @@ export function postcssArrayConfig(userConfig) {
   const postcssPresetEnv = require('postcss-preset-env');
   const postcssReporter = require('postcss-reporter');
 
-  const config = {
-    ...defaultConfig,
-    ...userConfig
-  }
+  const config = mergeObjects(defaultConfig, userConfig);
 
   return [
     postcssImport({
