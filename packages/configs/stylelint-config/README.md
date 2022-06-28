@@ -28,6 +28,7 @@ This is an Stylelint config for all projects written with either vanilla CSS or 
     }
     ```
 5. Make VS Code autofix issues on save (optional)
+   * Install the Stylelint extension
    * Create a `.vscode` folder in root and add `settings.json` to it. **Remember to disable Prettier!**
    * Add the following
    ```json
@@ -35,6 +36,7 @@ This is an Stylelint config for all projects written with either vanilla CSS or 
       "css.validate": false,
       "less.validate": false,
       "scss.validate": false,
+      "stylelint.validate": ["css", "postcss", "vue"],
       "editor.codeActionsOnSave": {
         "source.fixAll.stylelint": true,
       },
