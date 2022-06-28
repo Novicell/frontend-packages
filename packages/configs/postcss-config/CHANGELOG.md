@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.3.1](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.3.0...@novicell/postcss-config@0.3.1) (2022-06-28)
+
+
+### Bug Fixes
+
+* fix options override and disable importFrom deprecation notice ([2a20249](https://github.com/Novicell/frontend-packages/commit/2a20249dfac492960dfcec694a96d1e5431b2c7d))
+
+
+
 ## [0.3.0](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.2.1...@novicell/postcss-config@0.3.0) (2022-06-27)
 
 
