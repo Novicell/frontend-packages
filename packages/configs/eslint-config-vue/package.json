@@ -1,7 +1,7 @@
 {
-  "name": "@novicell/eslint-config-nuxt",
+  "name": "@novicell/eslint-config-vue",
   "version": "0.2.5",
-  "description": "A Eslint config for Nuxt projects with TypeScript",
+  "description": "A Eslint config for Vue projects with TypeScript",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
   "private": false,
@@ -10,7 +10,7 @@
   },
   "keywords": [
     "eslint",
-    "nuxt",
+    "vue",
     "typescript"
   ],
   "license": "MIT",
