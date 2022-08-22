@@ -18,11 +18,5 @@
     "husky": "^4.3.8",
     "lerna": "^3.22.1",
     "lerna-changelog": "^1.0.1"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lerna run test"
-    }
   }
 }
