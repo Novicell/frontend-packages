@@ -1,6 +1,6 @@
 {
   "name": "@novicell/eslint-config-vue",
-  "version": "0.2.5",
+  "version": "0.0.0",
   "description": "A Eslint config for Vue projects with TypeScript",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
   "main": "index.js",
