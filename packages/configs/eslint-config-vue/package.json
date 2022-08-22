@@ -1,0 +1,21 @@
+{
+  "name": "@novicell/eslint-config-nuxt",
+  "version": "0.2.5",
+  "description": "A Eslint config for Nuxt projects with TypeScript",
+  "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
+  "main": "index.js",
+  "private": false,
+  "scripts": {
+    "eslint": "eslint --ext .js,.vue --config index.js"
+  },
+  "keywords": [
+    "eslint",
+    "nuxt",
+    "typescript"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "eslint-plugin-vue": "^9.3.0"
+  }
+}
