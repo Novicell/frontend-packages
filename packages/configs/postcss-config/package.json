@@ -3,7 +3,17 @@
   "version": "0.3.1",
   "description": "A postCSS 8 config for Nuxt and vite",
   "author": "Simon Nørlund Eldevig <sne@novicell.dk>",
-  "main": "index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.esm.json & tsc --project tsconfig.cjs.json",
+    "prepublishOnly": "npm run build"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "default": "./dist/esm/index.js"
+  },
   "keywords": [
     "postcss",
     "config",
@@ -19,6 +29,7 @@
     "postcss-reporter": "^7.0.5"
   },
   "devDependencies": {
+    "typescript": "^4.7.4",
     "lodash.merge": "^4.6.2"
   }
 }
