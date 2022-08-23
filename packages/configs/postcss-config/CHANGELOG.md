@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.3.1...@novicell/postcss-config@0.4.0) (2022-08-23)
+
+
+### Features
+
+* convert postcss package to hybrid module ([b38d666](https://github.com/Novicell/frontend-packages/commit/b38d666bd2de832a3d2cab96c74a7a03db5e558d))
+
+
+
 ### [0.3.1](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.3.0...@novicell/postcss-config@0.3.1) (2022-06-28)
 
 
