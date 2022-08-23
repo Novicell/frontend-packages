@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.4.1](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.4.0...@novicell/postcss-config@0.4.1) (2022-08-23)
+
+
+### Bug Fixes
+
+* convert to clean commonjs module ([94a06cb](https://github.com/Novicell/frontend-packages/commit/94a06cb8df8d1fa7a8993a59700a6d994902289e))
+
+
+
 ## [0.4.0](https://github.com/Novicell/frontend-packages/compare/@novicell/postcss-config@0.3.1...@novicell/postcss-config@0.4.0) (2022-08-23)
 
 
