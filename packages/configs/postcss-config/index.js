@@ -1,4 +1,4 @@
-import mergeObjects from 'lodash.merge';
+const mergeObjects = require('lodash.merge');
 
 let defaultConfig = {
   'postcss-import': {},
@@ -23,7 +23,7 @@ let defaultConfig = {
   }
 }
 
-export default function postcssObjectConfig(userConfig) {
+function postcssObjectConfig(userConfig) {
   const config = mergeObjects(defaultConfig, userConfig);
 
   return {
@@ -48,7 +48,7 @@ export default function postcssObjectConfig(userConfig) {
   }
 }
 
-export function postcssArrayConfig(userConfig) {
+function postcssArrayConfig(userConfig) {
   const postcssImport = require('postcss-import');
   const postcssInlineMedia = require('postcss-inline-media');
   const postcssNested = require('postcss-nested');
@@ -79,3 +79,7 @@ export function postcssArrayConfig(userConfig) {
     })
   ]
 }
+
+
+const postcssModule = module.exports = postcssObjectConfig;
+postcssModule.postcssArrayConfig = postcssArrayConfig;
