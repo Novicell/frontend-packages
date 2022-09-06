@@ -11,22 +11,17 @@ module.exports = {
     path: `${rootPath}/dist`,
     filename: '[name].css'
   },
-  plugins: process.env.NODE_ENV === 'compile' ?
-  [
+  plugins: [
     require('stylelint'),
     require('postcss-each'),
     require('postcss-nested'),
     require('postcss-color-function'),
     require('postcss-custom-properties')({
-      preserve: false
+      preserve: process.env.NODE_ENV !== 'compile'
     }),
     require('postcss-calc'),
     require('postcss-custom-media')({
       importFrom: 'src/partials/_media-queries.css'
     })
-  ] :
-  [
-    require('stylelint'),
-    require('postcss-each')
   ]
 }

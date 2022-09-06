@@ -6,7 +6,8 @@
   <link rel="shortcut icon" href="https://www.novicell.dk/favicon.ico?v=jwLeXMgnYE">
   <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />
+  <style>
     body {
       max-width: 920px;
     }
@@ -62,7 +63,6 @@
 --flexbox-grid-container-width: 1200px;
 --flexbox-grid-container-spacing: 40px;
 --flexbox-grid-half-gutter-width: 15px;
---flexbox-grid-half-gutter-compensation: 15px;
 
 /* Media Queries (definition has to be outside any kind of blocks - see https://github.com/postcss/postcss-custom-media) */
 @custom-media --viewport-ms-min (min-width: 576px);
@@ -84,10 +84,12 @@
       <br>
       <div class="column-presentation">
         <div class="container">
-          <div class="row row--reverse">
-            <div class="col-xs-4">.col-xs-4 (1)</div>
-            <div class="col-xs-4">.col-xs-4 (2)</div>
-            <div class="col-xs-4">.col-xs-4 (3)</div>
+          <div>
+            <div class="row row--reverse">
+              <div class="col-xs-4">.col-xs-4 (1)</div>
+              <div class="col-xs-4">.col-xs-4 (2)</div>
+              <div class="col-xs-4">.col-xs-4 (3)</div>
+            </div>
           </div>
         </div>
       </div>

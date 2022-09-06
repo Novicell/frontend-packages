@@ -5,4 +5,4 @@
 
 printf "🍟 Serving demo CSS site: %s 🍟\n\n" "${PWD##*/}"
 
-cross-env NODE_ENV=compile parcel index.html --no-cache
+parcel index.html --no-cache
