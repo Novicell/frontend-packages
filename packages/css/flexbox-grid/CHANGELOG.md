@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Novicell/frontend-packages/compare/@novicell/flexbox-grid@1.1.4...@novicell/flexbox-grid@2.0.0) (2022-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* add support for mobile gutters
+
+### Features
+
+* add support for mobile gutters ([95021cf](https://github.com/Novicell/frontend-packages/commit/95021cfe55bd20407e4457b0bd5b71b5943f8e48))
+
+
+
 ### [1.1.4](https://github.com/Novicell/frontend-packages/compare/@novicell/flexbox-grid@1.1.3...@novicell/flexbox-grid@1.1.4) (2021-09-29)
 
 **Note:** Version bump only for package @novicell/flexbox-grid
